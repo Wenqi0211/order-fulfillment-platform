@@ -1,0 +1,26 @@
+spring:
+  config:
+    import: classpath:application-common.yml
+  application:
+    name: inventory-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/inventory}
+    username: ${DB_USER:fulfillment}
+    password: ${DB_PASSWORD}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      connect-timeout: 200ms
+      timeout: 250ms
+      ssl:
+        enabled: ${REDIS_SSL_ENABLED:false}
+server:
+  port: ${PORT:8081}
+inventory:
+  cache:
+    enabled: ${INVENTORY_CACHE_ENABLED:true}
+    ttl-seconds: ${INVENTORY_CACHE_TTL_SECONDS:30}
+    max-in-flight: ${INVENTORY_CACHE_MAX_IN_FLIGHT:256}
+    failure-cooldown-ms: ${INVENTORY_CACHE_FAILURE_COOLDOWN_MS:1000}

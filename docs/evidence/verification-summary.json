@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-10-24T23:34:54.300074+00:00",
+  "stack": "Java 17 / Spring Boot 3.5.16 / PostgreSQL 17.11 / Kafka 4.1.2 / Redis 8.2.2",
+  "javaTests": {
+    "surefire": {
+      "tests": 32,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "failsafe": {
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "sourceManifestSha256": "ea61b515e47e58fe40df343937635ced8ed1cf2b3072f785f7e38f2c9dde4ade",
+  "pythonReleaseSafetyTests": 6,
+  "systemReports": {
+    "httpKafkaWorkflow": "smoke-c533cbf6a425.json",
+    "httpBoundaries": "api-contract-4a9800d42638.json",
+    "dependencyRecovery": "fault-smoke-335a7fc0bf7b.json",
+    "actualKafkaDLT": "dlt-smoke-2797639f1cb1.json"
+  },
+  "configurationChecks": {
+    "compose": true,
+    "yamlDocuments": 31,
+    "kustomizeStagingAndProd": true,
+    "terraformFmtAndValidate": true
+  },
+  "cloudResourcesCreated": false,
+  "realPaymentProvider": false,
+  "actualKubernetesRollout": false,
+  "cacheBenchmark": "cache-ab/20261024T233035Z",
+  "cacheConclusion": "No stable latency improvement demonstrated; first off run overlapped smoke workload and is excluded from comparison; first cold run dropped 30 requests."
+}

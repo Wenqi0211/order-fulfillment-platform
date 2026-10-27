@@ -1,0 +1,1148 @@
+{
+  "generatedAt": "2026-10-25T00:09:58.353686+00:00",
+  "validation": "PASSED",
+  "baselineExperiment": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2",
+  "optimizedExperiment": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2",
+  "datasetSha256": "f01800754feca1d392c72ca85475d7d9da737d36a387f6de32b8c5290e910267",
+  "expectedFieldsSha256": "7ac1a8d4cf747ca105730aded4bda174661b9f6cb41532c01980b0e499151bb2",
+  "controls": {
+    "seconds": 60.0,
+    "concurrency": 64,
+    "seed": 2027,
+    "distribution": "uniform",
+    "zipf_alpha": 1.2,
+    "hotset": 0,
+    "warmup_seconds": 15.0,
+    "warmup_rate": null,
+    "repeats": 3,
+    "memoryBytes": 805306368,
+    "nanoCpus": 1000000000,
+    "ttlSeconds": "30"
+  },
+  "imageIds": {
+    "baseline": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+    "optimized": "sha256:f1a0b65d6a425aff52b794090434e835b1f24e4c96e37d9de4de068b42f7d818"
+  },
+  "allMeasuredCases": [
+    {
+      "variant": "baseline",
+      "experimentLabel": "baseline-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2",
+      "caseDirectory": "01-off-r500-rep1",
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 1,
+      "container": {
+        "containerId": "c27dda93bd10e2bacdfd8198398336855b6d94e5c359544909946730a520b2ac",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_ENABLED": "false"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/01-off-r500-rep1/measurement/20261024T235745926624Z-off-1.json",
+      "startedAt": "2026-10-24T23:56:45.895003+00:00",
+      "endedAt": "2026-10-24T23:57:45.898702+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00335579086095,
+        "successfulRequestsPerSecond": 499.9720366401452,
+        "meanMs": 0.8814061469708879,
+        "p50Ms": 0.7373751141130924,
+        "p95Ms": 1.2355828657746315,
+        "p99Ms": 2.4017500691115856,
+        "meanScheduledLatencyMs": 1.3235119889024645,
+        "p95ScheduledLatencyMs": 1.7935832105564486,
+        "p95SchedulerDelayMs": 0.5825002565984505,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 30000.0,
+        "cacheGetHits": 0.0,
+        "cacheGetMisses": 0.0,
+        "cacheBypasses": 30000.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "database": 30000.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.0,
+        "cacheGetCallHitFraction": null
+      },
+      "timerMeansMs": {
+        "inventory_catalog_database_mean_ms": 0.10964214123333349,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.11141700656666653
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/01-off-r500-rep1/warmup/20261024T235644650057Z-off-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 7082,
+            "successfulRequests": 7082,
+            "droppedRequests": 418,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.003007291816175,
+            "successfulRequestsPerSecond": 472.0386961261481,
+            "meanMs": 23.68691709485411,
+            "p50Ms": 0.802875030785799,
+            "p95Ms": 119.04550017789006,
+            "p99Ms": 354.931500274688,
+            "meanScheduledLatencyMs": 24.135960343461385,
+            "p95ScheduledLatencyMs": 119.90741682052608,
+            "p95SchedulerDelayMs": 0.5942501612007378,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-24T23:56:29.643456+00:00",
+          "endedAt": "2026-10-24T23:56:44.646849+00:00"
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "experimentLabel": "baseline-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2",
+      "caseDirectory": "02-warm-r500-rep1",
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 1,
+      "container": {
+        "containerId": "22f9628e83881c692d62bb3f1748c706cce7caca209b866f121694ec085788ad",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_TTL_SECONDS": "30"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/02-warm-r500-rep1/measurement/20261024T235911370636Z-warm-1.json",
+      "startedAt": "2026-10-24T23:58:11.311089+00:00",
+      "endedAt": "2026-10-24T23:59:11.340018+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.000430499669164,
+        "successfulRequestsPerSecond": 499.99641252849705,
+        "meanMs": 0.8645420288977523,
+        "p50Ms": 0.8170409128069878,
+        "p95Ms": 1.2082499451935291,
+        "p99Ms": 1.9530421122908592,
+        "meanScheduledLatencyMs": 1.3217292833452423,
+        "p95ScheduledLatencyMs": 1.7090826593317843,
+        "p95SchedulerDelayMs": 0.5478749051697207,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 1250.0,
+        "cacheGetHits": 28750.0,
+        "cacheGetMisses": 1250.0,
+        "cacheBypasses": 0.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "database": 1250.0,
+          "redis": 28750.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.9583333333333334,
+        "cacheGetCallHitFraction": 0.9583333333333334
+      },
+      "timerMeansMs": {
+        "inventory_cache_decode_mean_ms": 0.0034893108869565245,
+        "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.11795862863333374,
+        "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.1238571047999983,
+        "inventory_catalog_database_mean_ms": 0.13942980799999988,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.39106096239997895,
+        "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.12364166156521741
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/02-warm-r500-rep1/warmup/20261024T235808479033Z-warm-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 6330,
+            "successfulRequests": 6330,
+            "droppedRequests": 1170,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.002621875144541,
+            "successfulRequestsPerSecond": 421.92625080334597,
+            "meanMs": 48.464613694456325,
+            "p50Ms": 0.9600827470421791,
+            "p95Ms": 209.55083332955837,
+            "p99Ms": 1125.5369163118303,
+            "meanScheduledLatencyMs": 48.91530115250645,
+            "p95ScheduledLatencyMs": 209.97104227170382,
+            "p95SchedulerDelayMs": 0.5938749723135572,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-24T23:57:53.468828+00:00",
+          "endedAt": "2026-10-24T23:58:08.472622+00:00"
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "experimentLabel": "baseline-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2",
+      "caseDirectory": "03-warm-r500-rep2",
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 2,
+      "container": {
+        "containerId": "b6faa7a81ce1b7db1eb4a39a94e3c5041ec23a64b1ae2567d0be86cf2a3c3234",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_TTL_SECONDS": "30"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/03-warm-r500-rep2/measurement/20261025T000036926588Z-warm-1.json",
+      "startedAt": "2026-10-24T23:59:36.892389+00:00",
+      "endedAt": "2026-10-25T00:00:36.893668+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00029083294794,
+        "successfulRequestsPerSecond": 499.9975764038482,
+        "meanMs": 0.8707818650795768,
+        "p50Ms": 0.806041993200779,
+        "p95Ms": 1.202666200697422,
+        "p99Ms": 2.1270839497447014,
+        "meanScheduledLatencyMs": 1.322274210723117,
+        "p95ScheduledLatencyMs": 1.7083748467265902,
+        "p95SchedulerDelayMs": 0.5452915616324105,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 1271.0,
+        "cacheGetHits": 28729.0,
+        "cacheGetMisses": 1271.0,
+        "cacheBypasses": 0.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "database": 1271.0,
+          "redis": 28729.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.9576333333333333,
+        "cacheGetCallHitFraction": 0.9576333333333333
+      },
+      "timerMeansMs": {
+        "inventory_cache_decode_mean_ms": 0.003141864805597128,
+        "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.12220455966666653,
+        "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.12722881904012381,
+        "inventory_catalog_database_mean_ms": 0.1386880354051934,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.3913566168371356,
+        "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.12763397326743003
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/03-warm-r500-rep2/warmup/20261024T235933935961Z-warm-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 6590,
+            "successfulRequests": 6590,
+            "droppedRequests": 910,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.004116792231798,
+            "successfulRequestsPerSecond": 439.21279014649457,
+            "meanMs": 44.882618979309235,
+            "p50Ms": 0.8974173106253147,
+            "p95Ms": 187.86845868453383,
+            "p99Ms": 394.70025012269616,
+            "meanScheduledLatencyMs": 45.344211321117214,
+            "p95ScheduledLatencyMs": 188.1495418287815,
+            "p95SchedulerDelayMs": 0.5457499511543062,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-24T23:59:18.924822+00:00",
+          "endedAt": "2026-10-24T23:59:33.929676+00:00"
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "experimentLabel": "baseline-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2",
+      "caseDirectory": "04-off-r500-rep2",
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 2,
+      "container": {
+        "containerId": "f96fb1c086080d7649e7b055618b4cccd2f907d29bdb950288b2741a1cd963ed",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_ENABLED": "false",
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/04-off-r500-rep2/measurement/20261025T000200875836Z-off-1.json",
+      "startedAt": "2026-10-25T00:01:00.841876+00:00",
+      "endedAt": "2026-10-25T00:02:00.843784+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00101491715759,
+        "successfulRequestsPerSecond": 499.9915425000811,
+        "meanMs": 0.824230038250486,
+        "p50Ms": 0.7409579120576382,
+        "p95Ms": 1.2542498297989368,
+        "p99Ms": 2.193750347942114,
+        "meanScheduledLatencyMs": 1.2808115729751686,
+        "p95ScheduledLatencyMs": 1.8324173018342549,
+        "p95SchedulerDelayMs": 0.5730420686305138,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 30000.0,
+        "cacheGetHits": 0.0,
+        "cacheGetMisses": 0.0,
+        "cacheBypasses": 30000.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "database": 30000.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.0,
+        "cacheGetCallHitFraction": null
+      },
+      "timerMeansMs": {
+        "inventory_catalog_database_mean_ms": 0.0977703190666664,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.09950220753333336
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/04-off-r500-rep2/warmup/20261025T000059599351Z-off-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 6988,
+            "successfulRequests": 6988,
+            "droppedRequests": 512,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.004962999839336,
+            "successfulRequestsPerSecond": 465.71257790337927,
+            "meanMs": 38.84115351320569,
+            "p50Ms": 1.1513330973684788,
+            "p95Ms": 184.38316695392132,
+            "p99Ms": 295.7388749346137,
+            "meanScheduledLatencyMs": 39.3060171427749,
+            "p95ScheduledLatencyMs": 184.79299965128294,
+            "p95SchedulerDelayMs": 0.7107909061012663,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-25T00:00:44.589826+00:00",
+          "endedAt": "2026-10-25T00:00:59.595419+00:00"
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "experimentLabel": "baseline-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2",
+      "caseDirectory": "05-off-r500-rep3",
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 3,
+      "container": {
+        "containerId": "93dd5d15e3a6d19e89d9d40cdcf885adf3aabe1aac1cbc8b1916c46d9215ca4c",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_ENABLED": "false"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/05-off-r500-rep3/measurement/20261025T000324742650Z-off-1.json",
+      "startedAt": "2026-10-25T00:02:24.711988+00:00",
+      "endedAt": "2026-10-25T00:03:24.712913+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00002883328125,
+        "successfulRequestsPerSecond": 499.9997597227717,
+        "meanMs": 0.7810211013071239,
+        "p50Ms": 0.7324586622416973,
+        "p95Ms": 1.1437078937888145,
+        "p99Ms": 1.7048330046236515,
+        "meanScheduledLatencyMs": 1.2306063771247864,
+        "p95ScheduledLatencyMs": 1.683917008339364,
+        "p95SchedulerDelayMs": 0.5624580532312962,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 30000.0,
+        "cacheGetHits": 0.0,
+        "cacheGetMisses": 0.0,
+        "cacheBypasses": 30000.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "database": 30000.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.0,
+        "cacheGetCallHitFraction": null
+      },
+      "timerMeansMs": {
+        "inventory_catalog_database_mean_ms": 0.0868833973000001,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.08831209446666671
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/05-off-r500-rep3/warmup/20261025T000223458588Z-off-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 6961,
+            "successfulRequests": 6961,
+            "droppedRequests": 539,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.00326474988833,
+            "successfulRequestsPerSecond": 463.96568453888085,
+            "meanMs": 27.881448736047457,
+            "p50Ms": 0.8182087913155556,
+            "p95Ms": 162.76729106903076,
+            "p99Ms": 450.7926250807941,
+            "meanScheduledLatencyMs": 28.330097706906304,
+            "p95ScheduledLatencyMs": 163.20658306404968,
+            "p95SchedulerDelayMs": 0.5722077861427532,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-25T00:02:08.448555+00:00",
+          "endedAt": "2026-10-25T00:02:23.452342+00:00"
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "experimentLabel": "baseline-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2",
+      "caseDirectory": "06-warm-r500-rep3",
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 3,
+      "container": {
+        "containerId": "2cc79c9c1133844b0953b38fcc7fcb7ab8a1d30bd503d1603a3a9d91fafb977a",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_TTL_SECONDS": "30"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/06-warm-r500-rep3/measurement/20261025T000450117263Z-warm-1.json",
+      "startedAt": "2026-10-25T00:03:50.083515+00:00",
+      "endedAt": "2026-10-25T00:04:50.085044+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00061562517658,
+        "successfulRequestsPerSecond": 499.99486984283277,
+        "meanMs": 0.8993315496171514,
+        "p50Ms": 0.8175410330295563,
+        "p95Ms": 1.261832658201456,
+        "p99Ms": 2.6075830683112144,
+        "meanScheduledLatencyMs": 1.3431219572511812,
+        "p95ScheduledLatencyMs": 1.7720422856513096,
+        "p95SchedulerDelayMs": 0.5505000352883371,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 1238.0,
+        "cacheGetHits": 28762.0,
+        "cacheGetMisses": 1238.0,
+        "cacheBypasses": 0.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "database": 1238.0,
+          "redis": 28762.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.9587333333333333,
+        "cacheGetCallHitFraction": 0.9587333333333333
+      },
+      "timerMeansMs": {
+        "inventory_cache_decode_mean_ms": 0.003579374104721506,
+        "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.1327651843000003,
+        "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.1253547213247184,
+        "inventory_catalog_database_mean_ms": 0.1393025694668839,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.3952791025848092,
+        "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.1390663106181767
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261024T235551478707Z-baseline-v2/06-warm-r500-rep3/warmup/20261025T000347265613Z-warm-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 6053,
+            "successfulRequests": 6053,
+            "droppedRequests": 1447,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.003655540756881,
+            "successfulRequestsPerSecond": 403.4350151239641,
+            "meanMs": 61.43234427969096,
+            "p50Ms": 1.0276250541210175,
+            "p95Ms": 266.957875341177,
+            "p99Ms": 1327.006250154227,
+            "meanScheduledLatencyMs": 61.87892368438137,
+            "p95ScheduledLatencyMs": 267.36112481355656,
+            "p95SchedulerDelayMs": 0.5872496254744064,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-25T00:03:32.256238+00:00",
+          "endedAt": "2026-10-25T00:03:47.260179+00:00"
+        }
+      ]
+    },
+    {
+      "variant": "optimized",
+      "experimentLabel": "optimized-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2",
+      "caseDirectory": "01-warm-r500-rep1",
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 1,
+      "container": {
+        "containerId": "ba706d9caae9a513dbd1eacf94456bf9718e7a4295d37f1ee0ffa5394de61983",
+        "imageId": "sha256:f1a0b65d6a425aff52b794090434e835b1f24e4c96e37d9de4de068b42f7d818",
+        "imageTag": "wenqi-order-platform/inventory:cache-optimized",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2/01-warm-r500-rep1/measurement/20261025T000628433835Z-warm-1.json",
+      "startedAt": "2026-10-25T00:05:28.406107+00:00",
+      "endedAt": "2026-10-25T00:06:28.407089+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00010220799595,
+        "successfulRequestsPerSecond": 499.9991482681513,
+        "meanMs": 0.9058473746913175,
+        "p50Ms": 0.8347919210791588,
+        "p95Ms": 1.3360418379306793,
+        "p99Ms": 2.317375037819147,
+        "meanScheduledLatencyMs": 1.376520201129218,
+        "p95ScheduledLatencyMs": 1.877750020472746,
+        "p95SchedulerDelayMs": 0.5717082172651544,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 1268.0,
+        "cacheGetHits": 28732.0,
+        "cacheGetMisses": 2536.0,
+        "cacheBypasses": 0.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "coalesced": 0.0,
+          "database": 1268.0,
+          "redis": 28732.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.9577333333333333,
+        "cacheGetCallHitFraction": 0.9188947166432135
+      },
+      "timerMeansMs": {
+        "inventory_cache_decode_mean_ms": 0.002857562543505498,
+        "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.11936136404630958,
+        "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.12781125946372243,
+        "inventory_catalog_database_mean_ms": 0.16971462381703495,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.5549761522082011,
+        "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.1245013223235417
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2/01-warm-r500-rep1/warmup/20261025T000525060710Z-warm-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 6622,
+            "successfulRequests": 6622,
+            "droppedRequests": 878,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.002490625251085,
+            "successfulRequestsPerSecond": 441.3933769673109,
+            "meanMs": 43.34222440242461,
+            "p50Ms": 1.0823747143149376,
+            "p95Ms": 187.63804202899337,
+            "p99Ms": 303.0804581940174,
+            "meanScheduledLatencyMs": 43.78915510178445,
+            "p95ScheduledLatencyMs": 188.10116685181865,
+            "p95SchedulerDelayMs": 0.5394580774016333,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-25T00:05:10.054814+00:00",
+          "endedAt": "2026-10-25T00:05:25.057581+00:00"
+        }
+      ]
+    },
+    {
+      "variant": "optimized",
+      "experimentLabel": "optimized-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2",
+      "caseDirectory": "02-warm-r500-rep2",
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 2,
+      "container": {
+        "containerId": "b4cdbaceda5a840f478886ee0f6e85fa51283f630ae020dda1873bd1a8b3aeb4",
+        "imageId": "sha256:f1a0b65d6a425aff52b794090434e835b1f24e4c96e37d9de4de068b42f7d818",
+        "imageTag": "wenqi-order-platform/inventory:cache-optimized",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2/02-warm-r500-rep2/measurement/20261025T000754156169Z-warm-1.json",
+      "startedAt": "2026-10-25T00:06:54.124039+00:00",
+      "endedAt": "2026-10-25T00:07:54.125405+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00042458390817,
+        "successfulRequestsPerSecond": 499.9964618258028,
+        "meanMs": 0.9028995724084476,
+        "p50Ms": 0.8147908374667168,
+        "p95Ms": 1.2857499532401562,
+        "p99Ms": 2.2995001636445522,
+        "meanScheduledLatencyMs": 1.3584215683086465,
+        "p95ScheduledLatencyMs": 1.7997916825081006,
+        "p95SchedulerDelayMs": 0.5564588904363177,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 1261.0,
+        "cacheGetHits": 28739.0,
+        "cacheGetMisses": 2522.0,
+        "cacheBypasses": 0.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "coalesced": 0.0,
+          "database": 1261.0,
+          "redis": 28739.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.9579666666666666,
+        "cacheGetCallHitFraction": 0.9193243978119702
+      },
+      "timerMeansMs": {
+        "inventory_cache_decode_mean_ms": 0.0030438299175336654,
+        "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.1222389997121013,
+        "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.15454369072164922,
+        "inventory_catalog_database_mean_ms": 0.17382870182394916,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.6174807470261693,
+        "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.12610975026966836
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2/02-warm-r500-rep2/warmup/20261025T000651006954Z-warm-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 6304,
+            "successfulRequests": 6304,
+            "droppedRequests": 1196,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.003335542045534,
+            "successfulRequestsPerSecond": 420.1732329676686,
+            "meanMs": 52.08616831849878,
+            "p50Ms": 0.9806249290704727,
+            "p95Ms": 238.990250043571,
+            "p99Ms": 1035.4693750850856,
+            "meanScheduledLatencyMs": 52.53652031757387,
+            "p95ScheduledLatencyMs": 239.4568341411647,
+            "p95SchedulerDelayMs": 0.5821251273157024,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-25T00:06:35.995897+00:00",
+          "endedAt": "2026-10-25T00:06:50.999508+00:00"
+        }
+      ]
+    },
+    {
+      "variant": "optimized",
+      "experimentLabel": "optimized-v2",
+      "experimentDirectory": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2",
+      "caseDirectory": "03-warm-r500-rep3",
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 3,
+      "container": {
+        "containerId": "50dee020125358978ccb7e38a9d8086c2924c8bcbdb0b72bfbc1c20075524b5f",
+        "imageId": "sha256:f1a0b65d6a425aff52b794090434e835b1f24e4c96e37d9de4de068b42f7d818",
+        "imageTag": "wenqi-order-platform/inventory:cache-optimized",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256"
+        }
+      },
+      "measurementReport": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2/03-warm-r500-rep3/measurement/20261025T000919976987Z-warm-1.json",
+      "startedAt": "2026-10-25T00:08:19.946908+00:00",
+      "endedAt": "2026-10-25T00:09:19.948415+00:00",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00065049994737,
+        "successfulRequestsPerSecond": 499.9945792258755,
+        "meanMs": 0.8847022177651525,
+        "p50Ms": 0.8129999041557312,
+        "p95Ms": 1.2695412151515484,
+        "p99Ms": 2.130167093127966,
+        "meanScheduledLatencyMs": 1.342878734320402,
+        "p95ScheduledLatencyMs": 1.7877502590408767,
+        "p95SchedulerDelayMs": 0.5528332106763401,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "metrics": {
+        "databaseSelectCalls": 1267.0,
+        "cacheGetHits": 28733.0,
+        "cacheGetMisses": 2534.0,
+        "cacheBypasses": 0.0,
+        "cacheErrors": 0.0,
+        "httpLookupsBySource": {
+          "coalesced": 0.0,
+          "database": 1267.0,
+          "redis": 28733.0
+        },
+        "httpLookups": 30000.0,
+        "redisSourceHttpFraction": 0.9577666666666667,
+        "cacheGetCallHitFraction": 0.9189560878881888
+      },
+      "timerMeansMs": {
+        "inventory_cache_decode_mean_ms": 0.003516220861030869,
+        "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.12480976211340995,
+        "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.11645811602210049,
+        "inventory_catalog_database_mean_ms": 0.1222822217837418,
+        "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.47217867008682424,
+        "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.1317677614241465
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "workingSetCount": 1000,
+      "warmupReports": [
+        {
+          "report": "/Users/wenqi/Documents/Codex/2026-10-17/zhe/order-fulfillment-platform/reports/cache-ab/20261025T000457900776Z-optimized-v2/03-warm-r500-rep3/warmup/20261025T000816755700Z-warm-1.json",
+          "summary": {
+            "offeredRequests": 7500,
+            "startedRequests": 6645,
+            "successfulRequests": 6645,
+            "droppedRequests": 855,
+            "failedRequests": 0,
+            "elapsedSecondsIncludingDrain": 15.003239957615733,
+            "successfulRequestsPerSecond": 442.90433391535265,
+            "meanMs": 41.79464613568904,
+            "p50Ms": 0.9280000813305378,
+            "p95Ms": 189.52062539756298,
+            "p99Ms": 488.626291975379,
+            "meanScheduledLatencyMs": 42.24045927090314,
+            "p95ScheduledLatencyMs": 189.97687482461333,
+            "p95SchedulerDelayMs": 0.5479169562461195,
+            "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+          },
+          "startedAt": "2026-10-25T00:08:01.745833+00:00",
+          "endedAt": "2026-10-25T00:08:16.749630+00:00"
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "variant": "baseline",
+      "mode": "off",
+      "rate": 500.0,
+      "runCount": 3,
+      "offeredRequests": 90000,
+      "startedRequests": 90000,
+      "successfulRequests": 90000,
+      "failedRequests": 0,
+      "droppedRequests": 0,
+      "healthyMeasuredWorkload": true,
+      "weightedMeanSuccessfulMs": 0.8288857621761659,
+      "runMeanMsRange": [
+        0.7810211013071239,
+        0.8814061469708879
+      ],
+      "runP95MsRange": [
+        1.1437078937888145,
+        1.2542498297989368
+      ],
+      "medianOfRunP95Ms": 1.2355828657746315,
+      "runP99MsRange": [
+        1.7048330046236515,
+        2.4017500691115856
+      ],
+      "successfulRequestsPerSecondAcrossRunDurations": 499.9877793506409,
+      "metrics": {
+        "databaseSelectCalls": 90000.0,
+        "cacheGetHits": 0.0,
+        "cacheGetMisses": 0.0,
+        "cacheBypasses": 90000.0,
+        "cacheErrors": 0.0,
+        "httpLookups": 90000.0,
+        "httpLookupsBySource": {
+          "database": 90000.0
+        },
+        "redisSourceHttpFraction": 0.0,
+        "cacheGetCallHitFraction": null
+      },
+      "percentileNote": "Run p95/p99 ranges and median of run p95 values only; no pooled percentile inferred from run percentiles."
+    },
+    {
+      "variant": "baseline",
+      "mode": "warm",
+      "rate": 500.0,
+      "runCount": 3,
+      "offeredRequests": 90000,
+      "startedRequests": 90000,
+      "successfulRequests": 90000,
+      "failedRequests": 0,
+      "droppedRequests": 0,
+      "healthyMeasuredWorkload": true,
+      "weightedMeanSuccessfulMs": 0.8782184811981602,
+      "runMeanMsRange": [
+        0.8645420288977523,
+        0.8993315496171514
+      ],
+      "runP95MsRange": [
+        1.202666200697422,
+        1.261832658201456
+      ],
+      "medianOfRunP95Ms": 1.2082499451935291,
+      "runP99MsRange": [
+        1.9530421122908592,
+        2.6075830683112144
+      ],
+      "successfulRequestsPerSecondAcrossRunDurations": 499.9962862559349,
+      "metrics": {
+        "databaseSelectCalls": 3759.0,
+        "cacheGetHits": 86241.0,
+        "cacheGetMisses": 3759.0,
+        "cacheBypasses": 0.0,
+        "cacheErrors": 0.0,
+        "httpLookups": 90000.0,
+        "httpLookupsBySource": {
+          "database": 3759.0,
+          "redis": 86241.0
+        },
+        "redisSourceHttpFraction": 0.9582333333333334,
+        "cacheGetCallHitFraction": 0.9582333333333334
+      },
+      "percentileNote": "Run p95/p99 ranges and median of run p95 values only; no pooled percentile inferred from run percentiles."
+    },
+    {
+      "variant": "optimized",
+      "mode": "warm",
+      "rate": 500.0,
+      "runCount": 3,
+      "offeredRequests": 90000,
+      "startedRequests": 90000,
+      "successfulRequests": 90000,
+      "failedRequests": 0,
+      "droppedRequests": 0,
+      "healthyMeasuredWorkload": true,
+      "weightedMeanSuccessfulMs": 0.8978163882883059,
+      "runMeanMsRange": [
+        0.8847022177651525,
+        0.9058473746913175
+      ],
+      "runP95MsRange": [
+        1.2695412151515484,
+        1.3360418379306793
+      ],
+      "medianOfRunP95Ms": 1.2857499532401562,
+      "runP99MsRange": [
+        2.130167093127966,
+        2.317375037819147
+      ],
+      "successfulRequestsPerSecondAcrossRunDurations": 499.99672976624595,
+      "metrics": {
+        "databaseSelectCalls": 3796.0,
+        "cacheGetHits": 86204.0,
+        "cacheGetMisses": 7592.0,
+        "cacheBypasses": 0.0,
+        "cacheErrors": 0.0,
+        "httpLookups": 90000.0,
+        "httpLookupsBySource": {
+          "coalesced": 0.0,
+          "database": 3796.0,
+          "redis": 86204.0
+        },
+        "redisSourceHttpFraction": 0.9578222222222222,
+        "cacheGetCallHitFraction": 0.9190583820205552
+      },
+      "percentileNote": "Run p95/p99 ranges and median of run p95 values only; no pooled percentile inferred from run percentiles."
+    }
+  ],
+  "comparisons": [
+    {
+      "rate": 500.0,
+      "cacheBenefitWithinBaselineImage": {
+        "from": {
+          "runCount": 3,
+          "offeredRequests": 90000,
+          "startedRequests": 90000,
+          "successfulRequests": 90000,
+          "failedRequests": 0,
+          "droppedRequests": 0,
+          "healthyMeasuredWorkload": true,
+          "weightedMeanSuccessfulMs": 0.8288857621761659,
+          "runMeanMsRange": [
+            0.7810211013071239,
+            0.8814061469708879
+          ],
+          "runP95MsRange": [
+            1.1437078937888145,
+            1.2542498297989368
+          ],
+          "medianOfRunP95Ms": 1.2355828657746315,
+          "runP99MsRange": [
+            1.7048330046236515,
+            2.4017500691115856
+          ],
+          "successfulRequestsPerSecondAcrossRunDurations": 499.9877793506409,
+          "metrics": {
+            "databaseSelectCalls": 90000.0,
+            "cacheGetHits": 0.0,
+            "cacheGetMisses": 0.0,
+            "cacheBypasses": 90000.0,
+            "cacheErrors": 0.0,
+            "httpLookups": 90000.0,
+            "httpLookupsBySource": {
+              "database": 90000.0
+            },
+            "redisSourceHttpFraction": 0.0,
+            "cacheGetCallHitFraction": null
+          },
+          "percentileNote": "Run p95/p99 ranges and median of run p95 values only; no pooled percentile inferred from run percentiles."
+        },
+        "to": {
+          "runCount": 3,
+          "offeredRequests": 90000,
+          "startedRequests": 90000,
+          "successfulRequests": 90000,
+          "failedRequests": 0,
+          "droppedRequests": 0,
+          "healthyMeasuredWorkload": true,
+          "weightedMeanSuccessfulMs": 0.8782184811981602,
+          "runMeanMsRange": [
+            0.8645420288977523,
+            0.8993315496171514
+          ],
+          "runP95MsRange": [
+            1.202666200697422,
+            1.261832658201456
+          ],
+          "medianOfRunP95Ms": 1.2082499451935291,
+          "runP99MsRange": [
+            1.9530421122908592,
+            2.6075830683112144
+          ],
+          "successfulRequestsPerSecondAcrossRunDurations": 499.9962862559349,
+          "metrics": {
+            "databaseSelectCalls": 3759.0,
+            "cacheGetHits": 86241.0,
+            "cacheGetMisses": 3759.0,
+            "cacheBypasses": 0.0,
+            "cacheErrors": 0.0,
+            "httpLookups": 90000.0,
+            "httpLookupsBySource": {
+              "database": 3759.0,
+              "redis": 86241.0
+            },
+            "redisSourceHttpFraction": 0.9582333333333334,
+            "cacheGetCallHitFraction": 0.9582333333333334
+          },
+          "percentileNote": "Run p95/p99 ranges and median of run p95 values only; no pooled percentile inferred from run percentiles."
+        },
+        "attribution": "Same baseline image, cache disabled versus enabled; do not attribute this whole difference to the later optimization.",
+        "weightedMeanReductionPercent": -5.951690965528897,
+        "changeInMedianOfRunP95ReductionPercent": 2.2121479132009796,
+        "databaseSelectCallReductionPercent": 95.82333333333334,
+        "eligibleForHealthyLatencyComparison": true,
+        "note": "Positive reduction means lower; negative means higher. Successful-response means exclude failures/drops, which remain explicit. No statistical significance or production capacity is asserted."
+      },
+      "incrementalOptimization": {
+        "from": {
+          "runCount": 3,
+          "offeredRequests": 90000,
+          "startedRequests": 90000,
+          "successfulRequests": 90000,
+          "failedRequests": 0,
+          "droppedRequests": 0,
+          "healthyMeasuredWorkload": true,
+          "weightedMeanSuccessfulMs": 0.8782184811981602,
+          "runMeanMsRange": [
+            0.8645420288977523,
+            0.8993315496171514
+          ],
+          "runP95MsRange": [
+            1.202666200697422,
+            1.261832658201456
+          ],
+          "medianOfRunP95Ms": 1.2082499451935291,
+          "runP99MsRange": [
+            1.9530421122908592,
+            2.6075830683112144
+          ],
+          "successfulRequestsPerSecondAcrossRunDurations": 499.9962862559349,
+          "metrics": {
+            "databaseSelectCalls": 3759.0,
+            "cacheGetHits": 86241.0,
+            "cacheGetMisses": 3759.0,
+            "cacheBypasses": 0.0,
+            "cacheErrors": 0.0,
+            "httpLookups": 90000.0,
+            "httpLookupsBySource": {
+              "database": 3759.0,
+              "redis": 86241.0
+            },
+            "redisSourceHttpFraction": 0.9582333333333334,
+            "cacheGetCallHitFraction": 0.9582333333333334
+          },
+          "percentileNote": "Run p95/p99 ranges and median of run p95 values only; no pooled percentile inferred from run percentiles."
+        },
+        "to": {
+          "runCount": 3,
+          "offeredRequests": 90000,
+          "startedRequests": 90000,
+          "successfulRequests": 90000,
+          "failedRequests": 0,
+          "droppedRequests": 0,
+          "healthyMeasuredWorkload": true,
+          "weightedMeanSuccessfulMs": 0.8978163882883059,
+          "runMeanMsRange": [
+            0.8847022177651525,
+            0.9058473746913175
+          ],
+          "runP95MsRange": [
+            1.2695412151515484,
+            1.3360418379306793
+          ],
+          "medianOfRunP95Ms": 1.2857499532401562,
+          "runP99MsRange": [
+            2.130167093127966,
+            2.317375037819147
+          ],
+          "successfulRequestsPerSecondAcrossRunDurations": 499.99672976624595,
+          "metrics": {
+            "databaseSelectCalls": 3796.0,
+            "cacheGetHits": 86204.0,
+            "cacheGetMisses": 7592.0,
+            "cacheBypasses": 0.0,
+            "cacheErrors": 0.0,
+            "httpLookups": 90000.0,
+            "httpLookupsBySource": {
+              "coalesced": 0.0,
+              "database": 3796.0,
+              "redis": 86204.0
+            },
+            "redisSourceHttpFraction": 0.9578222222222222,
+            "cacheGetCallHitFraction": 0.9190583820205552
+          },
+          "percentileNote": "Run p95/p99 ranges and median of run p95 values only; no pooled percentile inferred from run percentiles."
+        },
+        "attribution": "Baseline cache-enabled image versus optimized cache-enabled image at matching recorded controls.",
+        "weightedMeanReductionPercent": -2.231552570313503,
+        "changeInMedianOfRunP95ReductionPercent": -6.414236421439575,
+        "databaseSelectCallReductionPercent": -0.9843043362596435,
+        "eligibleForHealthyLatencyComparison": true,
+        "note": "Positive reduction means lower; negative means higher. Successful-response means exclude failures/drops, which remain explicit. No statistical significance or production capacity is asserted."
+      }
+    }
+  ],
+  "warmup": {
+    "reportCount": 9,
+    "offeredRequests": 67500,
+    "startedRequests": 59575,
+    "successfulRequests": 59575,
+    "failedRequests": 0,
+    "droppedRequests": 7925,
+    "excludedFromMeasuredLatencyByDesign": true,
+    "note": "Warmup was a separately declared phase. All warmup failures and drops are retained in each case and these totals; they are not a healthy cold-start claim."
+  },
+  "limitations": [
+    "All scheduled measured cases were included; warmup/prefill stay outside measured request statistics.",
+    "Latency averages are weighted by successful correct responses; errors and drops are retained separately.",
+    "Median of run p95 values is not a pooled p95 and does not prove statistical significance.",
+    "These local results share a host for generator and services; they do not establish production capacity.",
+    "Observed cache hits/misses count cache-get calls. A leader recheck may make more than one call per HTTP request; HTTP sources are reported separately."
+  ]
+}

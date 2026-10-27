@@ -1,0 +1,36 @@
+{
+  "timestamp": "20261024T233059150102Z",
+  "mode": "off",
+  "url": "http://127.0.0.1:8081",
+  "rate": 100.0,
+  "scheduledSeconds": 10.0,
+  "concurrency": 32,
+  "seed": 2027,
+  "repetition": 1,
+  "datasetSha256": "318ee812db269d03dd3873d6e994dfdc46d7259c3cd73a72db666d1fc36925ee",
+  "requestSequenceSha256": "e3db553d4f0285e07825a64f6252bafe82d5f285454f6eea4b029d2dbd70b677",
+  "machine": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.13.7"
+  },
+  "summary": {
+    "offeredRequests": 1000,
+    "startedRequests": 1000,
+    "successfulRequests": 1000,
+    "droppedRequests": 0,
+    "failedRequests": 0,
+    "elapsedSecondsIncludingDrain": 10.00178962526843,
+    "successfulRequestsPerSecond": 99.98210694950123,
+    "meanMs": 2.087066547945142,
+    "p50Ms": 1.6640843823552132,
+    "p95Ms": 2.938500139862299,
+    "p99Ms": 17.997624818235636,
+    "percentileMethod": "nearest rank; successful, correct HTTP 200 requests only"
+  },
+  "limitations": [
+    "Mode is a label: verify actual server cache setting separately.",
+    "Client and service may share host resources; this is not a production capacity result.",
+    "Document Docker resource limits, git revision, service replicas and server logs with these files."
+  ]
+}

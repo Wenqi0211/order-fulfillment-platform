@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-10-24T23:29:19.649741+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "Redis outage falls back to authoritative database",
+      "elapsedMs": 520.23
+    },
+    {
+      "check": "Payment service outage retains durable PAYMENT step and reservation; recovery confirms exactly one order",
+      "orderId": "1ecb83e7-b2c4-4320-8ab8-43474cb0f41b"
+    },
+    {
+      "check": "Kafka outage accepts warehouse event durably; outbox publishes and consumer applies after broker recovery",
+      "eventId": "2a844c6c-9432-4466-9403-5e3e657c37dc"
+    }
+  ],
+  "scope": "Only local Compose dependencies stopped/restarted; simulated payments"
+}

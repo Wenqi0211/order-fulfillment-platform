@@ -1,0 +1,24 @@
+{
+  "counterAndTimerDeltas": {
+    "inventory_cache_bypasses_total": 30000.0,
+    "inventory_cache_decode_seconds_count": 0.0,
+    "inventory_cache_decode_seconds_sum": 0.0,
+    "inventory_cache_errors_total": 0.0,
+    "inventory_cache_hits_total": 0.0,
+    "inventory_cache_misses_total": 0.0,
+    "inventory_cache_redis_seconds_count{operation=\"get\"}": 0.0,
+    "inventory_cache_redis_seconds_sum{operation=\"get\"}": 0.0,
+    "inventory_cache_redis_seconds_count{operation=\"set\"}": 0.0,
+    "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.0,
+    "inventory_catalog_database_reads_total": 30000.0,
+    "inventory_catalog_database_seconds_count": 30000.0,
+    "inventory_catalog_database_seconds_sum": 2.606501919000003,
+    "inventory_catalog_lookup_seconds_count{source=\"database\"}": 30000.0,
+    "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 2.6493628340000015
+  },
+  "timerMeanMilliseconds": {
+    "inventory_catalog_database_mean_ms": 0.0868833973000001,
+    "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.08831209446666671
+  },
+  "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+}

@@ -1,0 +1,568 @@
+{
+  "startedAt": "2026-10-24T23:55:51.479509+00:00",
+  "label": "baseline-v2",
+  "arguments": {
+    "count": 1000,
+    "rate": 50,
+    "rates": "500",
+    "seconds": 60.0,
+    "repeats": 3,
+    "concurrency": 64,
+    "prefix": "BENCH",
+    "dataset": "reports/cache-study-dataset.json",
+    "modes": "off,warm",
+    "case_order": "alternating",
+    "warmup_seconds": 15.0,
+    "warmup_rate": null,
+    "distribution": "uniform",
+    "zipf_alpha": 1.2,
+    "hotset": 0,
+    "seed": 2027,
+    "label": "baseline-v2",
+    "service_env": [
+      "INVENTORY_IMAGE=wenqi-order-platform/inventory:cache-baseline"
+    ],
+    "drain_timeout": 180
+  },
+  "schedule": [
+    {
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 1
+    },
+    {
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 1
+    },
+    {
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 2
+    },
+    {
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 2
+    },
+    {
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 3
+    },
+    {
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 3
+    }
+  ],
+  "dockerContextEndpoint": "unix:///Users/wenqi/.docker/run/docker.sock",
+  "originalContainer": {
+    "containerId": "c67aa9f8f1984a8638b4134dd360e49d7af1806e6bb6fba12898ff611ec636a8",
+    "imageId": "sha256:f1a0b65d6a425aff52b794090434e835b1f24e4c96e37d9de4de068b42f7d818",
+    "imageTag": "wenqi-order-platform/inventory:cache-optimized",
+    "memoryBytes": 805306368,
+    "nanoCpus": 1000000000,
+    "cacheEnvironment": {
+      "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+      "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+      "INVENTORY_CACHE_ENABLED": "true",
+      "INVENTORY_CACHE_TTL_SECONDS": "30"
+    }
+  },
+  "sourceAtStart": {
+    "sha256": "393cca58ed966b57b6ba38bd025e63a93215ed2807bbdb712491c5d59546048b",
+    "files": {
+      "Dockerfile": "30313597a875a5024e8825741d9dfba6415a5b62ec7c2cad813b55c29757fecd",
+      "common/pom.xml": "6a60ba66fbf3ae4131d478af15964c3331e03a63ec1d65542472bfebba2dbbc1",
+      "common/src/main/java/com/wenqi/fulfillment/common/Api.java": "532ac9d7c1d696ac4195f14b8352e0ba416e6e61160ba8fd5156202119e6a44f",
+      "common/src/main/java/com/wenqi/fulfillment/common/ApiErrors.java": "c476ccba4df90684afcabe44b6b71c890e10a4b9cce2cd17cc154d49e444005e",
+      "common/src/main/java/com/wenqi/fulfillment/common/ApiException.java": "11e745b3ff709bcc685874beb06f266e78e8cfe29fde477a01452bdf4f606c92",
+      "common/src/main/java/com/wenqi/fulfillment/common/EventEnvelope.java": "03ae530816ca886252cc914fcb96cd4066dcfe1627f19e52f3942cfefd5425bc",
+      "common/src/main/java/com/wenqi/fulfillment/common/Events.java": "acff177df8899bb257a6c34c58c6e25a51918616cd78079b89b1519e419cc62f",
+      "common/src/main/java/com/wenqi/fulfillment/common/JsonBodyLimitFilter.java": "2e92d86dfbdd5009bae773a2eb056b5636cf2438175174880c3c512e9dc859e0",
+      "common/src/main/java/com/wenqi/fulfillment/common/OutboxRelay.java": "388655aafee2b944c29eca03ab3a1ddad83fef88237d00f4d7f507a14181464b",
+      "common/src/main/java/com/wenqi/fulfillment/common/PlatformConfiguration.java": "cccb6871f724ac4ebc3dc8b2d53e24e15316579728d0c7b56f66add196724215",
+      "common/src/main/java/com/wenqi/fulfillment/common/RequestIdentityFilter.java": "9651ed227dd8e706a01d459d2188c258e8d2f3c087b50ec794a7135484d7b7d2",
+      "common/src/main/resources/application-common.yml": "f5f7556f32f89328fe7c5d1b230855963f753e71420f45fac2b1803f563ae5e9",
+      "common/src/main/resources/db/common/V1__outbox.sql": "d15687fc1c5622c6f87cf0bfe3b88bc27488f1c59766621e5e3428b9fd5adac3",
+      "common/src/test/java/com/wenqi/fulfillment/common/EventsTest.java": "325386c7e4dc2f7c53a1794ac1bf33f9da5f169c85e5b89a7e512609af4a78dc",
+      "common/src/test/java/com/wenqi/fulfillment/common/OutboxIT.java": "df380f2ee0e20f43a42d1099edbe4c4af3cd10217a85b23adf363eda1cf08d72",
+      "common/src/test/java/com/wenqi/fulfillment/common/RequestBoundaryTest.java": "8512b7017bd05db350b847e55eecf3ffc4941af546a5576dbee753aa52e24027",
+      "common/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker": "8eca853a5a457f17e0479b71dfbe95f2a13aff9eeff250261ecdc8ca9b847a6a",
+      "compose.yaml": "d77e26889a3943f53085bb424d579b5eb5d669f0a004097561f8270b6a23bf7f",
+      "inventory-service/pom.xml": "cd249475c6e7d609907c35bd874975757bed6a9c042fb5bc601f74f6e350b807",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/CatalogCache.java": "b6c712ae32183118579b1575ad62563fa60ae3553a79fc527f59e4b6814437f2",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryApplication.java": "c06cf5231c13d6e3234e1caf57bcd5302216331f5981147a1973035eaa5c8b41",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryController.java": "fcb31044afc8cf2465d27b060649d137bcc56bf2b53fcd4becbbeec6206c76cc",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryRules.java": "c8b2aa76fc3525f4333d2c774ebfad23fd09594ccc9f21c2e4589ad37a5da3bc",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryService.java": "43d80b9bd0e51c66350bb789694ddbe552b9d411d4730325989b369b92e1ab60",
+      "inventory-service/src/main/resources/application.yml": "5a73d4d0fb359f3336c0c3ad68cec7fbc7219dbfd766f5fabbff3e99860a33cd",
+      "inventory-service/src/main/resources/db/migration/V2__inventory.sql": "673e87aaef9bd33f8574c891fbc6d775f074a1e6e1a1c03f01b9d50e59df1b25",
+      "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/CatalogCacheRecoveryTest.java": "671de599c36941e364921450651481da9cbaba5f31a3b65a94caae8715bdb142",
+      "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/CatalogCacheTest.java": "1dc2281dadd3afac94282a25c1328c5a06f316d8335414b45526df2530057781",
+      "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/InventoryIT.java": "4bccf381cbda6670e91f435b8e3cb852002573e2a2fe04656fbccc5061562fe8",
+      "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/InventoryRulesTest.java": "ea6ab8684771bfb459e31c2c6a0a890c02ee9fae6a557f70489ee1928688ee58",
+      "inventory-service/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker": "8eca853a5a457f17e0479b71dfbe95f2a13aff9eeff250261ecdc8ca9b847a6a",
+      "pom.xml": "43a27701173e1f0fcdea56d2b34ce547711efeabbdfcebd0741dd9ce9c34a611",
+      "scripts/cache_benchmark.py": "14c4e6c96ff18a8b04b89b281abd19e7a2fc68509185781f38582dbd2b66ee72",
+      "scripts/load_test.py": "ba72a26fb1c33c9e41121c1a36bd08ad2cbecc2e3475b60bcc78f8ee3d6ee4b7",
+      "scripts/seed_data.py": "5cf824812d93ff5d1c2cb0b5d824daa4a6329c9192345ce026d0f285aed4be11"
+    }
+  },
+  "productionCapacityClaim": false,
+  "method": "Per-case container restart, equal timed JVM warmup, cache reset after warmup, optional prefill, fixed-arrival measurement; no concurrent Docker exec sampling during measurement.",
+  "completedCases": [
+    {
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 1,
+      "caseDirectory": "01-off-r500-rep1",
+      "container": {
+        "containerId": "c27dda93bd10e2bacdfd8198398336855b6d94e5c359544909946730a520b2ac",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_ENABLED": "false"
+        }
+      },
+      "prefillSeconds": 2.0815059542655945e-07,
+      "report": "01-off-r500-rep1/measurement/20261024T235745926624Z-off-1.json",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00335579086095,
+        "successfulRequestsPerSecond": 499.9720366401452,
+        "meanMs": 0.8814061469708879,
+        "p50Ms": 0.7373751141130924,
+        "p95Ms": 1.2355828657746315,
+        "p99Ms": 2.4017500691115856,
+        "meanScheduledLatencyMs": 1.3235119889024645,
+        "p95ScheduledLatencyMs": 1.7935832105564486,
+        "p95SchedulerDelayMs": 0.5825002565984505,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "metrics": {
+        "counterAndTimerDeltas": {
+          "inventory_cache_bypasses_total": 30000.0,
+          "inventory_cache_decode_seconds_count": 0.0,
+          "inventory_cache_decode_seconds_sum": 0.0,
+          "inventory_cache_errors_total": 0.0,
+          "inventory_cache_hits_total": 0.0,
+          "inventory_cache_misses_total": 0.0,
+          "inventory_cache_redis_seconds_count{operation=\"get\"}": 0.0,
+          "inventory_cache_redis_seconds_sum{operation=\"get\"}": 0.0,
+          "inventory_cache_redis_seconds_count{operation=\"set\"}": 0.0,
+          "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.0,
+          "inventory_catalog_database_reads_total": 30000.0,
+          "inventory_catalog_database_seconds_count": 30000.0,
+          "inventory_catalog_database_seconds_sum": 3.2892642370000047,
+          "inventory_catalog_lookup_seconds_count{source=\"database\"}": 30000.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 3.3425101969999957
+        },
+        "timerMeanMilliseconds": {
+          "inventory_catalog_database_mean_ms": 0.10964214123333349,
+          "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.11141700656666653
+        },
+        "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+      },
+      "statsNote": "Before/after instantaneous snapshots, not interval-average CPU"
+    },
+    {
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 1,
+      "caseDirectory": "02-warm-r500-rep1",
+      "container": {
+        "containerId": "22f9628e83881c692d62bb3f1748c706cce7caca209b866f121694ec085788ad",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_TTL_SECONDS": "30"
+        }
+      },
+      "prefillSeconds": 1.3697622502222657,
+      "report": "02-warm-r500-rep1/measurement/20261024T235911370636Z-warm-1.json",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.000430499669164,
+        "successfulRequestsPerSecond": 499.99641252849705,
+        "meanMs": 0.8645420288977523,
+        "p50Ms": 0.8170409128069878,
+        "p95Ms": 1.2082499451935291,
+        "p99Ms": 1.9530421122908592,
+        "meanScheduledLatencyMs": 1.3217292833452423,
+        "p95ScheduledLatencyMs": 1.7090826593317843,
+        "p95SchedulerDelayMs": 0.5478749051697207,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "metrics": {
+        "counterAndTimerDeltas": {
+          "inventory_cache_bypasses_total": 0.0,
+          "inventory_cache_decode_seconds_count": 28750.0,
+          "inventory_cache_decode_seconds_sum": 0.10031768800000007,
+          "inventory_cache_errors_total": 0.0,
+          "inventory_cache_hits_total": 28750.0,
+          "inventory_cache_misses_total": 1250.0,
+          "inventory_cache_redis_seconds_count{operation=\"get\"}": 30000.0,
+          "inventory_cache_redis_seconds_sum{operation=\"get\"}": 3.538758859000012,
+          "inventory_cache_redis_seconds_count{operation=\"set\"}": 1250.0,
+          "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.15482138099999787,
+          "inventory_catalog_database_reads_total": 1250.0,
+          "inventory_catalog_database_seconds_count": 1250.0,
+          "inventory_catalog_database_seconds_sum": 0.17428725999999983,
+          "inventory_catalog_lookup_seconds_count{source=\"database\"}": 1250.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 0.4888262029999737,
+          "inventory_catalog_lookup_seconds_count{source=\"redis\"}": 28750.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"redis\"}": 3.5546977700000006
+        },
+        "timerMeanMilliseconds": {
+          "inventory_cache_decode_mean_ms": 0.0034893108869565245,
+          "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.11795862863333374,
+          "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.1238571047999983,
+          "inventory_catalog_database_mean_ms": 0.13942980799999988,
+          "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.39106096239997895,
+          "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.12364166156521741
+        },
+        "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+      },
+      "statsNote": "Before/after instantaneous snapshots, not interval-average CPU"
+    },
+    {
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 2,
+      "caseDirectory": "03-warm-r500-rep2",
+      "container": {
+        "containerId": "b6faa7a81ce1b7db1eb4a39a94e3c5041ec23a64b1ae2567d0be86cf2a3c3234",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_TTL_SECONDS": "30"
+        }
+      },
+      "prefillSeconds": 1.428943458944559,
+      "report": "03-warm-r500-rep2/measurement/20261025T000036926588Z-warm-1.json",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00029083294794,
+        "successfulRequestsPerSecond": 499.9975764038482,
+        "meanMs": 0.8707818650795768,
+        "p50Ms": 0.806041993200779,
+        "p95Ms": 1.202666200697422,
+        "p99Ms": 2.1270839497447014,
+        "meanScheduledLatencyMs": 1.322274210723117,
+        "p95ScheduledLatencyMs": 1.7083748467265902,
+        "p95SchedulerDelayMs": 0.5452915616324105,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "metrics": {
+        "counterAndTimerDeltas": {
+          "inventory_cache_bypasses_total": 0.0,
+          "inventory_cache_decode_seconds_count": 28729.0,
+          "inventory_cache_decode_seconds_sum": 0.0902626339999999,
+          "inventory_cache_errors_total": 0.0,
+          "inventory_cache_hits_total": 28729.0,
+          "inventory_cache_misses_total": 1271.0,
+          "inventory_cache_redis_seconds_count{operation=\"get\"}": 30000.0,
+          "inventory_cache_redis_seconds_sum{operation=\"get\"}": 3.666136789999996,
+          "inventory_cache_redis_seconds_count{operation=\"set\"}": 1271.0,
+          "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.16170782899999736,
+          "inventory_catalog_database_reads_total": 1271.0,
+          "inventory_catalog_database_seconds_count": 1271.0,
+          "inventory_catalog_database_seconds_sum": 0.1762724930000008,
+          "inventory_catalog_lookup_seconds_count{source=\"database\"}": 1271.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 0.49741425999999933,
+          "inventory_catalog_lookup_seconds_count{source=\"redis\"}": 28729.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"redis\"}": 3.666796417999997
+        },
+        "timerMeanMilliseconds": {
+          "inventory_cache_decode_mean_ms": 0.003141864805597128,
+          "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.12220455966666653,
+          "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.12722881904012381,
+          "inventory_catalog_database_mean_ms": 0.1386880354051934,
+          "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.3913566168371356,
+          "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.12763397326743003
+        },
+        "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+      },
+      "statsNote": "Before/after instantaneous snapshots, not interval-average CPU"
+    },
+    {
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 2,
+      "caseDirectory": "04-off-r500-rep2",
+      "container": {
+        "containerId": "f96fb1c086080d7649e7b055618b4cccd2f907d29bdb950288b2741a1cd963ed",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_ENABLED": "false",
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000"
+        }
+      },
+      "prefillSeconds": 2.50060111284256e-07,
+      "report": "04-off-r500-rep2/measurement/20261025T000200875836Z-off-1.json",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00101491715759,
+        "successfulRequestsPerSecond": 499.9915425000811,
+        "meanMs": 0.824230038250486,
+        "p50Ms": 0.7409579120576382,
+        "p95Ms": 1.2542498297989368,
+        "p99Ms": 2.193750347942114,
+        "meanScheduledLatencyMs": 1.2808115729751686,
+        "p95ScheduledLatencyMs": 1.8324173018342549,
+        "p95SchedulerDelayMs": 0.5730420686305138,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "metrics": {
+        "counterAndTimerDeltas": {
+          "inventory_cache_bypasses_total": 30000.0,
+          "inventory_cache_decode_seconds_count": 0.0,
+          "inventory_cache_decode_seconds_sum": 0.0,
+          "inventory_cache_errors_total": 0.0,
+          "inventory_cache_hits_total": 0.0,
+          "inventory_cache_misses_total": 0.0,
+          "inventory_cache_redis_seconds_count{operation=\"get\"}": 0.0,
+          "inventory_cache_redis_seconds_sum{operation=\"get\"}": 0.0,
+          "inventory_cache_redis_seconds_count{operation=\"set\"}": 0.0,
+          "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.0,
+          "inventory_catalog_database_reads_total": 30000.0,
+          "inventory_catalog_database_seconds_count": 30000.0,
+          "inventory_catalog_database_seconds_sum": 2.9331095719999922,
+          "inventory_catalog_lookup_seconds_count{source=\"database\"}": 30000.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 2.9850662260000007
+        },
+        "timerMeanMilliseconds": {
+          "inventory_catalog_database_mean_ms": 0.0977703190666664,
+          "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.09950220753333336
+        },
+        "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+      },
+      "statsNote": "Before/after instantaneous snapshots, not interval-average CPU"
+    },
+    {
+      "mode": "off",
+      "rate": 500.0,
+      "repetition": 3,
+      "caseDirectory": "05-off-r500-rep3",
+      "container": {
+        "containerId": "93dd5d15e3a6d19e89d9d40cdcf885adf3aabe1aac1cbc8b1916c46d9215ca4c",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_TTL_SECONDS": "30",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_ENABLED": "false"
+        }
+      },
+      "prefillSeconds": 2.076849341392517e-07,
+      "report": "05-off-r500-rep3/measurement/20261025T000324742650Z-off-1.json",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00002883328125,
+        "successfulRequestsPerSecond": 499.9997597227717,
+        "meanMs": 0.7810211013071239,
+        "p50Ms": 0.7324586622416973,
+        "p95Ms": 1.1437078937888145,
+        "p99Ms": 1.7048330046236515,
+        "meanScheduledLatencyMs": 1.2306063771247864,
+        "p95ScheduledLatencyMs": 1.683917008339364,
+        "p95SchedulerDelayMs": 0.5624580532312962,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "metrics": {
+        "counterAndTimerDeltas": {
+          "inventory_cache_bypasses_total": 30000.0,
+          "inventory_cache_decode_seconds_count": 0.0,
+          "inventory_cache_decode_seconds_sum": 0.0,
+          "inventory_cache_errors_total": 0.0,
+          "inventory_cache_hits_total": 0.0,
+          "inventory_cache_misses_total": 0.0,
+          "inventory_cache_redis_seconds_count{operation=\"get\"}": 0.0,
+          "inventory_cache_redis_seconds_sum{operation=\"get\"}": 0.0,
+          "inventory_cache_redis_seconds_count{operation=\"set\"}": 0.0,
+          "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.0,
+          "inventory_catalog_database_reads_total": 30000.0,
+          "inventory_catalog_database_seconds_count": 30000.0,
+          "inventory_catalog_database_seconds_sum": 2.606501919000003,
+          "inventory_catalog_lookup_seconds_count{source=\"database\"}": 30000.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 2.6493628340000015
+        },
+        "timerMeanMilliseconds": {
+          "inventory_catalog_database_mean_ms": 0.0868833973000001,
+          "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.08831209446666671
+        },
+        "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+      },
+      "statsNote": "Before/after instantaneous snapshots, not interval-average CPU"
+    },
+    {
+      "mode": "warm",
+      "rate": 500.0,
+      "repetition": 3,
+      "caseDirectory": "06-warm-r500-rep3",
+      "container": {
+        "containerId": "2cc79c9c1133844b0953b38fcc7fcb7ab8a1d30bd503d1603a3a9d91fafb977a",
+        "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+        "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+        "memoryBytes": 805306368,
+        "nanoCpus": 1000000000,
+        "cacheEnvironment": {
+          "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+          "INVENTORY_CACHE_ENABLED": "true",
+          "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+          "INVENTORY_CACHE_TTL_SECONDS": "30"
+        }
+      },
+      "prefillSeconds": 1.348264583852142,
+      "report": "06-warm-r500-rep3/measurement/20261025T000450117263Z-warm-1.json",
+      "summary": {
+        "offeredRequests": 30000,
+        "startedRequests": 30000,
+        "successfulRequests": 30000,
+        "droppedRequests": 0,
+        "failedRequests": 0,
+        "elapsedSecondsIncludingDrain": 60.00061562517658,
+        "successfulRequestsPerSecond": 499.99486984283277,
+        "meanMs": 0.8993315496171514,
+        "p50Ms": 0.8175410330295563,
+        "p95Ms": 1.261832658201456,
+        "p99Ms": 2.6075830683112144,
+        "meanScheduledLatencyMs": 1.3431219572511812,
+        "p95ScheduledLatencyMs": 1.7720422856513096,
+        "p95SchedulerDelayMs": 0.5505000352883371,
+        "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+      },
+      "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+      "metrics": {
+        "counterAndTimerDeltas": {
+          "inventory_cache_bypasses_total": 0.0,
+          "inventory_cache_decode_seconds_count": 28762.0,
+          "inventory_cache_decode_seconds_sum": 0.10294995799999995,
+          "inventory_cache_errors_total": 0.0,
+          "inventory_cache_hits_total": 28762.0,
+          "inventory_cache_misses_total": 1238.0,
+          "inventory_cache_redis_seconds_count{operation=\"get\"}": 30000.0,
+          "inventory_cache_redis_seconds_sum{operation=\"get\"}": 3.9829555290000087,
+          "inventory_cache_redis_seconds_count{operation=\"set\"}": 1238.0,
+          "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.15518914500000136,
+          "inventory_catalog_database_reads_total": 1238.0,
+          "inventory_catalog_database_seconds_count": 1238.0,
+          "inventory_catalog_database_seconds_sum": 0.17245658100000227,
+          "inventory_catalog_lookup_seconds_count{source=\"database\"}": 1238.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 0.4893555289999938,
+          "inventory_catalog_lookup_seconds_count{source=\"redis\"}": 28762.0,
+          "inventory_catalog_lookup_seconds_sum{source=\"redis\"}": 3.9998252259999987
+        },
+        "timerMeanMilliseconds": {
+          "inventory_cache_decode_mean_ms": 0.003579374104721506,
+          "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.1327651843000003,
+          "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.1253547213247184,
+          "inventory_catalog_database_mean_ms": 0.1393025694668839,
+          "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.3952791025848092,
+          "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.1390663106181767
+        },
+        "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+      },
+      "statsNote": "Before/after instantaneous snapshots, not interval-average CPU"
+    }
+  ],
+  "status": "COMPLETE",
+  "datasetSha256": "f01800754feca1d392c72ca85475d7d9da737d36a387f6de32b8c5290e910267",
+  "expectedFieldsSha256": "7ac1a8d4cf747ca105730aded4bda174661b9f6cb41532c01980b0e499151bb2",
+  "seedingOutboxDrain": {
+    "observed": true,
+    "pending": 0.0
+  },
+  "endedAt": "2026-10-25T00:04:51.536330+00:00",
+  "sourceAtEnd": {
+    "sha256": "393cca58ed966b57b6ba38bd025e63a93215ed2807bbdb712491c5d59546048b",
+    "files": {
+      "Dockerfile": "30313597a875a5024e8825741d9dfba6415a5b62ec7c2cad813b55c29757fecd",
+      "common/pom.xml": "6a60ba66fbf3ae4131d478af15964c3331e03a63ec1d65542472bfebba2dbbc1",
+      "common/src/main/java/com/wenqi/fulfillment/common/Api.java": "532ac9d7c1d696ac4195f14b8352e0ba416e6e61160ba8fd5156202119e6a44f",
+      "common/src/main/java/com/wenqi/fulfillment/common/ApiErrors.java": "c476ccba4df90684afcabe44b6b71c890e10a4b9cce2cd17cc154d49e444005e",
+      "common/src/main/java/com/wenqi/fulfillment/common/ApiException.java": "11e745b3ff709bcc685874beb06f266e78e8cfe29fde477a01452bdf4f606c92",
+      "common/src/main/java/com/wenqi/fulfillment/common/EventEnvelope.java": "03ae530816ca886252cc914fcb96cd4066dcfe1627f19e52f3942cfefd5425bc",
+      "common/src/main/java/com/wenqi/fulfillment/common/Events.java": "acff177df8899bb257a6c34c58c6e25a51918616cd78079b89b1519e419cc62f",
+      "common/src/main/java/com/wenqi/fulfillment/common/JsonBodyLimitFilter.java": "2e92d86dfbdd5009bae773a2eb056b5636cf2438175174880c3c512e9dc859e0",
+      "common/src/main/java/com/wenqi/fulfillment/common/OutboxRelay.java": "388655aafee2b944c29eca03ab3a1ddad83fef88237d00f4d7f507a14181464b",
+      "common/src/main/java/com/wenqi/fulfillment/common/PlatformConfiguration.java": "cccb6871f724ac4ebc3dc8b2d53e24e15316579728d0c7b56f66add196724215",
+      "common/src/main/java/com/wenqi/fulfillment/common/RequestIdentityFilter.java": "9651ed227dd8e706a01d459d2188c258e8d2f3c087b50ec794a7135484d7b7d2",
+      "common/src/main/resources/application-common.yml": "f5f7556f32f89328fe7c5d1b230855963f753e71420f45fac2b1803f563ae5e9",
+      "common/src/main/resources/db/common/V1__outbox.sql": "d15687fc1c5622c6f87cf0bfe3b88bc27488f1c59766621e5e3428b9fd5adac3",
+      "common/src/test/java/com/wenqi/fulfillment/common/EventsTest.java": "325386c7e4dc2f7c53a1794ac1bf33f9da5f169c85e5b89a7e512609af4a78dc",
+      "common/src/test/java/com/wenqi/fulfillment/common/OutboxIT.java": "df380f2ee0e20f43a42d1099edbe4c4af3cd10217a85b23adf363eda1cf08d72",
+      "common/src/test/java/com/wenqi/fulfillment/common/RequestBoundaryTest.java": "8512b7017bd05db350b847e55eecf3ffc4941af546a5576dbee753aa52e24027",
+      "common/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker": "8eca853a5a457f17e0479b71dfbe95f2a13aff9eeff250261ecdc8ca9b847a6a",
+      "compose.yaml": "d77e26889a3943f53085bb424d579b5eb5d669f0a004097561f8270b6a23bf7f",
+      "inventory-service/pom.xml": "cd249475c6e7d609907c35bd874975757bed6a9c042fb5bc601f74f6e350b807",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/CatalogCache.java": "b6c712ae32183118579b1575ad62563fa60ae3553a79fc527f59e4b6814437f2",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryApplication.java": "c06cf5231c13d6e3234e1caf57bcd5302216331f5981147a1973035eaa5c8b41",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryController.java": "fcb31044afc8cf2465d27b060649d137bcc56bf2b53fcd4becbbeec6206c76cc",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryRules.java": "c8b2aa76fc3525f4333d2c774ebfad23fd09594ccc9f21c2e4589ad37a5da3bc",
+      "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryService.java": "43d80b9bd0e51c66350bb789694ddbe552b9d411d4730325989b369b92e1ab60",
+      "inventory-service/src/main/resources/application.yml": "5a73d4d0fb359f3336c0c3ad68cec7fbc7219dbfd766f5fabbff3e99860a33cd",
+      "inventory-service/src/main/resources/db/migration/V2__inventory.sql": "673e87aaef9bd33f8574c891fbc6d775f074a1e6e1a1c03f01b9d50e59df1b25",
+      "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/CatalogCacheRecoveryTest.java": "671de599c36941e364921450651481da9cbaba5f31a3b65a94caae8715bdb142",
+      "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/CatalogCacheTest.java": "1dc2281dadd3afac94282a25c1328c5a06f316d8335414b45526df2530057781",
+      "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/InventoryIT.java": "4bccf381cbda6670e91f435b8e3cb852002573e2a2fe04656fbccc5061562fe8",
+      "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/InventoryRulesTest.java": "ea6ab8684771bfb459e31c2c6a0a890c02ee9fae6a557f70489ee1928688ee58",
+      "inventory-service/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker": "8eca853a5a457f17e0479b71dfbe95f2a13aff9eeff250261ecdc8ca9b847a6a",
+      "pom.xml": "43a27701173e1f0fcdea56d2b34ce547711efeabbdfcebd0741dd9ce9c34a611",
+      "scripts/cache_benchmark.py": "14c4e6c96ff18a8b04b89b281abd19e7a2fc68509185781f38582dbd2b66ee72",
+      "scripts/load_test.py": "ba72a26fb1c33c9e41121c1a36bd08ad2cbecc2e3475b60bcc78f8ee3d6ee4b7",
+      "scripts/seed_data.py": "5cf824812d93ff5d1c2cb0b5d824daa4a6329c9192345ce026d0f285aed4be11"
+    }
+  },
+  "sourceTreeChangedDuringExperiment": false
+}

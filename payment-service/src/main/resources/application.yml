@@ -1,0 +1,14 @@
+spring:
+  config:
+    import: classpath:application-common.yml
+  application:
+    name: payment-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/payment}
+    username: ${DB_USER:fulfillment}
+    password: ${DB_PASSWORD}
+server:
+  port: ${PORT:8082}
+app:
+  payment:
+    provider: ${PAYMENT_PROVIDER:simulated}

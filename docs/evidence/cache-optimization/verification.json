@@ -1,0 +1,36 @@
+{
+  "java": {
+    "unit": {
+      "tests": 41,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "postgresIntegration": {
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "pythonExitCode": 0,
+  "smokeReport": "reports/smoke-f7832be83d31.json",
+  "httpBoundaryReport": "reports/api-contract-c3be322ed329.json",
+  "cacheSummary": "reports/cache-study-final/summary.json",
+  "sourceHashes": {
+    "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/CatalogCache.java": "b6c712ae32183118579b1575ad62563fa60ae3553a79fc527f59e4b6814437f2",
+    "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryApplication.java": "c06cf5231c13d6e3234e1caf57bcd5302216331f5981147a1973035eaa5c8b41",
+    "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryController.java": "fcb31044afc8cf2465d27b060649d137bcc56bf2b53fcd4becbbeec6206c76cc",
+    "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryRules.java": "c8b2aa76fc3525f4333d2c774ebfad23fd09594ccc9f21c2e4589ad37a5da3bc",
+    "inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryService.java": "43d80b9bd0e51c66350bb789694ddbe552b9d411d4730325989b369b92e1ab60",
+    "inventory-service/src/main/resources/application.yml": "5a73d4d0fb359f3336c0c3ad68cec7fbc7219dbfd766f5fabbff3e99860a33cd",
+    "inventory-service/src/main/resources/db/migration/V2__inventory.sql": "673e87aaef9bd33f8574c891fbc6d775f074a1e6e1a1c03f01b9d50e59df1b25",
+    "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/CatalogCacheRecoveryTest.java": "671de599c36941e364921450651481da9cbaba5f31a3b65a94caae8715bdb142",
+    "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/CatalogCacheTest.java": "1dc2281dadd3afac94282a25c1328c5a06f316d8335414b45526df2530057781",
+    "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/InventoryIT.java": "4bccf381cbda6670e91f435b8e3cb852002573e2a2fe04656fbccc5061562fe8",
+    "inventory-service/src/test/java/com/wenqi/fulfillment/inventory/InventoryRulesTest.java": "ea6ab8684771bfb459e31c2c6a0a890c02ee9fae6a557f70489ee1928688ee58",
+    "inventory-service/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker": "8eca853a5a457f17e0479b71dfbe95f2a13aff9eeff250261ecdc8ca9b847a6a"
+  },
+  "cloudDeploymentPerformed": false,
+  "hostedGitHubWorkflowPerformed": false
+}

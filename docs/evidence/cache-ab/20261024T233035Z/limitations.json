@@ -1,0 +1,16 @@
+{
+  "excludedComparativeCases": [
+    {
+      "case": "off-1",
+      "reason": "An independent system smoke overlapped approximately the first 3.1 seconds. Raw observations preserved."
+    }
+  ],
+  "unhealthyCases": [
+    {
+      "case": "cold-1",
+      "droppedRequests": 30,
+      "note": "Reported percentiles cover successful correct responses only."
+    }
+  ],
+  "conclusion": "No stable improvement demonstrated by uncontaminated repeated cases. All raw measurements retained."
+}

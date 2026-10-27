@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-10-24T23:33:28.857079+00:00",
+  "passed": true,
+  "marker": "dlt-smoke-a401be807f524ea9a94c82b2ec482bcf",
+  "sourceTopic": "warehouse.status.v1",
+  "deadLetterTopic": "warehouse.status.v1.DLT",
+  "checks": [
+    "Malformed source record quarantined",
+    "DLT broker acknowledgement recorded durably",
+    "Original payload read back from actual DLT"
+  ],
+  "paymentProvider": "simulated; no charge"
+}

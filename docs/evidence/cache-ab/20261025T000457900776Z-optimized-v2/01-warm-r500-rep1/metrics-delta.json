@@ -1,0 +1,36 @@
+{
+  "counterAndTimerDeltas": {
+    "inventory_cache_bypasses_total": 0.0,
+    "inventory_cache_decode_seconds_count": 28732.0,
+    "inventory_cache_decode_seconds_sum": 0.08210348699999998,
+    "inventory_cache_errors_total": 0.0,
+    "inventory_cache_hits_total": 28732.0,
+    "inventory_cache_misses_total": 2536.0,
+    "inventory_cache_redis_seconds_count{operation=\"get\"}": 31268.0,
+    "inventory_cache_redis_seconds_sum{operation=\"get\"}": 3.7321911310000075,
+    "inventory_cache_redis_seconds_count{operation=\"set\"}": 1268.0,
+    "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.16206467700000005,
+    "inventory_cache_redis_skipped_total{operation=\"set\"}": 0.0,
+    "inventory_cache_singleflight_total{role=\"admission_bypass\"}": 0.0,
+    "inventory_cache_singleflight_total{role=\"follower\"}": 0.0,
+    "inventory_cache_singleflight_total{role=\"leader\"}": 1268.0,
+    "inventory_catalog_database_reads_total": 1268.0,
+    "inventory_catalog_database_seconds_count": 1268.0,
+    "inventory_catalog_database_seconds_sum": 0.21519814300000029,
+    "inventory_catalog_lookup_seconds_count{source=\"coalesced\"}": 0.0,
+    "inventory_catalog_lookup_seconds_sum{source=\"coalesced\"}": 0.0,
+    "inventory_catalog_lookup_seconds_count{source=\"database\"}": 1268.0,
+    "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 0.7037097609999989,
+    "inventory_catalog_lookup_seconds_count{source=\"redis\"}": 28732.0,
+    "inventory_catalog_lookup_seconds_sum{source=\"redis\"}": 3.5771719930000003
+  },
+  "timerMeanMilliseconds": {
+    "inventory_cache_decode_mean_ms": 0.002857562543505498,
+    "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.11936136404630958,
+    "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.12781125946372243,
+    "inventory_catalog_database_mean_ms": 0.16971462381703495,
+    "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.5549761522082011,
+    "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.1245013223235417
+  },
+  "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+}

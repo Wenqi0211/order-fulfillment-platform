@@ -1,0 +1,76 @@
+{
+  "mode": "warm",
+  "rate": 500.0,
+  "repetition": 1,
+  "caseDirectory": "01-warm-r500-rep1",
+  "container": {
+    "containerId": "ba706d9caae9a513dbd1eacf94456bf9718e7a4295d37f1ee0ffa5394de61983",
+    "imageId": "sha256:f1a0b65d6a425aff52b794090434e835b1f24e4c96e37d9de4de068b42f7d818",
+    "imageTag": "wenqi-order-platform/inventory:cache-optimized",
+    "memoryBytes": 805306368,
+    "nanoCpus": 1000000000,
+    "cacheEnvironment": {
+      "INVENTORY_CACHE_ENABLED": "true",
+      "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+      "INVENTORY_CACHE_TTL_SECONDS": "30",
+      "INVENTORY_CACHE_MAX_IN_FLIGHT": "256"
+    }
+  },
+  "prefillSeconds": 1.6933938330039382,
+  "report": "01-warm-r500-rep1/measurement/20261025T000628433835Z-warm-1.json",
+  "summary": {
+    "offeredRequests": 30000,
+    "startedRequests": 30000,
+    "successfulRequests": 30000,
+    "droppedRequests": 0,
+    "failedRequests": 0,
+    "elapsedSecondsIncludingDrain": 60.00010220799595,
+    "successfulRequestsPerSecond": 499.9991482681513,
+    "meanMs": 0.9058473746913175,
+    "p50Ms": 0.8347919210791588,
+    "p95Ms": 1.3360418379306793,
+    "p99Ms": 2.317375037819147,
+    "meanScheduledLatencyMs": 1.376520201129218,
+    "p95ScheduledLatencyMs": 1.877750020472746,
+    "p95SchedulerDelayMs": 0.5717082172651544,
+    "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+  },
+  "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+  "metrics": {
+    "counterAndTimerDeltas": {
+      "inventory_cache_bypasses_total": 0.0,
+      "inventory_cache_decode_seconds_count": 28732.0,
+      "inventory_cache_decode_seconds_sum": 0.08210348699999998,
+      "inventory_cache_errors_total": 0.0,
+      "inventory_cache_hits_total": 28732.0,
+      "inventory_cache_misses_total": 2536.0,
+      "inventory_cache_redis_seconds_count{operation=\"get\"}": 31268.0,
+      "inventory_cache_redis_seconds_sum{operation=\"get\"}": 3.7321911310000075,
+      "inventory_cache_redis_seconds_count{operation=\"set\"}": 1268.0,
+      "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.16206467700000005,
+      "inventory_cache_redis_skipped_total{operation=\"set\"}": 0.0,
+      "inventory_cache_singleflight_total{role=\"admission_bypass\"}": 0.0,
+      "inventory_cache_singleflight_total{role=\"follower\"}": 0.0,
+      "inventory_cache_singleflight_total{role=\"leader\"}": 1268.0,
+      "inventory_catalog_database_reads_total": 1268.0,
+      "inventory_catalog_database_seconds_count": 1268.0,
+      "inventory_catalog_database_seconds_sum": 0.21519814300000029,
+      "inventory_catalog_lookup_seconds_count{source=\"coalesced\"}": 0.0,
+      "inventory_catalog_lookup_seconds_sum{source=\"coalesced\"}": 0.0,
+      "inventory_catalog_lookup_seconds_count{source=\"database\"}": 1268.0,
+      "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 0.7037097609999989,
+      "inventory_catalog_lookup_seconds_count{source=\"redis\"}": 28732.0,
+      "inventory_catalog_lookup_seconds_sum{source=\"redis\"}": 3.5771719930000003
+    },
+    "timerMeanMilliseconds": {
+      "inventory_cache_decode_mean_ms": 0.002857562543505498,
+      "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.11936136404630958,
+      "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.12781125946372243,
+      "inventory_catalog_database_mean_ms": 0.16971462381703495,
+      "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.5549761522082011,
+      "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.1245013223235417
+    },
+    "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+  },
+  "statsNote": "Before/after instantaneous snapshots, not interval-average CPU"
+}

@@ -1,0 +1,13 @@
+{
+  "reports/cache-baseline-source/src/main/resources/application.yml": "53841bf4f7ed6d0c3022426efaf145d2e40353a055f0f02e157442e79b2f477e",
+  "reports/cache-baseline-source/src/main/java/com/wenqi/fulfillment/inventory/InventoryRules.java": "c8b2aa76fc3525f4333d2c774ebfad23fd09594ccc9f21c2e4589ad37a5da3bc",
+  "reports/cache-baseline-source/src/main/java/com/wenqi/fulfillment/inventory/InventoryApplication.java": "c06cf5231c13d6e3234e1caf57bcd5302216331f5981147a1973035eaa5c8b41",
+  "reports/cache-baseline-source/src/main/java/com/wenqi/fulfillment/inventory/InventoryController.java": "fcb31044afc8cf2465d27b060649d137bcc56bf2b53fcd4becbbeec6206c76cc",
+  "reports/cache-baseline-source/src/main/java/com/wenqi/fulfillment/inventory/InventoryService.java": "3bcc806185920c0fb85e91ef7370b1c928c507eb13f32a7e78afb20b338a8fa8",
+  "reports/cache-baseline-source/src/main/java/com/wenqi/fulfillment/inventory/CatalogCache.java": "41a7d467908521f29e5d83196f32ef0d2aec4292baf08ee93db603a3016d6b8d",
+  "reports/cache-baseline-source/src/main/resources/db/migration/V2__inventory.sql": "673e87aaef9bd33f8574c891fbc6d775f074a1e6e1a1c03f01b9d50e59df1b25",
+  "reports/cache-baseline-source/src/test/java/com/wenqi/fulfillment/inventory/CatalogCacheTest.java": "69d296983d44980ec1f35be468c01772cf35dd60e6d15003ce3a634e92b0270a",
+  "reports/cache-baseline-source/src/test/java/com/wenqi/fulfillment/inventory/InventoryIT.java": "4bccf381cbda6670e91f435b8e3cb852002573e2a2fe04656fbccc5061562fe8",
+  "reports/cache-baseline-source/src/test/java/com/wenqi/fulfillment/inventory/InventoryRulesTest.java": "ea6ab8684771bfb459e31c2c6a0a890c02ee9fae6a557f70489ee1928688ee58",
+  "reports/cache-baseline-source/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker": "8eca853a5a457f17e0479b71dfbe95f2a13aff9eeff250261ecdc8ca9b847a6a"
+}

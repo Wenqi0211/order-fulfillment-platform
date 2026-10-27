@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-config
+data:
+  JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=65.0 -XX:InitialRAMPercentage=20.0 -XX:+ExitOnOutOfMemoryError
+  OUTBOX_ENABLED: "true"
+  KAFKA_LISTENERS_ENABLED: "true"
+  KAFKA_TOPICS_ENABLED: "false"
+  KAFKA_REPLICATION_FACTOR: "3"
+  ORDER_WORKER_ENABLED: "true"
+  INVENTORY_CACHE_ENABLED: "true"
+  INVENTORY_CACHE_TTL_SECONDS: "30"
+  REDIS_SSL_ENABLED: "true"

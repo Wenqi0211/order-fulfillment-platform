@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: order-service
+  config:
+    import: classpath:application-common.yml
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/orders}
+    username: ${DB_USER:fulfillment}
+    password: ${DB_PASSWORD}
+  flyway:
+    locations: classpath:db/common,classpath:db/migration
+  kafka:
+    consumer:
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      max-poll-records: 20
+server:
+  port: ${PORT:8080}
+app:
+  inventory-base-url: ${INVENTORY_BASE_URL:http://localhost:8081}
+  payment-base-url: ${PAYMENT_BASE_URL:http://localhost:8082}
+  dependency-timeout-ms: ${DEPENDENCY_TIMEOUT_MS:2000}
+  events-topic: ${EVENTS_TOPIC:fulfillment.events.v1}
+  warehouse-topic: ${WAREHOUSE_TOPIC:warehouse.status.v1}
+  warehouse-group: ${WAREHOUSE_GROUP:orders-warehouse-v1}
+  warehouse-consumer-enabled: ${WAREHOUSE_CONSUMER_ENABLED:true}
+  warehouse-max-attempts: ${WAREHOUSE_MAX_ATTEMPTS:5}
+  worker:
+    enabled: ${ORDER_WORKER_ENABLED:true}
+    poll-ms: ${ORDER_WORKER_POLL_MS:250}
+    max-attempts: ${ORDER_WORKER_MAX_ATTEMPTS:20}
+    backoff-ms: ${ORDER_WORKER_BACKOFF_MS:1000}

@@ -1,0 +1,45 @@
+{
+  "timestamp": "20261024T235459238585Z",
+  "startedAt": "2026-10-24T23:54:44.232803+00:00",
+  "endedAt": "2026-10-24T23:54:59.233070+00:00",
+  "mode": "warm",
+  "url": "http://127.0.0.1:8081",
+  "rate": 500.0,
+  "scheduledSeconds": 15.0,
+  "concurrency": 64,
+  "seed": 2027,
+  "repetition": 1,
+  "datasetSha256": "7579527715584ed1873e33623b83d935b44361d8bd1bdfa146c1f218c36509a1",
+  "workingSetCount": 100,
+  "distribution": "uniform",
+  "zipfAlpha": 1.2,
+  "preloadPerformed": false,
+  "requestSequenceSha256": "53e720ab5bcae11864b35a85c983048efefb53766ea883fc6fa0d24e5eb19f5e",
+  "machine": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.13.7"
+  },
+  "summary": {
+    "offeredRequests": 7500,
+    "startedRequests": 7500,
+    "successfulRequests": 7500,
+    "droppedRequests": 0,
+    "failedRequests": 0,
+    "elapsedSecondsIncludingDrain": 15.000124500133097,
+    "successfulRequestsPerSecond": 499.9958500300082,
+    "meanMs": 0.8683983582382401,
+    "p50Ms": 0.7538748905062675,
+    "p95Ms": 1.4229160733520985,
+    "p99Ms": 3.240792080760002,
+    "meanScheduledLatencyMs": 1.314140316657722,
+    "p95ScheduledLatencyMs": 1.9555830396711382,
+    "p95SchedulerDelayMs": 0.5587910264726048,
+    "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+  },
+  "limitations": [
+    "Mode is a label: verify actual server cache setting separately.",
+    "Client and service may share host resources; this is not a production capacity result.",
+    "Latency excludes dropped requests; compare failures/drops and scheduler delay alongside latency."
+  ]
+}

@@ -1,0 +1,86 @@
+app:
+  api-key: ${APP_API_KEY}
+  outbox:
+    enabled: ${OUTBOX_ENABLED:true}
+  kafka:
+    replication-factor: ${KAFKA_REPLICATION_FACTOR:1}
+    topics:
+      enabled: ${KAFKA_TOPICS_ENABLED:true}
+spring:
+  task:
+    scheduling:
+      pool:
+        size: 4
+      shutdown:
+        await-termination: true
+        await-termination-period: 25s
+  datasource:
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:12}
+      minimum-idle: 2
+      connection-timeout: 3000
+      validation-timeout: 1000
+      connection-init-sql: SET statement_timeout = '10s'; SET lock_timeout = '3s'; SET idle_in_transaction_session_timeout = '30s' 
+  flyway:
+    locations: classpath:db/common,classpath:db/migration
+    clean-disabled: true
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      properties:
+        enable.idempotence: true
+        delivery.timeout.ms: 15000
+        request.timeout.ms: 5000
+        max.block.ms: 5000
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      max-poll-records: 25
+    listener:
+      auto-startup: ${KAFKA_LISTENERS_ENABLED:true}
+      ack-mode: record
+    properties:
+      security.protocol: ${KAFKA_SECURITY_PROTOCOL:PLAINTEXT}
+      sasl.mechanism: ${KAFKA_SASL_MECHANISM:PLAIN}
+      sasl.jaas.config: ${KAFKA_SASL_JAAS_CONFIG:}
+    admin:
+      fail-fast: false
+      operation-timeout: 5s
+      properties:
+        request.timeout.ms: 5000
+        default.api.timeout.ms: 5000
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+server:
+  shutdown: graceful
+  tomcat:
+    max-http-form-post-size: 64KB
+    connection-timeout: 5s
+  max-http-request-header-size: 16KB
+  error:
+    include-message: never
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+      group:
+        readiness:
+          include: readinessState,db
+logging:
+  structured:
+    format:
+      console: ecs
+  pattern:
+    level: "%5p [requestId=%X{requestId:-}]"

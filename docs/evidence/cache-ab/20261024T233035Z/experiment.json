@@ -1,0 +1,15 @@
+{
+  "arguments": {
+    "count": 500,
+    "rate": 100.0,
+    "seconds": 10.0,
+    "repeats": 3,
+    "concurrency": 32,
+    "prefix": "BENCH"
+  },
+  "gitRevision": null,
+  "dockerContextEndpoint": "unix:///Users/wenqi/.docker/run/docker.sock",
+  "comparison": "same dataset and deterministic request sequence in every case",
+  "restoreCacheEnabled": true,
+  "productionCapacityClaim": false
+}

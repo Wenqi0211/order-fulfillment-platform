@@ -1,0 +1,103 @@
+name: Deploy verified release
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        options: [staging, prod]
+        required: true
+      image_commit:
+        description: Full 40-character commit SHA with successful main-branch CI and published images
+        type: string
+        required: true
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: deploy-${{ inputs.environment }}
+  cancel-in-progress: false
+jobs:
+  deploy:
+    # The runner must have private cluster access; no public Kubernetes API is required.
+    runs-on: [self-hosted, linux, order-deploy]
+    timeout-minutes: 20
+    environment: ${{ inputs.environment }}
+    env:
+      DEPLOY_ENVIRONMENT: ${{ inputs.environment }}
+      IMAGE_COMMIT: ${{ inputs.image_commit }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-kubectl@v4
+        with:
+          version: v1.34.10
+      - name: Require a verified release
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$IMAGE_COMMIT" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$DEPLOY_ENVIRONMENT" == staging || "$DEPLOY_ENVIRONMENT" == prod ]]
+          run_id=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/ci.yml/runs?head_sha=${IMAGE_COMMIT}&status=success&event=push" --jq '[.workflow_runs[] | select(.head_branch == "main")][0].id // empty')
+          test -n "$run_id"
+          mkdir -p "$RUNNER_TEMP/order-release"
+          for service in inventory payment order; do
+            gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name "release-${service}" --dir "$RUNNER_TEMP/order-release"
+          done
+          echo "DEPLOY_NAMESPACE=order-${DEPLOY_ENVIRONMENT}" >> "$GITHUB_ENV"
+      - name: Prepare private cluster credentials
+        env:
+          KUBECONFIG_B64: ${{ secrets.KUBECONFIG_B64 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$KUBECONFIG_B64"
+          umask 077
+          printf '%s' "$KUBECONFIG_B64" | base64 --decode > "$RUNNER_TEMP/order-kubeconfig"
+          echo "KUBECONFIG=$RUNNER_TEMP/order-kubeconfig" >> "$GITHUB_ENV"
+      - name: Verify protected cluster context and namespace
+        env:
+          EXPECTED_KUBE_CONTEXT: ${{ vars.EXPECTED_KUBE_CONTEXT }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$EXPECTED_KUBE_CONTEXT"
+          test "$(kubectl config current-context)" = "$EXPECTED_KUBE_CONTEXT"
+          test "$(kubectl config view --minify -o jsonpath='{..namespace}')" = "$DEPLOY_NAMESPACE"
+          kubectl auth can-i patch deployments --namespace "$DEPLOY_NAMESPACE" | grep -qx yes
+      - name: Capture workload revisions before any deployment changes
+        id: snapshot
+        run: python3 scripts/rollout.py snapshot --namespace "$DEPLOY_NAMESPACE" --output "$RUNNER_TEMP/revisions.json"
+      - name: Render and apply reviewed manifests
+        id: apply
+        env:
+          REGISTRY_REPOSITORY: ghcr.io/${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          manifest_directory=$(mktemp -d "$RUNNER_TEMP/order-manifests.XXXXXX")
+          cp -R infra/kubernetes/. "$manifest_directory/"
+          python3 scripts/rollout.py render --directory "$manifest_directory" --repository "$REGISTRY_REPOSITORY" --commit "$IMAGE_COMMIT" --digests "$RUNNER_TEMP/order-release"
+          kubectl apply -k "$manifest_directory/overlays/$DEPLOY_ENVIRONMENT"
+      - name: Wait for every service rollout
+        run: python3 scripts/rollout.py wait --namespace "$DEPLOY_NAMESPACE"
+      - name: Verify deployed APIs without mutating production data
+        env:
+          APP_API_KEY: ${{ secrets.APP_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          kubectl -n "$DEPLOY_NAMESPACE" port-forward service/order-service 18080:8080 > "$RUNNER_TEMP/order-forward.log" 2>&1 &
+          order_pid=$!
+          kubectl -n "$DEPLOY_NAMESPACE" port-forward service/inventory-service 18081:8081 > "$RUNNER_TEMP/inventory-forward.log" 2>&1 &
+          inventory_pid=$!
+          kubectl -n "$DEPLOY_NAMESPACE" port-forward service/payment-service 18082:8082 > "$RUNNER_TEMP/payment-forward.log" 2>&1 &
+          payment_pid=$!
+          trap 'kill "$order_pid" "$inventory_pid" "$payment_pid" 2>/dev/null || true' EXIT
+          python3 scripts/deployment_smoke.py --order-url http://127.0.0.1:18080 --inventory-url http://127.0.0.1:18081 --payment-url http://127.0.0.1:18082
+      - name: Restore all captured workload revisions after failure
+        if: failure() && steps.snapshot.outcome == 'success' && steps.apply.outcome != 'skipped'
+        run: python3 scripts/rollout.py rollback --namespace "$DEPLOY_NAMESPACE" --snapshot "$RUNNER_TEMP/revisions.json"
+      - name: Remove temporary credentials from runner
+        if: always()
+        shell: bash
+        run: rm -f "$RUNNER_TEMP/order-kubeconfig"

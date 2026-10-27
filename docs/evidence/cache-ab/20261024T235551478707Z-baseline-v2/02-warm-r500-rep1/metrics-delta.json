@@ -1,0 +1,30 @@
+{
+  "counterAndTimerDeltas": {
+    "inventory_cache_bypasses_total": 0.0,
+    "inventory_cache_decode_seconds_count": 28750.0,
+    "inventory_cache_decode_seconds_sum": 0.10031768800000007,
+    "inventory_cache_errors_total": 0.0,
+    "inventory_cache_hits_total": 28750.0,
+    "inventory_cache_misses_total": 1250.0,
+    "inventory_cache_redis_seconds_count{operation=\"get\"}": 30000.0,
+    "inventory_cache_redis_seconds_sum{operation=\"get\"}": 3.538758859000012,
+    "inventory_cache_redis_seconds_count{operation=\"set\"}": 1250.0,
+    "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.15482138099999787,
+    "inventory_catalog_database_reads_total": 1250.0,
+    "inventory_catalog_database_seconds_count": 1250.0,
+    "inventory_catalog_database_seconds_sum": 0.17428725999999983,
+    "inventory_catalog_lookup_seconds_count{source=\"database\"}": 1250.0,
+    "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 0.4888262029999737,
+    "inventory_catalog_lookup_seconds_count{source=\"redis\"}": 28750.0,
+    "inventory_catalog_lookup_seconds_sum{source=\"redis\"}": 3.5546977700000006
+  },
+  "timerMeanMilliseconds": {
+    "inventory_cache_decode_mean_ms": 0.0034893108869565245,
+    "inventory_cache_redis_mean_ms{operation=\"get\"}": 0.11795862863333374,
+    "inventory_cache_redis_mean_ms{operation=\"set\"}": 0.1238571047999983,
+    "inventory_catalog_database_mean_ms": 0.13942980799999988,
+    "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.39106096239997895,
+    "inventory_catalog_lookup_mean_ms{source=\"redis\"}": 0.12364166156521741
+  },
+  "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+}

@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-10-25T00:09:30.781978+00:00",
+  "passed": true,
+  "checks": 9,
+  "boundaries": [
+    "missing idempotency header",
+    "fractional integer",
+    "string integer",
+    "unknown property",
+    "duplicate JSON key",
+    "oversized body",
+    "unsupported content type",
+    "unsupported method",
+    "missing resource"
+  ]
+}

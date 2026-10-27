@@ -1,0 +1,6008 @@
+{
+  "skus": [
+    "BENCH_000000",
+    "BENCH_000001",
+    "BENCH_000002",
+    "BENCH_000003",
+    "BENCH_000004",
+    "BENCH_000005",
+    "BENCH_000006",
+    "BENCH_000007",
+    "BENCH_000008",
+    "BENCH_000009",
+    "BENCH_000010",
+    "BENCH_000011",
+    "BENCH_000012",
+    "BENCH_000013",
+    "BENCH_000014",
+    "BENCH_000015",
+    "BENCH_000016",
+    "BENCH_000017",
+    "BENCH_000018",
+    "BENCH_000019",
+    "BENCH_000020",
+    "BENCH_000021",
+    "BENCH_000022",
+    "BENCH_000023",
+    "BENCH_000024",
+    "BENCH_000025",
+    "BENCH_000026",
+    "BENCH_000027",
+    "BENCH_000028",
+    "BENCH_000029",
+    "BENCH_000030",
+    "BENCH_000031",
+    "BENCH_000032",
+    "BENCH_000033",
+    "BENCH_000034",
+    "BENCH_000035",
+    "BENCH_000036",
+    "BENCH_000037",
+    "BENCH_000038",
+    "BENCH_000039",
+    "BENCH_000040",
+    "BENCH_000041",
+    "BENCH_000042",
+    "BENCH_000043",
+    "BENCH_000044",
+    "BENCH_000045",
+    "BENCH_000046",
+    "BENCH_000047",
+    "BENCH_000048",
+    "BENCH_000049",
+    "BENCH_000050",
+    "BENCH_000051",
+    "BENCH_000052",
+    "BENCH_000053",
+    "BENCH_000054",
+    "BENCH_000055",
+    "BENCH_000056",
+    "BENCH_000057",
+    "BENCH_000058",
+    "BENCH_000059",
+    "BENCH_000060",
+    "BENCH_000061",
+    "BENCH_000062",
+    "BENCH_000063",
+    "BENCH_000064",
+    "BENCH_000065",
+    "BENCH_000066",
+    "BENCH_000067",
+    "BENCH_000068",
+    "BENCH_000069",
+    "BENCH_000070",
+    "BENCH_000071",
+    "BENCH_000072",
+    "BENCH_000073",
+    "BENCH_000074",
+    "BENCH_000075",
+    "BENCH_000076",
+    "BENCH_000077",
+    "BENCH_000078",
+    "BENCH_000079",
+    "BENCH_000080",
+    "BENCH_000081",
+    "BENCH_000082",
+    "BENCH_000083",
+    "BENCH_000084",
+    "BENCH_000085",
+    "BENCH_000086",
+    "BENCH_000087",
+    "BENCH_000088",
+    "BENCH_000089",
+    "BENCH_000090",
+    "BENCH_000091",
+    "BENCH_000092",
+    "BENCH_000093",
+    "BENCH_000094",
+    "BENCH_000095",
+    "BENCH_000096",
+    "BENCH_000097",
+    "BENCH_000098",
+    "BENCH_000099",
+    "BENCH_000100",
+    "BENCH_000101",
+    "BENCH_000102",
+    "BENCH_000103",
+    "BENCH_000104",
+    "BENCH_000105",
+    "BENCH_000106",
+    "BENCH_000107",
+    "BENCH_000108",
+    "BENCH_000109",
+    "BENCH_000110",
+    "BENCH_000111",
+    "BENCH_000112",
+    "BENCH_000113",
+    "BENCH_000114",
+    "BENCH_000115",
+    "BENCH_000116",
+    "BENCH_000117",
+    "BENCH_000118",
+    "BENCH_000119",
+    "BENCH_000120",
+    "BENCH_000121",
+    "BENCH_000122",
+    "BENCH_000123",
+    "BENCH_000124",
+    "BENCH_000125",
+    "BENCH_000126",
+    "BENCH_000127",
+    "BENCH_000128",
+    "BENCH_000129",
+    "BENCH_000130",
+    "BENCH_000131",
+    "BENCH_000132",
+    "BENCH_000133",
+    "BENCH_000134",
+    "BENCH_000135",
+    "BENCH_000136",
+    "BENCH_000137",
+    "BENCH_000138",
+    "BENCH_000139",
+    "BENCH_000140",
+    "BENCH_000141",
+    "BENCH_000142",
+    "BENCH_000143",
+    "BENCH_000144",
+    "BENCH_000145",
+    "BENCH_000146",
+    "BENCH_000147",
+    "BENCH_000148",
+    "BENCH_000149",
+    "BENCH_000150",
+    "BENCH_000151",
+    "BENCH_000152",
+    "BENCH_000153",
+    "BENCH_000154",
+    "BENCH_000155",
+    "BENCH_000156",
+    "BENCH_000157",
+    "BENCH_000158",
+    "BENCH_000159",
+    "BENCH_000160",
+    "BENCH_000161",
+    "BENCH_000162",
+    "BENCH_000163",
+    "BENCH_000164",
+    "BENCH_000165",
+    "BENCH_000166",
+    "BENCH_000167",
+    "BENCH_000168",
+    "BENCH_000169",
+    "BENCH_000170",
+    "BENCH_000171",
+    "BENCH_000172",
+    "BENCH_000173",
+    "BENCH_000174",
+    "BENCH_000175",
+    "BENCH_000176",
+    "BENCH_000177",
+    "BENCH_000178",
+    "BENCH_000179",
+    "BENCH_000180",
+    "BENCH_000181",
+    "BENCH_000182",
+    "BENCH_000183",
+    "BENCH_000184",
+    "BENCH_000185",
+    "BENCH_000186",
+    "BENCH_000187",
+    "BENCH_000188",
+    "BENCH_000189",
+    "BENCH_000190",
+    "BENCH_000191",
+    "BENCH_000192",
+    "BENCH_000193",
+    "BENCH_000194",
+    "BENCH_000195",
+    "BENCH_000196",
+    "BENCH_000197",
+    "BENCH_000198",
+    "BENCH_000199",
+    "BENCH_000200",
+    "BENCH_000201",
+    "BENCH_000202",
+    "BENCH_000203",
+    "BENCH_000204",
+    "BENCH_000205",
+    "BENCH_000206",
+    "BENCH_000207",
+    "BENCH_000208",
+    "BENCH_000209",
+    "BENCH_000210",
+    "BENCH_000211",
+    "BENCH_000212",
+    "BENCH_000213",
+    "BENCH_000214",
+    "BENCH_000215",
+    "BENCH_000216",
+    "BENCH_000217",
+    "BENCH_000218",
+    "BENCH_000219",
+    "BENCH_000220",
+    "BENCH_000221",
+    "BENCH_000222",
+    "BENCH_000223",
+    "BENCH_000224",
+    "BENCH_000225",
+    "BENCH_000226",
+    "BENCH_000227",
+    "BENCH_000228",
+    "BENCH_000229",
+    "BENCH_000230",
+    "BENCH_000231",
+    "BENCH_000232",
+    "BENCH_000233",
+    "BENCH_000234",
+    "BENCH_000235",
+    "BENCH_000236",
+    "BENCH_000237",
+    "BENCH_000238",
+    "BENCH_000239",
+    "BENCH_000240",
+    "BENCH_000241",
+    "BENCH_000242",
+    "BENCH_000243",
+    "BENCH_000244",
+    "BENCH_000245",
+    "BENCH_000246",
+    "BENCH_000247",
+    "BENCH_000248",
+    "BENCH_000249",
+    "BENCH_000250",
+    "BENCH_000251",
+    "BENCH_000252",
+    "BENCH_000253",
+    "BENCH_000254",
+    "BENCH_000255",
+    "BENCH_000256",
+    "BENCH_000257",
+    "BENCH_000258",
+    "BENCH_000259",
+    "BENCH_000260",
+    "BENCH_000261",
+    "BENCH_000262",
+    "BENCH_000263",
+    "BENCH_000264",
+    "BENCH_000265",
+    "BENCH_000266",
+    "BENCH_000267",
+    "BENCH_000268",
+    "BENCH_000269",
+    "BENCH_000270",
+    "BENCH_000271",
+    "BENCH_000272",
+    "BENCH_000273",
+    "BENCH_000274",
+    "BENCH_000275",
+    "BENCH_000276",
+    "BENCH_000277",
+    "BENCH_000278",
+    "BENCH_000279",
+    "BENCH_000280",
+    "BENCH_000281",
+    "BENCH_000282",
+    "BENCH_000283",
+    "BENCH_000284",
+    "BENCH_000285",
+    "BENCH_000286",
+    "BENCH_000287",
+    "BENCH_000288",
+    "BENCH_000289",
+    "BENCH_000290",
+    "BENCH_000291",
+    "BENCH_000292",
+    "BENCH_000293",
+    "BENCH_000294",
+    "BENCH_000295",
+    "BENCH_000296",
+    "BENCH_000297",
+    "BENCH_000298",
+    "BENCH_000299",
+    "BENCH_000300",
+    "BENCH_000301",
+    "BENCH_000302",
+    "BENCH_000303",
+    "BENCH_000304",
+    "BENCH_000305",
+    "BENCH_000306",
+    "BENCH_000307",
+    "BENCH_000308",
+    "BENCH_000309",
+    "BENCH_000310",
+    "BENCH_000311",
+    "BENCH_000312",
+    "BENCH_000313",
+    "BENCH_000314",
+    "BENCH_000315",
+    "BENCH_000316",
+    "BENCH_000317",
+    "BENCH_000318",
+    "BENCH_000319",
+    "BENCH_000320",
+    "BENCH_000321",
+    "BENCH_000322",
+    "BENCH_000323",
+    "BENCH_000324",
+    "BENCH_000325",
+    "BENCH_000326",
+    "BENCH_000327",
+    "BENCH_000328",
+    "BENCH_000329",
+    "BENCH_000330",
+    "BENCH_000331",
+    "BENCH_000332",
+    "BENCH_000333",
+    "BENCH_000334",
+    "BENCH_000335",
+    "BENCH_000336",
+    "BENCH_000337",
+    "BENCH_000338",
+    "BENCH_000339",
+    "BENCH_000340",
+    "BENCH_000341",
+    "BENCH_000342",
+    "BENCH_000343",
+    "BENCH_000344",
+    "BENCH_000345",
+    "BENCH_000346",
+    "BENCH_000347",
+    "BENCH_000348",
+    "BENCH_000349",
+    "BENCH_000350",
+    "BENCH_000351",
+    "BENCH_000352",
+    "BENCH_000353",
+    "BENCH_000354",
+    "BENCH_000355",
+    "BENCH_000356",
+    "BENCH_000357",
+    "BENCH_000358",
+    "BENCH_000359",
+    "BENCH_000360",
+    "BENCH_000361",
+    "BENCH_000362",
+    "BENCH_000363",
+    "BENCH_000364",
+    "BENCH_000365",
+    "BENCH_000366",
+    "BENCH_000367",
+    "BENCH_000368",
+    "BENCH_000369",
+    "BENCH_000370",
+    "BENCH_000371",
+    "BENCH_000372",
+    "BENCH_000373",
+    "BENCH_000374",
+    "BENCH_000375",
+    "BENCH_000376",
+    "BENCH_000377",
+    "BENCH_000378",
+    "BENCH_000379",
+    "BENCH_000380",
+    "BENCH_000381",
+    "BENCH_000382",
+    "BENCH_000383",
+    "BENCH_000384",
+    "BENCH_000385",
+    "BENCH_000386",
+    "BENCH_000387",
+    "BENCH_000388",
+    "BENCH_000389",
+    "BENCH_000390",
+    "BENCH_000391",
+    "BENCH_000392",
+    "BENCH_000393",
+    "BENCH_000394",
+    "BENCH_000395",
+    "BENCH_000396",
+    "BENCH_000397",
+    "BENCH_000398",
+    "BENCH_000399",
+    "BENCH_000400",
+    "BENCH_000401",
+    "BENCH_000402",
+    "BENCH_000403",
+    "BENCH_000404",
+    "BENCH_000405",
+    "BENCH_000406",
+    "BENCH_000407",
+    "BENCH_000408",
+    "BENCH_000409",
+    "BENCH_000410",
+    "BENCH_000411",
+    "BENCH_000412",
+    "BENCH_000413",
+    "BENCH_000414",
+    "BENCH_000415",
+    "BENCH_000416",
+    "BENCH_000417",
+    "BENCH_000418",
+    "BENCH_000419",
+    "BENCH_000420",
+    "BENCH_000421",
+    "BENCH_000422",
+    "BENCH_000423",
+    "BENCH_000424",
+    "BENCH_000425",
+    "BENCH_000426",
+    "BENCH_000427",
+    "BENCH_000428",
+    "BENCH_000429",
+    "BENCH_000430",
+    "BENCH_000431",
+    "BENCH_000432",
+    "BENCH_000433",
+    "BENCH_000434",
+    "BENCH_000435",
+    "BENCH_000436",
+    "BENCH_000437",
+    "BENCH_000438",
+    "BENCH_000439",
+    "BENCH_000440",
+    "BENCH_000441",
+    "BENCH_000442",
+    "BENCH_000443",
+    "BENCH_000444",
+    "BENCH_000445",
+    "BENCH_000446",
+    "BENCH_000447",
+    "BENCH_000448",
+    "BENCH_000449",
+    "BENCH_000450",
+    "BENCH_000451",
+    "BENCH_000452",
+    "BENCH_000453",
+    "BENCH_000454",
+    "BENCH_000455",
+    "BENCH_000456",
+    "BENCH_000457",
+    "BENCH_000458",
+    "BENCH_000459",
+    "BENCH_000460",
+    "BENCH_000461",
+    "BENCH_000462",
+    "BENCH_000463",
+    "BENCH_000464",
+    "BENCH_000465",
+    "BENCH_000466",
+    "BENCH_000467",
+    "BENCH_000468",
+    "BENCH_000469",
+    "BENCH_000470",
+    "BENCH_000471",
+    "BENCH_000472",
+    "BENCH_000473",
+    "BENCH_000474",
+    "BENCH_000475",
+    "BENCH_000476",
+    "BENCH_000477",
+    "BENCH_000478",
+    "BENCH_000479",
+    "BENCH_000480",
+    "BENCH_000481",
+    "BENCH_000482",
+    "BENCH_000483",
+    "BENCH_000484",
+    "BENCH_000485",
+    "BENCH_000486",
+    "BENCH_000487",
+    "BENCH_000488",
+    "BENCH_000489",
+    "BENCH_000490",
+    "BENCH_000491",
+    "BENCH_000492",
+    "BENCH_000493",
+    "BENCH_000494",
+    "BENCH_000495",
+    "BENCH_000496",
+    "BENCH_000497",
+    "BENCH_000498",
+    "BENCH_000499",
+    "BENCH_000500",
+    "BENCH_000501",
+    "BENCH_000502",
+    "BENCH_000503",
+    "BENCH_000504",
+    "BENCH_000505",
+    "BENCH_000506",
+    "BENCH_000507",
+    "BENCH_000508",
+    "BENCH_000509",
+    "BENCH_000510",
+    "BENCH_000511",
+    "BENCH_000512",
+    "BENCH_000513",
+    "BENCH_000514",
+    "BENCH_000515",
+    "BENCH_000516",
+    "BENCH_000517",
+    "BENCH_000518",
+    "BENCH_000519",
+    "BENCH_000520",
+    "BENCH_000521",
+    "BENCH_000522",
+    "BENCH_000523",
+    "BENCH_000524",
+    "BENCH_000525",
+    "BENCH_000526",
+    "BENCH_000527",
+    "BENCH_000528",
+    "BENCH_000529",
+    "BENCH_000530",
+    "BENCH_000531",
+    "BENCH_000532",
+    "BENCH_000533",
+    "BENCH_000534",
+    "BENCH_000535",
+    "BENCH_000536",
+    "BENCH_000537",
+    "BENCH_000538",
+    "BENCH_000539",
+    "BENCH_000540",
+    "BENCH_000541",
+    "BENCH_000542",
+    "BENCH_000543",
+    "BENCH_000544",
+    "BENCH_000545",
+    "BENCH_000546",
+    "BENCH_000547",
+    "BENCH_000548",
+    "BENCH_000549",
+    "BENCH_000550",
+    "BENCH_000551",
+    "BENCH_000552",
+    "BENCH_000553",
+    "BENCH_000554",
+    "BENCH_000555",
+    "BENCH_000556",
+    "BENCH_000557",
+    "BENCH_000558",
+    "BENCH_000559",
+    "BENCH_000560",
+    "BENCH_000561",
+    "BENCH_000562",
+    "BENCH_000563",
+    "BENCH_000564",
+    "BENCH_000565",
+    "BENCH_000566",
+    "BENCH_000567",
+    "BENCH_000568",
+    "BENCH_000569",
+    "BENCH_000570",
+    "BENCH_000571",
+    "BENCH_000572",
+    "BENCH_000573",
+    "BENCH_000574",
+    "BENCH_000575",
+    "BENCH_000576",
+    "BENCH_000577",
+    "BENCH_000578",
+    "BENCH_000579",
+    "BENCH_000580",
+    "BENCH_000581",
+    "BENCH_000582",
+    "BENCH_000583",
+    "BENCH_000584",
+    "BENCH_000585",
+    "BENCH_000586",
+    "BENCH_000587",
+    "BENCH_000588",
+    "BENCH_000589",
+    "BENCH_000590",
+    "BENCH_000591",
+    "BENCH_000592",
+    "BENCH_000593",
+    "BENCH_000594",
+    "BENCH_000595",
+    "BENCH_000596",
+    "BENCH_000597",
+    "BENCH_000598",
+    "BENCH_000599",
+    "BENCH_000600",
+    "BENCH_000601",
+    "BENCH_000602",
+    "BENCH_000603",
+    "BENCH_000604",
+    "BENCH_000605",
+    "BENCH_000606",
+    "BENCH_000607",
+    "BENCH_000608",
+    "BENCH_000609",
+    "BENCH_000610",
+    "BENCH_000611",
+    "BENCH_000612",
+    "BENCH_000613",
+    "BENCH_000614",
+    "BENCH_000615",
+    "BENCH_000616",
+    "BENCH_000617",
+    "BENCH_000618",
+    "BENCH_000619",
+    "BENCH_000620",
+    "BENCH_000621",
+    "BENCH_000622",
+    "BENCH_000623",
+    "BENCH_000624",
+    "BENCH_000625",
+    "BENCH_000626",
+    "BENCH_000627",
+    "BENCH_000628",
+    "BENCH_000629",
+    "BENCH_000630",
+    "BENCH_000631",
+    "BENCH_000632",
+    "BENCH_000633",
+    "BENCH_000634",
+    "BENCH_000635",
+    "BENCH_000636",
+    "BENCH_000637",
+    "BENCH_000638",
+    "BENCH_000639",
+    "BENCH_000640",
+    "BENCH_000641",
+    "BENCH_000642",
+    "BENCH_000643",
+    "BENCH_000644",
+    "BENCH_000645",
+    "BENCH_000646",
+    "BENCH_000647",
+    "BENCH_000648",
+    "BENCH_000649",
+    "BENCH_000650",
+    "BENCH_000651",
+    "BENCH_000652",
+    "BENCH_000653",
+    "BENCH_000654",
+    "BENCH_000655",
+    "BENCH_000656",
+    "BENCH_000657",
+    "BENCH_000658",
+    "BENCH_000659",
+    "BENCH_000660",
+    "BENCH_000661",
+    "BENCH_000662",
+    "BENCH_000663",
+    "BENCH_000664",
+    "BENCH_000665",
+    "BENCH_000666",
+    "BENCH_000667",
+    "BENCH_000668",
+    "BENCH_000669",
+    "BENCH_000670",
+    "BENCH_000671",
+    "BENCH_000672",
+    "BENCH_000673",
+    "BENCH_000674",
+    "BENCH_000675",
+    "BENCH_000676",
+    "BENCH_000677",
+    "BENCH_000678",
+    "BENCH_000679",
+    "BENCH_000680",
+    "BENCH_000681",
+    "BENCH_000682",
+    "BENCH_000683",
+    "BENCH_000684",
+    "BENCH_000685",
+    "BENCH_000686",
+    "BENCH_000687",
+    "BENCH_000688",
+    "BENCH_000689",
+    "BENCH_000690",
+    "BENCH_000691",
+    "BENCH_000692",
+    "BENCH_000693",
+    "BENCH_000694",
+    "BENCH_000695",
+    "BENCH_000696",
+    "BENCH_000697",
+    "BENCH_000698",
+    "BENCH_000699",
+    "BENCH_000700",
+    "BENCH_000701",
+    "BENCH_000702",
+    "BENCH_000703",
+    "BENCH_000704",
+    "BENCH_000705",
+    "BENCH_000706",
+    "BENCH_000707",
+    "BENCH_000708",
+    "BENCH_000709",
+    "BENCH_000710",
+    "BENCH_000711",
+    "BENCH_000712",
+    "BENCH_000713",
+    "BENCH_000714",
+    "BENCH_000715",
+    "BENCH_000716",
+    "BENCH_000717",
+    "BENCH_000718",
+    "BENCH_000719",
+    "BENCH_000720",
+    "BENCH_000721",
+    "BENCH_000722",
+    "BENCH_000723",
+    "BENCH_000724",
+    "BENCH_000725",
+    "BENCH_000726",
+    "BENCH_000727",
+    "BENCH_000728",
+    "BENCH_000729",
+    "BENCH_000730",
+    "BENCH_000731",
+    "BENCH_000732",
+    "BENCH_000733",
+    "BENCH_000734",
+    "BENCH_000735",
+    "BENCH_000736",
+    "BENCH_000737",
+    "BENCH_000738",
+    "BENCH_000739",
+    "BENCH_000740",
+    "BENCH_000741",
+    "BENCH_000742",
+    "BENCH_000743",
+    "BENCH_000744",
+    "BENCH_000745",
+    "BENCH_000746",
+    "BENCH_000747",
+    "BENCH_000748",
+    "BENCH_000749",
+    "BENCH_000750",
+    "BENCH_000751",
+    "BENCH_000752",
+    "BENCH_000753",
+    "BENCH_000754",
+    "BENCH_000755",
+    "BENCH_000756",
+    "BENCH_000757",
+    "BENCH_000758",
+    "BENCH_000759",
+    "BENCH_000760",
+    "BENCH_000761",
+    "BENCH_000762",
+    "BENCH_000763",
+    "BENCH_000764",
+    "BENCH_000765",
+    "BENCH_000766",
+    "BENCH_000767",
+    "BENCH_000768",
+    "BENCH_000769",
+    "BENCH_000770",
+    "BENCH_000771",
+    "BENCH_000772",
+    "BENCH_000773",
+    "BENCH_000774",
+    "BENCH_000775",
+    "BENCH_000776",
+    "BENCH_000777",
+    "BENCH_000778",
+    "BENCH_000779",
+    "BENCH_000780",
+    "BENCH_000781",
+    "BENCH_000782",
+    "BENCH_000783",
+    "BENCH_000784",
+    "BENCH_000785",
+    "BENCH_000786",
+    "BENCH_000787",
+    "BENCH_000788",
+    "BENCH_000789",
+    "BENCH_000790",
+    "BENCH_000791",
+    "BENCH_000792",
+    "BENCH_000793",
+    "BENCH_000794",
+    "BENCH_000795",
+    "BENCH_000796",
+    "BENCH_000797",
+    "BENCH_000798",
+    "BENCH_000799",
+    "BENCH_000800",
+    "BENCH_000801",
+    "BENCH_000802",
+    "BENCH_000803",
+    "BENCH_000804",
+    "BENCH_000805",
+    "BENCH_000806",
+    "BENCH_000807",
+    "BENCH_000808",
+    "BENCH_000809",
+    "BENCH_000810",
+    "BENCH_000811",
+    "BENCH_000812",
+    "BENCH_000813",
+    "BENCH_000814",
+    "BENCH_000815",
+    "BENCH_000816",
+    "BENCH_000817",
+    "BENCH_000818",
+    "BENCH_000819",
+    "BENCH_000820",
+    "BENCH_000821",
+    "BENCH_000822",
+    "BENCH_000823",
+    "BENCH_000824",
+    "BENCH_000825",
+    "BENCH_000826",
+    "BENCH_000827",
+    "BENCH_000828",
+    "BENCH_000829",
+    "BENCH_000830",
+    "BENCH_000831",
+    "BENCH_000832",
+    "BENCH_000833",
+    "BENCH_000834",
+    "BENCH_000835",
+    "BENCH_000836",
+    "BENCH_000837",
+    "BENCH_000838",
+    "BENCH_000839",
+    "BENCH_000840",
+    "BENCH_000841",
+    "BENCH_000842",
+    "BENCH_000843",
+    "BENCH_000844",
+    "BENCH_000845",
+    "BENCH_000846",
+    "BENCH_000847",
+    "BENCH_000848",
+    "BENCH_000849",
+    "BENCH_000850",
+    "BENCH_000851",
+    "BENCH_000852",
+    "BENCH_000853",
+    "BENCH_000854",
+    "BENCH_000855",
+    "BENCH_000856",
+    "BENCH_000857",
+    "BENCH_000858",
+    "BENCH_000859",
+    "BENCH_000860",
+    "BENCH_000861",
+    "BENCH_000862",
+    "BENCH_000863",
+    "BENCH_000864",
+    "BENCH_000865",
+    "BENCH_000866",
+    "BENCH_000867",
+    "BENCH_000868",
+    "BENCH_000869",
+    "BENCH_000870",
+    "BENCH_000871",
+    "BENCH_000872",
+    "BENCH_000873",
+    "BENCH_000874",
+    "BENCH_000875",
+    "BENCH_000876",
+    "BENCH_000877",
+    "BENCH_000878",
+    "BENCH_000879",
+    "BENCH_000880",
+    "BENCH_000881",
+    "BENCH_000882",
+    "BENCH_000883",
+    "BENCH_000884",
+    "BENCH_000885",
+    "BENCH_000886",
+    "BENCH_000887",
+    "BENCH_000888",
+    "BENCH_000889",
+    "BENCH_000890",
+    "BENCH_000891",
+    "BENCH_000892",
+    "BENCH_000893",
+    "BENCH_000894",
+    "BENCH_000895",
+    "BENCH_000896",
+    "BENCH_000897",
+    "BENCH_000898",
+    "BENCH_000899",
+    "BENCH_000900",
+    "BENCH_000901",
+    "BENCH_000902",
+    "BENCH_000903",
+    "BENCH_000904",
+    "BENCH_000905",
+    "BENCH_000906",
+    "BENCH_000907",
+    "BENCH_000908",
+    "BENCH_000909",
+    "BENCH_000910",
+    "BENCH_000911",
+    "BENCH_000912",
+    "BENCH_000913",
+    "BENCH_000914",
+    "BENCH_000915",
+    "BENCH_000916",
+    "BENCH_000917",
+    "BENCH_000918",
+    "BENCH_000919",
+    "BENCH_000920",
+    "BENCH_000921",
+    "BENCH_000922",
+    "BENCH_000923",
+    "BENCH_000924",
+    "BENCH_000925",
+    "BENCH_000926",
+    "BENCH_000927",
+    "BENCH_000928",
+    "BENCH_000929",
+    "BENCH_000930",
+    "BENCH_000931",
+    "BENCH_000932",
+    "BENCH_000933",
+    "BENCH_000934",
+    "BENCH_000935",
+    "BENCH_000936",
+    "BENCH_000937",
+    "BENCH_000938",
+    "BENCH_000939",
+    "BENCH_000940",
+    "BENCH_000941",
+    "BENCH_000942",
+    "BENCH_000943",
+    "BENCH_000944",
+    "BENCH_000945",
+    "BENCH_000946",
+    "BENCH_000947",
+    "BENCH_000948",
+    "BENCH_000949",
+    "BENCH_000950",
+    "BENCH_000951",
+    "BENCH_000952",
+    "BENCH_000953",
+    "BENCH_000954",
+    "BENCH_000955",
+    "BENCH_000956",
+    "BENCH_000957",
+    "BENCH_000958",
+    "BENCH_000959",
+    "BENCH_000960",
+    "BENCH_000961",
+    "BENCH_000962",
+    "BENCH_000963",
+    "BENCH_000964",
+    "BENCH_000965",
+    "BENCH_000966",
+    "BENCH_000967",
+    "BENCH_000968",
+    "BENCH_000969",
+    "BENCH_000970",
+    "BENCH_000971",
+    "BENCH_000972",
+    "BENCH_000973",
+    "BENCH_000974",
+    "BENCH_000975",
+    "BENCH_000976",
+    "BENCH_000977",
+    "BENCH_000978",
+    "BENCH_000979",
+    "BENCH_000980",
+    "BENCH_000981",
+    "BENCH_000982",
+    "BENCH_000983",
+    "BENCH_000984",
+    "BENCH_000985",
+    "BENCH_000986",
+    "BENCH_000987",
+    "BENCH_000988",
+    "BENCH_000989",
+    "BENCH_000990",
+    "BENCH_000991",
+    "BENCH_000992",
+    "BENCH_000993",
+    "BENCH_000994",
+    "BENCH_000995",
+    "BENCH_000996",
+    "BENCH_000997",
+    "BENCH_000998",
+    "BENCH_000999"
+  ],
+  "sha256": "f01800754feca1d392c72ca85475d7d9da737d36a387f6de32b8c5290e910267",
+  "count": 1000,
+  "items": {
+    "BENCH_000000": {
+      "name": "Benchmark product 000000",
+      "unitPriceMinor": 100,
+      "currency": "USD"
+    },
+    "BENCH_000001": {
+      "name": "Benchmark product 000001",
+      "unitPriceMinor": 101,
+      "currency": "USD"
+    },
+    "BENCH_000002": {
+      "name": "Benchmark product 000002",
+      "unitPriceMinor": 102,
+      "currency": "USD"
+    },
+    "BENCH_000003": {
+      "name": "Benchmark product 000003",
+      "unitPriceMinor": 103,
+      "currency": "USD"
+    },
+    "BENCH_000004": {
+      "name": "Benchmark product 000004",
+      "unitPriceMinor": 104,
+      "currency": "USD"
+    },
+    "BENCH_000005": {
+      "name": "Benchmark product 000005",
+      "unitPriceMinor": 105,
+      "currency": "USD"
+    },
+    "BENCH_000006": {
+      "name": "Benchmark product 000006",
+      "unitPriceMinor": 106,
+      "currency": "USD"
+    },
+    "BENCH_000007": {
+      "name": "Benchmark product 000007",
+      "unitPriceMinor": 107,
+      "currency": "USD"
+    },
+    "BENCH_000008": {
+      "name": "Benchmark product 000008",
+      "unitPriceMinor": 108,
+      "currency": "USD"
+    },
+    "BENCH_000009": {
+      "name": "Benchmark product 000009",
+      "unitPriceMinor": 109,
+      "currency": "USD"
+    },
+    "BENCH_000010": {
+      "name": "Benchmark product 000010",
+      "unitPriceMinor": 110,
+      "currency": "USD"
+    },
+    "BENCH_000011": {
+      "name": "Benchmark product 000011",
+      "unitPriceMinor": 111,
+      "currency": "USD"
+    },
+    "BENCH_000012": {
+      "name": "Benchmark product 000012",
+      "unitPriceMinor": 112,
+      "currency": "USD"
+    },
+    "BENCH_000013": {
+      "name": "Benchmark product 000013",
+      "unitPriceMinor": 113,
+      "currency": "USD"
+    },
+    "BENCH_000014": {
+      "name": "Benchmark product 000014",
+      "unitPriceMinor": 114,
+      "currency": "USD"
+    },
+    "BENCH_000015": {
+      "name": "Benchmark product 000015",
+      "unitPriceMinor": 115,
+      "currency": "USD"
+    },
+    "BENCH_000016": {
+      "name": "Benchmark product 000016",
+      "unitPriceMinor": 116,
+      "currency": "USD"
+    },
+    "BENCH_000017": {
+      "name": "Benchmark product 000017",
+      "unitPriceMinor": 117,
+      "currency": "USD"
+    },
+    "BENCH_000018": {
+      "name": "Benchmark product 000018",
+      "unitPriceMinor": 118,
+      "currency": "USD"
+    },
+    "BENCH_000019": {
+      "name": "Benchmark product 000019",
+      "unitPriceMinor": 119,
+      "currency": "USD"
+    },
+    "BENCH_000020": {
+      "name": "Benchmark product 000020",
+      "unitPriceMinor": 120,
+      "currency": "USD"
+    },
+    "BENCH_000021": {
+      "name": "Benchmark product 000021",
+      "unitPriceMinor": 121,
+      "currency": "USD"
+    },
+    "BENCH_000022": {
+      "name": "Benchmark product 000022",
+      "unitPriceMinor": 122,
+      "currency": "USD"
+    },
+    "BENCH_000023": {
+      "name": "Benchmark product 000023",
+      "unitPriceMinor": 123,
+      "currency": "USD"
+    },
+    "BENCH_000024": {
+      "name": "Benchmark product 000024",
+      "unitPriceMinor": 124,
+      "currency": "USD"
+    },
+    "BENCH_000025": {
+      "name": "Benchmark product 000025",
+      "unitPriceMinor": 125,
+      "currency": "USD"
+    },
+    "BENCH_000026": {
+      "name": "Benchmark product 000026",
+      "unitPriceMinor": 126,
+      "currency": "USD"
+    },
+    "BENCH_000027": {
+      "name": "Benchmark product 000027",
+      "unitPriceMinor": 127,
+      "currency": "USD"
+    },
+    "BENCH_000028": {
+      "name": "Benchmark product 000028",
+      "unitPriceMinor": 128,
+      "currency": "USD"
+    },
+    "BENCH_000029": {
+      "name": "Benchmark product 000029",
+      "unitPriceMinor": 129,
+      "currency": "USD"
+    },
+    "BENCH_000030": {
+      "name": "Benchmark product 000030",
+      "unitPriceMinor": 130,
+      "currency": "USD"
+    },
+    "BENCH_000031": {
+      "name": "Benchmark product 000031",
+      "unitPriceMinor": 131,
+      "currency": "USD"
+    },
+    "BENCH_000032": {
+      "name": "Benchmark product 000032",
+      "unitPriceMinor": 132,
+      "currency": "USD"
+    },
+    "BENCH_000033": {
+      "name": "Benchmark product 000033",
+      "unitPriceMinor": 133,
+      "currency": "USD"
+    },
+    "BENCH_000034": {
+      "name": "Benchmark product 000034",
+      "unitPriceMinor": 134,
+      "currency": "USD"
+    },
+    "BENCH_000035": {
+      "name": "Benchmark product 000035",
+      "unitPriceMinor": 135,
+      "currency": "USD"
+    },
+    "BENCH_000036": {
+      "name": "Benchmark product 000036",
+      "unitPriceMinor": 136,
+      "currency": "USD"
+    },
+    "BENCH_000037": {
+      "name": "Benchmark product 000037",
+      "unitPriceMinor": 137,
+      "currency": "USD"
+    },
+    "BENCH_000038": {
+      "name": "Benchmark product 000038",
+      "unitPriceMinor": 138,
+      "currency": "USD"
+    },
+    "BENCH_000039": {
+      "name": "Benchmark product 000039",
+      "unitPriceMinor": 139,
+      "currency": "USD"
+    },
+    "BENCH_000040": {
+      "name": "Benchmark product 000040",
+      "unitPriceMinor": 140,
+      "currency": "USD"
+    },
+    "BENCH_000041": {
+      "name": "Benchmark product 000041",
+      "unitPriceMinor": 141,
+      "currency": "USD"
+    },
+    "BENCH_000042": {
+      "name": "Benchmark product 000042",
+      "unitPriceMinor": 142,
+      "currency": "USD"
+    },
+    "BENCH_000043": {
+      "name": "Benchmark product 000043",
+      "unitPriceMinor": 143,
+      "currency": "USD"
+    },
+    "BENCH_000044": {
+      "name": "Benchmark product 000044",
+      "unitPriceMinor": 144,
+      "currency": "USD"
+    },
+    "BENCH_000045": {
+      "name": "Benchmark product 000045",
+      "unitPriceMinor": 145,
+      "currency": "USD"
+    },
+    "BENCH_000046": {
+      "name": "Benchmark product 000046",
+      "unitPriceMinor": 146,
+      "currency": "USD"
+    },
+    "BENCH_000047": {
+      "name": "Benchmark product 000047",
+      "unitPriceMinor": 147,
+      "currency": "USD"
+    },
+    "BENCH_000048": {
+      "name": "Benchmark product 000048",
+      "unitPriceMinor": 148,
+      "currency": "USD"
+    },
+    "BENCH_000049": {
+      "name": "Benchmark product 000049",
+      "unitPriceMinor": 149,
+      "currency": "USD"
+    },
+    "BENCH_000050": {
+      "name": "Benchmark product 000050",
+      "unitPriceMinor": 150,
+      "currency": "USD"
+    },
+    "BENCH_000051": {
+      "name": "Benchmark product 000051",
+      "unitPriceMinor": 151,
+      "currency": "USD"
+    },
+    "BENCH_000052": {
+      "name": "Benchmark product 000052",
+      "unitPriceMinor": 152,
+      "currency": "USD"
+    },
+    "BENCH_000053": {
+      "name": "Benchmark product 000053",
+      "unitPriceMinor": 153,
+      "currency": "USD"
+    },
+    "BENCH_000054": {
+      "name": "Benchmark product 000054",
+      "unitPriceMinor": 154,
+      "currency": "USD"
+    },
+    "BENCH_000055": {
+      "name": "Benchmark product 000055",
+      "unitPriceMinor": 155,
+      "currency": "USD"
+    },
+    "BENCH_000056": {
+      "name": "Benchmark product 000056",
+      "unitPriceMinor": 156,
+      "currency": "USD"
+    },
+    "BENCH_000057": {
+      "name": "Benchmark product 000057",
+      "unitPriceMinor": 157,
+      "currency": "USD"
+    },
+    "BENCH_000058": {
+      "name": "Benchmark product 000058",
+      "unitPriceMinor": 158,
+      "currency": "USD"
+    },
+    "BENCH_000059": {
+      "name": "Benchmark product 000059",
+      "unitPriceMinor": 159,
+      "currency": "USD"
+    },
+    "BENCH_000060": {
+      "name": "Benchmark product 000060",
+      "unitPriceMinor": 160,
+      "currency": "USD"
+    },
+    "BENCH_000061": {
+      "name": "Benchmark product 000061",
+      "unitPriceMinor": 161,
+      "currency": "USD"
+    },
+    "BENCH_000062": {
+      "name": "Benchmark product 000062",
+      "unitPriceMinor": 162,
+      "currency": "USD"
+    },
+    "BENCH_000063": {
+      "name": "Benchmark product 000063",
+      "unitPriceMinor": 163,
+      "currency": "USD"
+    },
+    "BENCH_000064": {
+      "name": "Benchmark product 000064",
+      "unitPriceMinor": 164,
+      "currency": "USD"
+    },
+    "BENCH_000065": {
+      "name": "Benchmark product 000065",
+      "unitPriceMinor": 165,
+      "currency": "USD"
+    },
+    "BENCH_000066": {
+      "name": "Benchmark product 000066",
+      "unitPriceMinor": 166,
+      "currency": "USD"
+    },
+    "BENCH_000067": {
+      "name": "Benchmark product 000067",
+      "unitPriceMinor": 167,
+      "currency": "USD"
+    },
+    "BENCH_000068": {
+      "name": "Benchmark product 000068",
+      "unitPriceMinor": 168,
+      "currency": "USD"
+    },
+    "BENCH_000069": {
+      "name": "Benchmark product 000069",
+      "unitPriceMinor": 169,
+      "currency": "USD"
+    },
+    "BENCH_000070": {
+      "name": "Benchmark product 000070",
+      "unitPriceMinor": 170,
+      "currency": "USD"
+    },
+    "BENCH_000071": {
+      "name": "Benchmark product 000071",
+      "unitPriceMinor": 171,
+      "currency": "USD"
+    },
+    "BENCH_000072": {
+      "name": "Benchmark product 000072",
+      "unitPriceMinor": 172,
+      "currency": "USD"
+    },
+    "BENCH_000073": {
+      "name": "Benchmark product 000073",
+      "unitPriceMinor": 173,
+      "currency": "USD"
+    },
+    "BENCH_000074": {
+      "name": "Benchmark product 000074",
+      "unitPriceMinor": 174,
+      "currency": "USD"
+    },
+    "BENCH_000075": {
+      "name": "Benchmark product 000075",
+      "unitPriceMinor": 175,
+      "currency": "USD"
+    },
+    "BENCH_000076": {
+      "name": "Benchmark product 000076",
+      "unitPriceMinor": 176,
+      "currency": "USD"
+    },
+    "BENCH_000077": {
+      "name": "Benchmark product 000077",
+      "unitPriceMinor": 177,
+      "currency": "USD"
+    },
+    "BENCH_000078": {
+      "name": "Benchmark product 000078",
+      "unitPriceMinor": 178,
+      "currency": "USD"
+    },
+    "BENCH_000079": {
+      "name": "Benchmark product 000079",
+      "unitPriceMinor": 179,
+      "currency": "USD"
+    },
+    "BENCH_000080": {
+      "name": "Benchmark product 000080",
+      "unitPriceMinor": 180,
+      "currency": "USD"
+    },
+    "BENCH_000081": {
+      "name": "Benchmark product 000081",
+      "unitPriceMinor": 181,
+      "currency": "USD"
+    },
+    "BENCH_000082": {
+      "name": "Benchmark product 000082",
+      "unitPriceMinor": 182,
+      "currency": "USD"
+    },
+    "BENCH_000083": {
+      "name": "Benchmark product 000083",
+      "unitPriceMinor": 183,
+      "currency": "USD"
+    },
+    "BENCH_000084": {
+      "name": "Benchmark product 000084",
+      "unitPriceMinor": 184,
+      "currency": "USD"
+    },
+    "BENCH_000085": {
+      "name": "Benchmark product 000085",
+      "unitPriceMinor": 185,
+      "currency": "USD"
+    },
+    "BENCH_000086": {
+      "name": "Benchmark product 000086",
+      "unitPriceMinor": 186,
+      "currency": "USD"
+    },
+    "BENCH_000087": {
+      "name": "Benchmark product 000087",
+      "unitPriceMinor": 187,
+      "currency": "USD"
+    },
+    "BENCH_000088": {
+      "name": "Benchmark product 000088",
+      "unitPriceMinor": 188,
+      "currency": "USD"
+    },
+    "BENCH_000089": {
+      "name": "Benchmark product 000089",
+      "unitPriceMinor": 189,
+      "currency": "USD"
+    },
+    "BENCH_000090": {
+      "name": "Benchmark product 000090",
+      "unitPriceMinor": 190,
+      "currency": "USD"
+    },
+    "BENCH_000091": {
+      "name": "Benchmark product 000091",
+      "unitPriceMinor": 191,
+      "currency": "USD"
+    },
+    "BENCH_000092": {
+      "name": "Benchmark product 000092",
+      "unitPriceMinor": 192,
+      "currency": "USD"
+    },
+    "BENCH_000093": {
+      "name": "Benchmark product 000093",
+      "unitPriceMinor": 193,
+      "currency": "USD"
+    },
+    "BENCH_000094": {
+      "name": "Benchmark product 000094",
+      "unitPriceMinor": 194,
+      "currency": "USD"
+    },
+    "BENCH_000095": {
+      "name": "Benchmark product 000095",
+      "unitPriceMinor": 195,
+      "currency": "USD"
+    },
+    "BENCH_000096": {
+      "name": "Benchmark product 000096",
+      "unitPriceMinor": 196,
+      "currency": "USD"
+    },
+    "BENCH_000097": {
+      "name": "Benchmark product 000097",
+      "unitPriceMinor": 197,
+      "currency": "USD"
+    },
+    "BENCH_000098": {
+      "name": "Benchmark product 000098",
+      "unitPriceMinor": 198,
+      "currency": "USD"
+    },
+    "BENCH_000099": {
+      "name": "Benchmark product 000099",
+      "unitPriceMinor": 199,
+      "currency": "USD"
+    },
+    "BENCH_000100": {
+      "name": "Benchmark product 000100",
+      "unitPriceMinor": 200,
+      "currency": "USD"
+    },
+    "BENCH_000101": {
+      "name": "Benchmark product 000101",
+      "unitPriceMinor": 201,
+      "currency": "USD"
+    },
+    "BENCH_000102": {
+      "name": "Benchmark product 000102",
+      "unitPriceMinor": 202,
+      "currency": "USD"
+    },
+    "BENCH_000103": {
+      "name": "Benchmark product 000103",
+      "unitPriceMinor": 203,
+      "currency": "USD"
+    },
+    "BENCH_000104": {
+      "name": "Benchmark product 000104",
+      "unitPriceMinor": 204,
+      "currency": "USD"
+    },
+    "BENCH_000105": {
+      "name": "Benchmark product 000105",
+      "unitPriceMinor": 205,
+      "currency": "USD"
+    },
+    "BENCH_000106": {
+      "name": "Benchmark product 000106",
+      "unitPriceMinor": 206,
+      "currency": "USD"
+    },
+    "BENCH_000107": {
+      "name": "Benchmark product 000107",
+      "unitPriceMinor": 207,
+      "currency": "USD"
+    },
+    "BENCH_000108": {
+      "name": "Benchmark product 000108",
+      "unitPriceMinor": 208,
+      "currency": "USD"
+    },
+    "BENCH_000109": {
+      "name": "Benchmark product 000109",
+      "unitPriceMinor": 209,
+      "currency": "USD"
+    },
+    "BENCH_000110": {
+      "name": "Benchmark product 000110",
+      "unitPriceMinor": 210,
+      "currency": "USD"
+    },
+    "BENCH_000111": {
+      "name": "Benchmark product 000111",
+      "unitPriceMinor": 211,
+      "currency": "USD"
+    },
+    "BENCH_000112": {
+      "name": "Benchmark product 000112",
+      "unitPriceMinor": 212,
+      "currency": "USD"
+    },
+    "BENCH_000113": {
+      "name": "Benchmark product 000113",
+      "unitPriceMinor": 213,
+      "currency": "USD"
+    },
+    "BENCH_000114": {
+      "name": "Benchmark product 000114",
+      "unitPriceMinor": 214,
+      "currency": "USD"
+    },
+    "BENCH_000115": {
+      "name": "Benchmark product 000115",
+      "unitPriceMinor": 215,
+      "currency": "USD"
+    },
+    "BENCH_000116": {
+      "name": "Benchmark product 000116",
+      "unitPriceMinor": 216,
+      "currency": "USD"
+    },
+    "BENCH_000117": {
+      "name": "Benchmark product 000117",
+      "unitPriceMinor": 217,
+      "currency": "USD"
+    },
+    "BENCH_000118": {
+      "name": "Benchmark product 000118",
+      "unitPriceMinor": 218,
+      "currency": "USD"
+    },
+    "BENCH_000119": {
+      "name": "Benchmark product 000119",
+      "unitPriceMinor": 219,
+      "currency": "USD"
+    },
+    "BENCH_000120": {
+      "name": "Benchmark product 000120",
+      "unitPriceMinor": 220,
+      "currency": "USD"
+    },
+    "BENCH_000121": {
+      "name": "Benchmark product 000121",
+      "unitPriceMinor": 221,
+      "currency": "USD"
+    },
+    "BENCH_000122": {
+      "name": "Benchmark product 000122",
+      "unitPriceMinor": 222,
+      "currency": "USD"
+    },
+    "BENCH_000123": {
+      "name": "Benchmark product 000123",
+      "unitPriceMinor": 223,
+      "currency": "USD"
+    },
+    "BENCH_000124": {
+      "name": "Benchmark product 000124",
+      "unitPriceMinor": 224,
+      "currency": "USD"
+    },
+    "BENCH_000125": {
+      "name": "Benchmark product 000125",
+      "unitPriceMinor": 225,
+      "currency": "USD"
+    },
+    "BENCH_000126": {
+      "name": "Benchmark product 000126",
+      "unitPriceMinor": 226,
+      "currency": "USD"
+    },
+    "BENCH_000127": {
+      "name": "Benchmark product 000127",
+      "unitPriceMinor": 227,
+      "currency": "USD"
+    },
+    "BENCH_000128": {
+      "name": "Benchmark product 000128",
+      "unitPriceMinor": 228,
+      "currency": "USD"
+    },
+    "BENCH_000129": {
+      "name": "Benchmark product 000129",
+      "unitPriceMinor": 229,
+      "currency": "USD"
+    },
+    "BENCH_000130": {
+      "name": "Benchmark product 000130",
+      "unitPriceMinor": 230,
+      "currency": "USD"
+    },
+    "BENCH_000131": {
+      "name": "Benchmark product 000131",
+      "unitPriceMinor": 231,
+      "currency": "USD"
+    },
+    "BENCH_000132": {
+      "name": "Benchmark product 000132",
+      "unitPriceMinor": 232,
+      "currency": "USD"
+    },
+    "BENCH_000133": {
+      "name": "Benchmark product 000133",
+      "unitPriceMinor": 233,
+      "currency": "USD"
+    },
+    "BENCH_000134": {
+      "name": "Benchmark product 000134",
+      "unitPriceMinor": 234,
+      "currency": "USD"
+    },
+    "BENCH_000135": {
+      "name": "Benchmark product 000135",
+      "unitPriceMinor": 235,
+      "currency": "USD"
+    },
+    "BENCH_000136": {
+      "name": "Benchmark product 000136",
+      "unitPriceMinor": 236,
+      "currency": "USD"
+    },
+    "BENCH_000137": {
+      "name": "Benchmark product 000137",
+      "unitPriceMinor": 237,
+      "currency": "USD"
+    },
+    "BENCH_000138": {
+      "name": "Benchmark product 000138",
+      "unitPriceMinor": 238,
+      "currency": "USD"
+    },
+    "BENCH_000139": {
+      "name": "Benchmark product 000139",
+      "unitPriceMinor": 239,
+      "currency": "USD"
+    },
+    "BENCH_000140": {
+      "name": "Benchmark product 000140",
+      "unitPriceMinor": 240,
+      "currency": "USD"
+    },
+    "BENCH_000141": {
+      "name": "Benchmark product 000141",
+      "unitPriceMinor": 241,
+      "currency": "USD"
+    },
+    "BENCH_000142": {
+      "name": "Benchmark product 000142",
+      "unitPriceMinor": 242,
+      "currency": "USD"
+    },
+    "BENCH_000143": {
+      "name": "Benchmark product 000143",
+      "unitPriceMinor": 243,
+      "currency": "USD"
+    },
+    "BENCH_000144": {
+      "name": "Benchmark product 000144",
+      "unitPriceMinor": 244,
+      "currency": "USD"
+    },
+    "BENCH_000145": {
+      "name": "Benchmark product 000145",
+      "unitPriceMinor": 245,
+      "currency": "USD"
+    },
+    "BENCH_000146": {
+      "name": "Benchmark product 000146",
+      "unitPriceMinor": 246,
+      "currency": "USD"
+    },
+    "BENCH_000147": {
+      "name": "Benchmark product 000147",
+      "unitPriceMinor": 247,
+      "currency": "USD"
+    },
+    "BENCH_000148": {
+      "name": "Benchmark product 000148",
+      "unitPriceMinor": 248,
+      "currency": "USD"
+    },
+    "BENCH_000149": {
+      "name": "Benchmark product 000149",
+      "unitPriceMinor": 249,
+      "currency": "USD"
+    },
+    "BENCH_000150": {
+      "name": "Benchmark product 000150",
+      "unitPriceMinor": 250,
+      "currency": "USD"
+    },
+    "BENCH_000151": {
+      "name": "Benchmark product 000151",
+      "unitPriceMinor": 251,
+      "currency": "USD"
+    },
+    "BENCH_000152": {
+      "name": "Benchmark product 000152",
+      "unitPriceMinor": 252,
+      "currency": "USD"
+    },
+    "BENCH_000153": {
+      "name": "Benchmark product 000153",
+      "unitPriceMinor": 253,
+      "currency": "USD"
+    },
+    "BENCH_000154": {
+      "name": "Benchmark product 000154",
+      "unitPriceMinor": 254,
+      "currency": "USD"
+    },
+    "BENCH_000155": {
+      "name": "Benchmark product 000155",
+      "unitPriceMinor": 255,
+      "currency": "USD"
+    },
+    "BENCH_000156": {
+      "name": "Benchmark product 000156",
+      "unitPriceMinor": 256,
+      "currency": "USD"
+    },
+    "BENCH_000157": {
+      "name": "Benchmark product 000157",
+      "unitPriceMinor": 257,
+      "currency": "USD"
+    },
+    "BENCH_000158": {
+      "name": "Benchmark product 000158",
+      "unitPriceMinor": 258,
+      "currency": "USD"
+    },
+    "BENCH_000159": {
+      "name": "Benchmark product 000159",
+      "unitPriceMinor": 259,
+      "currency": "USD"
+    },
+    "BENCH_000160": {
+      "name": "Benchmark product 000160",
+      "unitPriceMinor": 260,
+      "currency": "USD"
+    },
+    "BENCH_000161": {
+      "name": "Benchmark product 000161",
+      "unitPriceMinor": 261,
+      "currency": "USD"
+    },
+    "BENCH_000162": {
+      "name": "Benchmark product 000162",
+      "unitPriceMinor": 262,
+      "currency": "USD"
+    },
+    "BENCH_000163": {
+      "name": "Benchmark product 000163",
+      "unitPriceMinor": 263,
+      "currency": "USD"
+    },
+    "BENCH_000164": {
+      "name": "Benchmark product 000164",
+      "unitPriceMinor": 264,
+      "currency": "USD"
+    },
+    "BENCH_000165": {
+      "name": "Benchmark product 000165",
+      "unitPriceMinor": 265,
+      "currency": "USD"
+    },
+    "BENCH_000166": {
+      "name": "Benchmark product 000166",
+      "unitPriceMinor": 266,
+      "currency": "USD"
+    },
+    "BENCH_000167": {
+      "name": "Benchmark product 000167",
+      "unitPriceMinor": 267,
+      "currency": "USD"
+    },
+    "BENCH_000168": {
+      "name": "Benchmark product 000168",
+      "unitPriceMinor": 268,
+      "currency": "USD"
+    },
+    "BENCH_000169": {
+      "name": "Benchmark product 000169",
+      "unitPriceMinor": 269,
+      "currency": "USD"
+    },
+    "BENCH_000170": {
+      "name": "Benchmark product 000170",
+      "unitPriceMinor": 270,
+      "currency": "USD"
+    },
+    "BENCH_000171": {
+      "name": "Benchmark product 000171",
+      "unitPriceMinor": 271,
+      "currency": "USD"
+    },
+    "BENCH_000172": {
+      "name": "Benchmark product 000172",
+      "unitPriceMinor": 272,
+      "currency": "USD"
+    },
+    "BENCH_000173": {
+      "name": "Benchmark product 000173",
+      "unitPriceMinor": 273,
+      "currency": "USD"
+    },
+    "BENCH_000174": {
+      "name": "Benchmark product 000174",
+      "unitPriceMinor": 274,
+      "currency": "USD"
+    },
+    "BENCH_000175": {
+      "name": "Benchmark product 000175",
+      "unitPriceMinor": 275,
+      "currency": "USD"
+    },
+    "BENCH_000176": {
+      "name": "Benchmark product 000176",
+      "unitPriceMinor": 276,
+      "currency": "USD"
+    },
+    "BENCH_000177": {
+      "name": "Benchmark product 000177",
+      "unitPriceMinor": 277,
+      "currency": "USD"
+    },
+    "BENCH_000178": {
+      "name": "Benchmark product 000178",
+      "unitPriceMinor": 278,
+      "currency": "USD"
+    },
+    "BENCH_000179": {
+      "name": "Benchmark product 000179",
+      "unitPriceMinor": 279,
+      "currency": "USD"
+    },
+    "BENCH_000180": {
+      "name": "Benchmark product 000180",
+      "unitPriceMinor": 280,
+      "currency": "USD"
+    },
+    "BENCH_000181": {
+      "name": "Benchmark product 000181",
+      "unitPriceMinor": 281,
+      "currency": "USD"
+    },
+    "BENCH_000182": {
+      "name": "Benchmark product 000182",
+      "unitPriceMinor": 282,
+      "currency": "USD"
+    },
+    "BENCH_000183": {
+      "name": "Benchmark product 000183",
+      "unitPriceMinor": 283,
+      "currency": "USD"
+    },
+    "BENCH_000184": {
+      "name": "Benchmark product 000184",
+      "unitPriceMinor": 284,
+      "currency": "USD"
+    },
+    "BENCH_000185": {
+      "name": "Benchmark product 000185",
+      "unitPriceMinor": 285,
+      "currency": "USD"
+    },
+    "BENCH_000186": {
+      "name": "Benchmark product 000186",
+      "unitPriceMinor": 286,
+      "currency": "USD"
+    },
+    "BENCH_000187": {
+      "name": "Benchmark product 000187",
+      "unitPriceMinor": 287,
+      "currency": "USD"
+    },
+    "BENCH_000188": {
+      "name": "Benchmark product 000188",
+      "unitPriceMinor": 288,
+      "currency": "USD"
+    },
+    "BENCH_000189": {
+      "name": "Benchmark product 000189",
+      "unitPriceMinor": 289,
+      "currency": "USD"
+    },
+    "BENCH_000190": {
+      "name": "Benchmark product 000190",
+      "unitPriceMinor": 290,
+      "currency": "USD"
+    },
+    "BENCH_000191": {
+      "name": "Benchmark product 000191",
+      "unitPriceMinor": 291,
+      "currency": "USD"
+    },
+    "BENCH_000192": {
+      "name": "Benchmark product 000192",
+      "unitPriceMinor": 292,
+      "currency": "USD"
+    },
+    "BENCH_000193": {
+      "name": "Benchmark product 000193",
+      "unitPriceMinor": 293,
+      "currency": "USD"
+    },
+    "BENCH_000194": {
+      "name": "Benchmark product 000194",
+      "unitPriceMinor": 294,
+      "currency": "USD"
+    },
+    "BENCH_000195": {
+      "name": "Benchmark product 000195",
+      "unitPriceMinor": 295,
+      "currency": "USD"
+    },
+    "BENCH_000196": {
+      "name": "Benchmark product 000196",
+      "unitPriceMinor": 296,
+      "currency": "USD"
+    },
+    "BENCH_000197": {
+      "name": "Benchmark product 000197",
+      "unitPriceMinor": 297,
+      "currency": "USD"
+    },
+    "BENCH_000198": {
+      "name": "Benchmark product 000198",
+      "unitPriceMinor": 298,
+      "currency": "USD"
+    },
+    "BENCH_000199": {
+      "name": "Benchmark product 000199",
+      "unitPriceMinor": 299,
+      "currency": "USD"
+    },
+    "BENCH_000200": {
+      "name": "Benchmark product 000200",
+      "unitPriceMinor": 300,
+      "currency": "USD"
+    },
+    "BENCH_000201": {
+      "name": "Benchmark product 000201",
+      "unitPriceMinor": 301,
+      "currency": "USD"
+    },
+    "BENCH_000202": {
+      "name": "Benchmark product 000202",
+      "unitPriceMinor": 302,
+      "currency": "USD"
+    },
+    "BENCH_000203": {
+      "name": "Benchmark product 000203",
+      "unitPriceMinor": 303,
+      "currency": "USD"
+    },
+    "BENCH_000204": {
+      "name": "Benchmark product 000204",
+      "unitPriceMinor": 304,
+      "currency": "USD"
+    },
+    "BENCH_000205": {
+      "name": "Benchmark product 000205",
+      "unitPriceMinor": 305,
+      "currency": "USD"
+    },
+    "BENCH_000206": {
+      "name": "Benchmark product 000206",
+      "unitPriceMinor": 306,
+      "currency": "USD"
+    },
+    "BENCH_000207": {
+      "name": "Benchmark product 000207",
+      "unitPriceMinor": 307,
+      "currency": "USD"
+    },
+    "BENCH_000208": {
+      "name": "Benchmark product 000208",
+      "unitPriceMinor": 308,
+      "currency": "USD"
+    },
+    "BENCH_000209": {
+      "name": "Benchmark product 000209",
+      "unitPriceMinor": 309,
+      "currency": "USD"
+    },
+    "BENCH_000210": {
+      "name": "Benchmark product 000210",
+      "unitPriceMinor": 310,
+      "currency": "USD"
+    },
+    "BENCH_000211": {
+      "name": "Benchmark product 000211",
+      "unitPriceMinor": 311,
+      "currency": "USD"
+    },
+    "BENCH_000212": {
+      "name": "Benchmark product 000212",
+      "unitPriceMinor": 312,
+      "currency": "USD"
+    },
+    "BENCH_000213": {
+      "name": "Benchmark product 000213",
+      "unitPriceMinor": 313,
+      "currency": "USD"
+    },
+    "BENCH_000214": {
+      "name": "Benchmark product 000214",
+      "unitPriceMinor": 314,
+      "currency": "USD"
+    },
+    "BENCH_000215": {
+      "name": "Benchmark product 000215",
+      "unitPriceMinor": 315,
+      "currency": "USD"
+    },
+    "BENCH_000216": {
+      "name": "Benchmark product 000216",
+      "unitPriceMinor": 316,
+      "currency": "USD"
+    },
+    "BENCH_000217": {
+      "name": "Benchmark product 000217",
+      "unitPriceMinor": 317,
+      "currency": "USD"
+    },
+    "BENCH_000218": {
+      "name": "Benchmark product 000218",
+      "unitPriceMinor": 318,
+      "currency": "USD"
+    },
+    "BENCH_000219": {
+      "name": "Benchmark product 000219",
+      "unitPriceMinor": 319,
+      "currency": "USD"
+    },
+    "BENCH_000220": {
+      "name": "Benchmark product 000220",
+      "unitPriceMinor": 320,
+      "currency": "USD"
+    },
+    "BENCH_000221": {
+      "name": "Benchmark product 000221",
+      "unitPriceMinor": 321,
+      "currency": "USD"
+    },
+    "BENCH_000222": {
+      "name": "Benchmark product 000222",
+      "unitPriceMinor": 322,
+      "currency": "USD"
+    },
+    "BENCH_000223": {
+      "name": "Benchmark product 000223",
+      "unitPriceMinor": 323,
+      "currency": "USD"
+    },
+    "BENCH_000224": {
+      "name": "Benchmark product 000224",
+      "unitPriceMinor": 324,
+      "currency": "USD"
+    },
+    "BENCH_000225": {
+      "name": "Benchmark product 000225",
+      "unitPriceMinor": 325,
+      "currency": "USD"
+    },
+    "BENCH_000226": {
+      "name": "Benchmark product 000226",
+      "unitPriceMinor": 326,
+      "currency": "USD"
+    },
+    "BENCH_000227": {
+      "name": "Benchmark product 000227",
+      "unitPriceMinor": 327,
+      "currency": "USD"
+    },
+    "BENCH_000228": {
+      "name": "Benchmark product 000228",
+      "unitPriceMinor": 328,
+      "currency": "USD"
+    },
+    "BENCH_000229": {
+      "name": "Benchmark product 000229",
+      "unitPriceMinor": 329,
+      "currency": "USD"
+    },
+    "BENCH_000230": {
+      "name": "Benchmark product 000230",
+      "unitPriceMinor": 330,
+      "currency": "USD"
+    },
+    "BENCH_000231": {
+      "name": "Benchmark product 000231",
+      "unitPriceMinor": 331,
+      "currency": "USD"
+    },
+    "BENCH_000232": {
+      "name": "Benchmark product 000232",
+      "unitPriceMinor": 332,
+      "currency": "USD"
+    },
+    "BENCH_000233": {
+      "name": "Benchmark product 000233",
+      "unitPriceMinor": 333,
+      "currency": "USD"
+    },
+    "BENCH_000234": {
+      "name": "Benchmark product 000234",
+      "unitPriceMinor": 334,
+      "currency": "USD"
+    },
+    "BENCH_000235": {
+      "name": "Benchmark product 000235",
+      "unitPriceMinor": 335,
+      "currency": "USD"
+    },
+    "BENCH_000236": {
+      "name": "Benchmark product 000236",
+      "unitPriceMinor": 336,
+      "currency": "USD"
+    },
+    "BENCH_000237": {
+      "name": "Benchmark product 000237",
+      "unitPriceMinor": 337,
+      "currency": "USD"
+    },
+    "BENCH_000238": {
+      "name": "Benchmark product 000238",
+      "unitPriceMinor": 338,
+      "currency": "USD"
+    },
+    "BENCH_000239": {
+      "name": "Benchmark product 000239",
+      "unitPriceMinor": 339,
+      "currency": "USD"
+    },
+    "BENCH_000240": {
+      "name": "Benchmark product 000240",
+      "unitPriceMinor": 340,
+      "currency": "USD"
+    },
+    "BENCH_000241": {
+      "name": "Benchmark product 000241",
+      "unitPriceMinor": 341,
+      "currency": "USD"
+    },
+    "BENCH_000242": {
+      "name": "Benchmark product 000242",
+      "unitPriceMinor": 342,
+      "currency": "USD"
+    },
+    "BENCH_000243": {
+      "name": "Benchmark product 000243",
+      "unitPriceMinor": 343,
+      "currency": "USD"
+    },
+    "BENCH_000244": {
+      "name": "Benchmark product 000244",
+      "unitPriceMinor": 344,
+      "currency": "USD"
+    },
+    "BENCH_000245": {
+      "name": "Benchmark product 000245",
+      "unitPriceMinor": 345,
+      "currency": "USD"
+    },
+    "BENCH_000246": {
+      "name": "Benchmark product 000246",
+      "unitPriceMinor": 346,
+      "currency": "USD"
+    },
+    "BENCH_000247": {
+      "name": "Benchmark product 000247",
+      "unitPriceMinor": 347,
+      "currency": "USD"
+    },
+    "BENCH_000248": {
+      "name": "Benchmark product 000248",
+      "unitPriceMinor": 348,
+      "currency": "USD"
+    },
+    "BENCH_000249": {
+      "name": "Benchmark product 000249",
+      "unitPriceMinor": 349,
+      "currency": "USD"
+    },
+    "BENCH_000250": {
+      "name": "Benchmark product 000250",
+      "unitPriceMinor": 350,
+      "currency": "USD"
+    },
+    "BENCH_000251": {
+      "name": "Benchmark product 000251",
+      "unitPriceMinor": 351,
+      "currency": "USD"
+    },
+    "BENCH_000252": {
+      "name": "Benchmark product 000252",
+      "unitPriceMinor": 352,
+      "currency": "USD"
+    },
+    "BENCH_000253": {
+      "name": "Benchmark product 000253",
+      "unitPriceMinor": 353,
+      "currency": "USD"
+    },
+    "BENCH_000254": {
+      "name": "Benchmark product 000254",
+      "unitPriceMinor": 354,
+      "currency": "USD"
+    },
+    "BENCH_000255": {
+      "name": "Benchmark product 000255",
+      "unitPriceMinor": 355,
+      "currency": "USD"
+    },
+    "BENCH_000256": {
+      "name": "Benchmark product 000256",
+      "unitPriceMinor": 356,
+      "currency": "USD"
+    },
+    "BENCH_000257": {
+      "name": "Benchmark product 000257",
+      "unitPriceMinor": 357,
+      "currency": "USD"
+    },
+    "BENCH_000258": {
+      "name": "Benchmark product 000258",
+      "unitPriceMinor": 358,
+      "currency": "USD"
+    },
+    "BENCH_000259": {
+      "name": "Benchmark product 000259",
+      "unitPriceMinor": 359,
+      "currency": "USD"
+    },
+    "BENCH_000260": {
+      "name": "Benchmark product 000260",
+      "unitPriceMinor": 360,
+      "currency": "USD"
+    },
+    "BENCH_000261": {
+      "name": "Benchmark product 000261",
+      "unitPriceMinor": 361,
+      "currency": "USD"
+    },
+    "BENCH_000262": {
+      "name": "Benchmark product 000262",
+      "unitPriceMinor": 362,
+      "currency": "USD"
+    },
+    "BENCH_000263": {
+      "name": "Benchmark product 000263",
+      "unitPriceMinor": 363,
+      "currency": "USD"
+    },
+    "BENCH_000264": {
+      "name": "Benchmark product 000264",
+      "unitPriceMinor": 364,
+      "currency": "USD"
+    },
+    "BENCH_000265": {
+      "name": "Benchmark product 000265",
+      "unitPriceMinor": 365,
+      "currency": "USD"
+    },
+    "BENCH_000266": {
+      "name": "Benchmark product 000266",
+      "unitPriceMinor": 366,
+      "currency": "USD"
+    },
+    "BENCH_000267": {
+      "name": "Benchmark product 000267",
+      "unitPriceMinor": 367,
+      "currency": "USD"
+    },
+    "BENCH_000268": {
+      "name": "Benchmark product 000268",
+      "unitPriceMinor": 368,
+      "currency": "USD"
+    },
+    "BENCH_000269": {
+      "name": "Benchmark product 000269",
+      "unitPriceMinor": 369,
+      "currency": "USD"
+    },
+    "BENCH_000270": {
+      "name": "Benchmark product 000270",
+      "unitPriceMinor": 370,
+      "currency": "USD"
+    },
+    "BENCH_000271": {
+      "name": "Benchmark product 000271",
+      "unitPriceMinor": 371,
+      "currency": "USD"
+    },
+    "BENCH_000272": {
+      "name": "Benchmark product 000272",
+      "unitPriceMinor": 372,
+      "currency": "USD"
+    },
+    "BENCH_000273": {
+      "name": "Benchmark product 000273",
+      "unitPriceMinor": 373,
+      "currency": "USD"
+    },
+    "BENCH_000274": {
+      "name": "Benchmark product 000274",
+      "unitPriceMinor": 374,
+      "currency": "USD"
+    },
+    "BENCH_000275": {
+      "name": "Benchmark product 000275",
+      "unitPriceMinor": 375,
+      "currency": "USD"
+    },
+    "BENCH_000276": {
+      "name": "Benchmark product 000276",
+      "unitPriceMinor": 376,
+      "currency": "USD"
+    },
+    "BENCH_000277": {
+      "name": "Benchmark product 000277",
+      "unitPriceMinor": 377,
+      "currency": "USD"
+    },
+    "BENCH_000278": {
+      "name": "Benchmark product 000278",
+      "unitPriceMinor": 378,
+      "currency": "USD"
+    },
+    "BENCH_000279": {
+      "name": "Benchmark product 000279",
+      "unitPriceMinor": 379,
+      "currency": "USD"
+    },
+    "BENCH_000280": {
+      "name": "Benchmark product 000280",
+      "unitPriceMinor": 380,
+      "currency": "USD"
+    },
+    "BENCH_000281": {
+      "name": "Benchmark product 000281",
+      "unitPriceMinor": 381,
+      "currency": "USD"
+    },
+    "BENCH_000282": {
+      "name": "Benchmark product 000282",
+      "unitPriceMinor": 382,
+      "currency": "USD"
+    },
+    "BENCH_000283": {
+      "name": "Benchmark product 000283",
+      "unitPriceMinor": 383,
+      "currency": "USD"
+    },
+    "BENCH_000284": {
+      "name": "Benchmark product 000284",
+      "unitPriceMinor": 384,
+      "currency": "USD"
+    },
+    "BENCH_000285": {
+      "name": "Benchmark product 000285",
+      "unitPriceMinor": 385,
+      "currency": "USD"
+    },
+    "BENCH_000286": {
+      "name": "Benchmark product 000286",
+      "unitPriceMinor": 386,
+      "currency": "USD"
+    },
+    "BENCH_000287": {
+      "name": "Benchmark product 000287",
+      "unitPriceMinor": 387,
+      "currency": "USD"
+    },
+    "BENCH_000288": {
+      "name": "Benchmark product 000288",
+      "unitPriceMinor": 388,
+      "currency": "USD"
+    },
+    "BENCH_000289": {
+      "name": "Benchmark product 000289",
+      "unitPriceMinor": 389,
+      "currency": "USD"
+    },
+    "BENCH_000290": {
+      "name": "Benchmark product 000290",
+      "unitPriceMinor": 390,
+      "currency": "USD"
+    },
+    "BENCH_000291": {
+      "name": "Benchmark product 000291",
+      "unitPriceMinor": 391,
+      "currency": "USD"
+    },
+    "BENCH_000292": {
+      "name": "Benchmark product 000292",
+      "unitPriceMinor": 392,
+      "currency": "USD"
+    },
+    "BENCH_000293": {
+      "name": "Benchmark product 000293",
+      "unitPriceMinor": 393,
+      "currency": "USD"
+    },
+    "BENCH_000294": {
+      "name": "Benchmark product 000294",
+      "unitPriceMinor": 394,
+      "currency": "USD"
+    },
+    "BENCH_000295": {
+      "name": "Benchmark product 000295",
+      "unitPriceMinor": 395,
+      "currency": "USD"
+    },
+    "BENCH_000296": {
+      "name": "Benchmark product 000296",
+      "unitPriceMinor": 396,
+      "currency": "USD"
+    },
+    "BENCH_000297": {
+      "name": "Benchmark product 000297",
+      "unitPriceMinor": 397,
+      "currency": "USD"
+    },
+    "BENCH_000298": {
+      "name": "Benchmark product 000298",
+      "unitPriceMinor": 398,
+      "currency": "USD"
+    },
+    "BENCH_000299": {
+      "name": "Benchmark product 000299",
+      "unitPriceMinor": 399,
+      "currency": "USD"
+    },
+    "BENCH_000300": {
+      "name": "Benchmark product 000300",
+      "unitPriceMinor": 400,
+      "currency": "USD"
+    },
+    "BENCH_000301": {
+      "name": "Benchmark product 000301",
+      "unitPriceMinor": 401,
+      "currency": "USD"
+    },
+    "BENCH_000302": {
+      "name": "Benchmark product 000302",
+      "unitPriceMinor": 402,
+      "currency": "USD"
+    },
+    "BENCH_000303": {
+      "name": "Benchmark product 000303",
+      "unitPriceMinor": 403,
+      "currency": "USD"
+    },
+    "BENCH_000304": {
+      "name": "Benchmark product 000304",
+      "unitPriceMinor": 404,
+      "currency": "USD"
+    },
+    "BENCH_000305": {
+      "name": "Benchmark product 000305",
+      "unitPriceMinor": 405,
+      "currency": "USD"
+    },
+    "BENCH_000306": {
+      "name": "Benchmark product 000306",
+      "unitPriceMinor": 406,
+      "currency": "USD"
+    },
+    "BENCH_000307": {
+      "name": "Benchmark product 000307",
+      "unitPriceMinor": 407,
+      "currency": "USD"
+    },
+    "BENCH_000308": {
+      "name": "Benchmark product 000308",
+      "unitPriceMinor": 408,
+      "currency": "USD"
+    },
+    "BENCH_000309": {
+      "name": "Benchmark product 000309",
+      "unitPriceMinor": 409,
+      "currency": "USD"
+    },
+    "BENCH_000310": {
+      "name": "Benchmark product 000310",
+      "unitPriceMinor": 410,
+      "currency": "USD"
+    },
+    "BENCH_000311": {
+      "name": "Benchmark product 000311",
+      "unitPriceMinor": 411,
+      "currency": "USD"
+    },
+    "BENCH_000312": {
+      "name": "Benchmark product 000312",
+      "unitPriceMinor": 412,
+      "currency": "USD"
+    },
+    "BENCH_000313": {
+      "name": "Benchmark product 000313",
+      "unitPriceMinor": 413,
+      "currency": "USD"
+    },
+    "BENCH_000314": {
+      "name": "Benchmark product 000314",
+      "unitPriceMinor": 414,
+      "currency": "USD"
+    },
+    "BENCH_000315": {
+      "name": "Benchmark product 000315",
+      "unitPriceMinor": 415,
+      "currency": "USD"
+    },
+    "BENCH_000316": {
+      "name": "Benchmark product 000316",
+      "unitPriceMinor": 416,
+      "currency": "USD"
+    },
+    "BENCH_000317": {
+      "name": "Benchmark product 000317",
+      "unitPriceMinor": 417,
+      "currency": "USD"
+    },
+    "BENCH_000318": {
+      "name": "Benchmark product 000318",
+      "unitPriceMinor": 418,
+      "currency": "USD"
+    },
+    "BENCH_000319": {
+      "name": "Benchmark product 000319",
+      "unitPriceMinor": 419,
+      "currency": "USD"
+    },
+    "BENCH_000320": {
+      "name": "Benchmark product 000320",
+      "unitPriceMinor": 420,
+      "currency": "USD"
+    },
+    "BENCH_000321": {
+      "name": "Benchmark product 000321",
+      "unitPriceMinor": 421,
+      "currency": "USD"
+    },
+    "BENCH_000322": {
+      "name": "Benchmark product 000322",
+      "unitPriceMinor": 422,
+      "currency": "USD"
+    },
+    "BENCH_000323": {
+      "name": "Benchmark product 000323",
+      "unitPriceMinor": 423,
+      "currency": "USD"
+    },
+    "BENCH_000324": {
+      "name": "Benchmark product 000324",
+      "unitPriceMinor": 424,
+      "currency": "USD"
+    },
+    "BENCH_000325": {
+      "name": "Benchmark product 000325",
+      "unitPriceMinor": 425,
+      "currency": "USD"
+    },
+    "BENCH_000326": {
+      "name": "Benchmark product 000326",
+      "unitPriceMinor": 426,
+      "currency": "USD"
+    },
+    "BENCH_000327": {
+      "name": "Benchmark product 000327",
+      "unitPriceMinor": 427,
+      "currency": "USD"
+    },
+    "BENCH_000328": {
+      "name": "Benchmark product 000328",
+      "unitPriceMinor": 428,
+      "currency": "USD"
+    },
+    "BENCH_000329": {
+      "name": "Benchmark product 000329",
+      "unitPriceMinor": 429,
+      "currency": "USD"
+    },
+    "BENCH_000330": {
+      "name": "Benchmark product 000330",
+      "unitPriceMinor": 430,
+      "currency": "USD"
+    },
+    "BENCH_000331": {
+      "name": "Benchmark product 000331",
+      "unitPriceMinor": 431,
+      "currency": "USD"
+    },
+    "BENCH_000332": {
+      "name": "Benchmark product 000332",
+      "unitPriceMinor": 432,
+      "currency": "USD"
+    },
+    "BENCH_000333": {
+      "name": "Benchmark product 000333",
+      "unitPriceMinor": 433,
+      "currency": "USD"
+    },
+    "BENCH_000334": {
+      "name": "Benchmark product 000334",
+      "unitPriceMinor": 434,
+      "currency": "USD"
+    },
+    "BENCH_000335": {
+      "name": "Benchmark product 000335",
+      "unitPriceMinor": 435,
+      "currency": "USD"
+    },
+    "BENCH_000336": {
+      "name": "Benchmark product 000336",
+      "unitPriceMinor": 436,
+      "currency": "USD"
+    },
+    "BENCH_000337": {
+      "name": "Benchmark product 000337",
+      "unitPriceMinor": 437,
+      "currency": "USD"
+    },
+    "BENCH_000338": {
+      "name": "Benchmark product 000338",
+      "unitPriceMinor": 438,
+      "currency": "USD"
+    },
+    "BENCH_000339": {
+      "name": "Benchmark product 000339",
+      "unitPriceMinor": 439,
+      "currency": "USD"
+    },
+    "BENCH_000340": {
+      "name": "Benchmark product 000340",
+      "unitPriceMinor": 440,
+      "currency": "USD"
+    },
+    "BENCH_000341": {
+      "name": "Benchmark product 000341",
+      "unitPriceMinor": 441,
+      "currency": "USD"
+    },
+    "BENCH_000342": {
+      "name": "Benchmark product 000342",
+      "unitPriceMinor": 442,
+      "currency": "USD"
+    },
+    "BENCH_000343": {
+      "name": "Benchmark product 000343",
+      "unitPriceMinor": 443,
+      "currency": "USD"
+    },
+    "BENCH_000344": {
+      "name": "Benchmark product 000344",
+      "unitPriceMinor": 444,
+      "currency": "USD"
+    },
+    "BENCH_000345": {
+      "name": "Benchmark product 000345",
+      "unitPriceMinor": 445,
+      "currency": "USD"
+    },
+    "BENCH_000346": {
+      "name": "Benchmark product 000346",
+      "unitPriceMinor": 446,
+      "currency": "USD"
+    },
+    "BENCH_000347": {
+      "name": "Benchmark product 000347",
+      "unitPriceMinor": 447,
+      "currency": "USD"
+    },
+    "BENCH_000348": {
+      "name": "Benchmark product 000348",
+      "unitPriceMinor": 448,
+      "currency": "USD"
+    },
+    "BENCH_000349": {
+      "name": "Benchmark product 000349",
+      "unitPriceMinor": 449,
+      "currency": "USD"
+    },
+    "BENCH_000350": {
+      "name": "Benchmark product 000350",
+      "unitPriceMinor": 450,
+      "currency": "USD"
+    },
+    "BENCH_000351": {
+      "name": "Benchmark product 000351",
+      "unitPriceMinor": 451,
+      "currency": "USD"
+    },
+    "BENCH_000352": {
+      "name": "Benchmark product 000352",
+      "unitPriceMinor": 452,
+      "currency": "USD"
+    },
+    "BENCH_000353": {
+      "name": "Benchmark product 000353",
+      "unitPriceMinor": 453,
+      "currency": "USD"
+    },
+    "BENCH_000354": {
+      "name": "Benchmark product 000354",
+      "unitPriceMinor": 454,
+      "currency": "USD"
+    },
+    "BENCH_000355": {
+      "name": "Benchmark product 000355",
+      "unitPriceMinor": 455,
+      "currency": "USD"
+    },
+    "BENCH_000356": {
+      "name": "Benchmark product 000356",
+      "unitPriceMinor": 456,
+      "currency": "USD"
+    },
+    "BENCH_000357": {
+      "name": "Benchmark product 000357",
+      "unitPriceMinor": 457,
+      "currency": "USD"
+    },
+    "BENCH_000358": {
+      "name": "Benchmark product 000358",
+      "unitPriceMinor": 458,
+      "currency": "USD"
+    },
+    "BENCH_000359": {
+      "name": "Benchmark product 000359",
+      "unitPriceMinor": 459,
+      "currency": "USD"
+    },
+    "BENCH_000360": {
+      "name": "Benchmark product 000360",
+      "unitPriceMinor": 460,
+      "currency": "USD"
+    },
+    "BENCH_000361": {
+      "name": "Benchmark product 000361",
+      "unitPriceMinor": 461,
+      "currency": "USD"
+    },
+    "BENCH_000362": {
+      "name": "Benchmark product 000362",
+      "unitPriceMinor": 462,
+      "currency": "USD"
+    },
+    "BENCH_000363": {
+      "name": "Benchmark product 000363",
+      "unitPriceMinor": 463,
+      "currency": "USD"
+    },
+    "BENCH_000364": {
+      "name": "Benchmark product 000364",
+      "unitPriceMinor": 464,
+      "currency": "USD"
+    },
+    "BENCH_000365": {
+      "name": "Benchmark product 000365",
+      "unitPriceMinor": 465,
+      "currency": "USD"
+    },
+    "BENCH_000366": {
+      "name": "Benchmark product 000366",
+      "unitPriceMinor": 466,
+      "currency": "USD"
+    },
+    "BENCH_000367": {
+      "name": "Benchmark product 000367",
+      "unitPriceMinor": 467,
+      "currency": "USD"
+    },
+    "BENCH_000368": {
+      "name": "Benchmark product 000368",
+      "unitPriceMinor": 468,
+      "currency": "USD"
+    },
+    "BENCH_000369": {
+      "name": "Benchmark product 000369",
+      "unitPriceMinor": 469,
+      "currency": "USD"
+    },
+    "BENCH_000370": {
+      "name": "Benchmark product 000370",
+      "unitPriceMinor": 470,
+      "currency": "USD"
+    },
+    "BENCH_000371": {
+      "name": "Benchmark product 000371",
+      "unitPriceMinor": 471,
+      "currency": "USD"
+    },
+    "BENCH_000372": {
+      "name": "Benchmark product 000372",
+      "unitPriceMinor": 472,
+      "currency": "USD"
+    },
+    "BENCH_000373": {
+      "name": "Benchmark product 000373",
+      "unitPriceMinor": 473,
+      "currency": "USD"
+    },
+    "BENCH_000374": {
+      "name": "Benchmark product 000374",
+      "unitPriceMinor": 474,
+      "currency": "USD"
+    },
+    "BENCH_000375": {
+      "name": "Benchmark product 000375",
+      "unitPriceMinor": 475,
+      "currency": "USD"
+    },
+    "BENCH_000376": {
+      "name": "Benchmark product 000376",
+      "unitPriceMinor": 476,
+      "currency": "USD"
+    },
+    "BENCH_000377": {
+      "name": "Benchmark product 000377",
+      "unitPriceMinor": 477,
+      "currency": "USD"
+    },
+    "BENCH_000378": {
+      "name": "Benchmark product 000378",
+      "unitPriceMinor": 478,
+      "currency": "USD"
+    },
+    "BENCH_000379": {
+      "name": "Benchmark product 000379",
+      "unitPriceMinor": 479,
+      "currency": "USD"
+    },
+    "BENCH_000380": {
+      "name": "Benchmark product 000380",
+      "unitPriceMinor": 480,
+      "currency": "USD"
+    },
+    "BENCH_000381": {
+      "name": "Benchmark product 000381",
+      "unitPriceMinor": 481,
+      "currency": "USD"
+    },
+    "BENCH_000382": {
+      "name": "Benchmark product 000382",
+      "unitPriceMinor": 482,
+      "currency": "USD"
+    },
+    "BENCH_000383": {
+      "name": "Benchmark product 000383",
+      "unitPriceMinor": 483,
+      "currency": "USD"
+    },
+    "BENCH_000384": {
+      "name": "Benchmark product 000384",
+      "unitPriceMinor": 484,
+      "currency": "USD"
+    },
+    "BENCH_000385": {
+      "name": "Benchmark product 000385",
+      "unitPriceMinor": 485,
+      "currency": "USD"
+    },
+    "BENCH_000386": {
+      "name": "Benchmark product 000386",
+      "unitPriceMinor": 486,
+      "currency": "USD"
+    },
+    "BENCH_000387": {
+      "name": "Benchmark product 000387",
+      "unitPriceMinor": 487,
+      "currency": "USD"
+    },
+    "BENCH_000388": {
+      "name": "Benchmark product 000388",
+      "unitPriceMinor": 488,
+      "currency": "USD"
+    },
+    "BENCH_000389": {
+      "name": "Benchmark product 000389",
+      "unitPriceMinor": 489,
+      "currency": "USD"
+    },
+    "BENCH_000390": {
+      "name": "Benchmark product 000390",
+      "unitPriceMinor": 490,
+      "currency": "USD"
+    },
+    "BENCH_000391": {
+      "name": "Benchmark product 000391",
+      "unitPriceMinor": 491,
+      "currency": "USD"
+    },
+    "BENCH_000392": {
+      "name": "Benchmark product 000392",
+      "unitPriceMinor": 492,
+      "currency": "USD"
+    },
+    "BENCH_000393": {
+      "name": "Benchmark product 000393",
+      "unitPriceMinor": 493,
+      "currency": "USD"
+    },
+    "BENCH_000394": {
+      "name": "Benchmark product 000394",
+      "unitPriceMinor": 494,
+      "currency": "USD"
+    },
+    "BENCH_000395": {
+      "name": "Benchmark product 000395",
+      "unitPriceMinor": 495,
+      "currency": "USD"
+    },
+    "BENCH_000396": {
+      "name": "Benchmark product 000396",
+      "unitPriceMinor": 496,
+      "currency": "USD"
+    },
+    "BENCH_000397": {
+      "name": "Benchmark product 000397",
+      "unitPriceMinor": 497,
+      "currency": "USD"
+    },
+    "BENCH_000398": {
+      "name": "Benchmark product 000398",
+      "unitPriceMinor": 498,
+      "currency": "USD"
+    },
+    "BENCH_000399": {
+      "name": "Benchmark product 000399",
+      "unitPriceMinor": 499,
+      "currency": "USD"
+    },
+    "BENCH_000400": {
+      "name": "Benchmark product 000400",
+      "unitPriceMinor": 500,
+      "currency": "USD"
+    },
+    "BENCH_000401": {
+      "name": "Benchmark product 000401",
+      "unitPriceMinor": 501,
+      "currency": "USD"
+    },
+    "BENCH_000402": {
+      "name": "Benchmark product 000402",
+      "unitPriceMinor": 502,
+      "currency": "USD"
+    },
+    "BENCH_000403": {
+      "name": "Benchmark product 000403",
+      "unitPriceMinor": 503,
+      "currency": "USD"
+    },
+    "BENCH_000404": {
+      "name": "Benchmark product 000404",
+      "unitPriceMinor": 504,
+      "currency": "USD"
+    },
+    "BENCH_000405": {
+      "name": "Benchmark product 000405",
+      "unitPriceMinor": 505,
+      "currency": "USD"
+    },
+    "BENCH_000406": {
+      "name": "Benchmark product 000406",
+      "unitPriceMinor": 506,
+      "currency": "USD"
+    },
+    "BENCH_000407": {
+      "name": "Benchmark product 000407",
+      "unitPriceMinor": 507,
+      "currency": "USD"
+    },
+    "BENCH_000408": {
+      "name": "Benchmark product 000408",
+      "unitPriceMinor": 508,
+      "currency": "USD"
+    },
+    "BENCH_000409": {
+      "name": "Benchmark product 000409",
+      "unitPriceMinor": 509,
+      "currency": "USD"
+    },
+    "BENCH_000410": {
+      "name": "Benchmark product 000410",
+      "unitPriceMinor": 510,
+      "currency": "USD"
+    },
+    "BENCH_000411": {
+      "name": "Benchmark product 000411",
+      "unitPriceMinor": 511,
+      "currency": "USD"
+    },
+    "BENCH_000412": {
+      "name": "Benchmark product 000412",
+      "unitPriceMinor": 512,
+      "currency": "USD"
+    },
+    "BENCH_000413": {
+      "name": "Benchmark product 000413",
+      "unitPriceMinor": 513,
+      "currency": "USD"
+    },
+    "BENCH_000414": {
+      "name": "Benchmark product 000414",
+      "unitPriceMinor": 514,
+      "currency": "USD"
+    },
+    "BENCH_000415": {
+      "name": "Benchmark product 000415",
+      "unitPriceMinor": 515,
+      "currency": "USD"
+    },
+    "BENCH_000416": {
+      "name": "Benchmark product 000416",
+      "unitPriceMinor": 516,
+      "currency": "USD"
+    },
+    "BENCH_000417": {
+      "name": "Benchmark product 000417",
+      "unitPriceMinor": 517,
+      "currency": "USD"
+    },
+    "BENCH_000418": {
+      "name": "Benchmark product 000418",
+      "unitPriceMinor": 518,
+      "currency": "USD"
+    },
+    "BENCH_000419": {
+      "name": "Benchmark product 000419",
+      "unitPriceMinor": 519,
+      "currency": "USD"
+    },
+    "BENCH_000420": {
+      "name": "Benchmark product 000420",
+      "unitPriceMinor": 520,
+      "currency": "USD"
+    },
+    "BENCH_000421": {
+      "name": "Benchmark product 000421",
+      "unitPriceMinor": 521,
+      "currency": "USD"
+    },
+    "BENCH_000422": {
+      "name": "Benchmark product 000422",
+      "unitPriceMinor": 522,
+      "currency": "USD"
+    },
+    "BENCH_000423": {
+      "name": "Benchmark product 000423",
+      "unitPriceMinor": 523,
+      "currency": "USD"
+    },
+    "BENCH_000424": {
+      "name": "Benchmark product 000424",
+      "unitPriceMinor": 524,
+      "currency": "USD"
+    },
+    "BENCH_000425": {
+      "name": "Benchmark product 000425",
+      "unitPriceMinor": 525,
+      "currency": "USD"
+    },
+    "BENCH_000426": {
+      "name": "Benchmark product 000426",
+      "unitPriceMinor": 526,
+      "currency": "USD"
+    },
+    "BENCH_000427": {
+      "name": "Benchmark product 000427",
+      "unitPriceMinor": 527,
+      "currency": "USD"
+    },
+    "BENCH_000428": {
+      "name": "Benchmark product 000428",
+      "unitPriceMinor": 528,
+      "currency": "USD"
+    },
+    "BENCH_000429": {
+      "name": "Benchmark product 000429",
+      "unitPriceMinor": 529,
+      "currency": "USD"
+    },
+    "BENCH_000430": {
+      "name": "Benchmark product 000430",
+      "unitPriceMinor": 530,
+      "currency": "USD"
+    },
+    "BENCH_000431": {
+      "name": "Benchmark product 000431",
+      "unitPriceMinor": 531,
+      "currency": "USD"
+    },
+    "BENCH_000432": {
+      "name": "Benchmark product 000432",
+      "unitPriceMinor": 532,
+      "currency": "USD"
+    },
+    "BENCH_000433": {
+      "name": "Benchmark product 000433",
+      "unitPriceMinor": 533,
+      "currency": "USD"
+    },
+    "BENCH_000434": {
+      "name": "Benchmark product 000434",
+      "unitPriceMinor": 534,
+      "currency": "USD"
+    },
+    "BENCH_000435": {
+      "name": "Benchmark product 000435",
+      "unitPriceMinor": 535,
+      "currency": "USD"
+    },
+    "BENCH_000436": {
+      "name": "Benchmark product 000436",
+      "unitPriceMinor": 536,
+      "currency": "USD"
+    },
+    "BENCH_000437": {
+      "name": "Benchmark product 000437",
+      "unitPriceMinor": 537,
+      "currency": "USD"
+    },
+    "BENCH_000438": {
+      "name": "Benchmark product 000438",
+      "unitPriceMinor": 538,
+      "currency": "USD"
+    },
+    "BENCH_000439": {
+      "name": "Benchmark product 000439",
+      "unitPriceMinor": 539,
+      "currency": "USD"
+    },
+    "BENCH_000440": {
+      "name": "Benchmark product 000440",
+      "unitPriceMinor": 540,
+      "currency": "USD"
+    },
+    "BENCH_000441": {
+      "name": "Benchmark product 000441",
+      "unitPriceMinor": 541,
+      "currency": "USD"
+    },
+    "BENCH_000442": {
+      "name": "Benchmark product 000442",
+      "unitPriceMinor": 542,
+      "currency": "USD"
+    },
+    "BENCH_000443": {
+      "name": "Benchmark product 000443",
+      "unitPriceMinor": 543,
+      "currency": "USD"
+    },
+    "BENCH_000444": {
+      "name": "Benchmark product 000444",
+      "unitPriceMinor": 544,
+      "currency": "USD"
+    },
+    "BENCH_000445": {
+      "name": "Benchmark product 000445",
+      "unitPriceMinor": 545,
+      "currency": "USD"
+    },
+    "BENCH_000446": {
+      "name": "Benchmark product 000446",
+      "unitPriceMinor": 546,
+      "currency": "USD"
+    },
+    "BENCH_000447": {
+      "name": "Benchmark product 000447",
+      "unitPriceMinor": 547,
+      "currency": "USD"
+    },
+    "BENCH_000448": {
+      "name": "Benchmark product 000448",
+      "unitPriceMinor": 548,
+      "currency": "USD"
+    },
+    "BENCH_000449": {
+      "name": "Benchmark product 000449",
+      "unitPriceMinor": 549,
+      "currency": "USD"
+    },
+    "BENCH_000450": {
+      "name": "Benchmark product 000450",
+      "unitPriceMinor": 550,
+      "currency": "USD"
+    },
+    "BENCH_000451": {
+      "name": "Benchmark product 000451",
+      "unitPriceMinor": 551,
+      "currency": "USD"
+    },
+    "BENCH_000452": {
+      "name": "Benchmark product 000452",
+      "unitPriceMinor": 552,
+      "currency": "USD"
+    },
+    "BENCH_000453": {
+      "name": "Benchmark product 000453",
+      "unitPriceMinor": 553,
+      "currency": "USD"
+    },
+    "BENCH_000454": {
+      "name": "Benchmark product 000454",
+      "unitPriceMinor": 554,
+      "currency": "USD"
+    },
+    "BENCH_000455": {
+      "name": "Benchmark product 000455",
+      "unitPriceMinor": 555,
+      "currency": "USD"
+    },
+    "BENCH_000456": {
+      "name": "Benchmark product 000456",
+      "unitPriceMinor": 556,
+      "currency": "USD"
+    },
+    "BENCH_000457": {
+      "name": "Benchmark product 000457",
+      "unitPriceMinor": 557,
+      "currency": "USD"
+    },
+    "BENCH_000458": {
+      "name": "Benchmark product 000458",
+      "unitPriceMinor": 558,
+      "currency": "USD"
+    },
+    "BENCH_000459": {
+      "name": "Benchmark product 000459",
+      "unitPriceMinor": 559,
+      "currency": "USD"
+    },
+    "BENCH_000460": {
+      "name": "Benchmark product 000460",
+      "unitPriceMinor": 560,
+      "currency": "USD"
+    },
+    "BENCH_000461": {
+      "name": "Benchmark product 000461",
+      "unitPriceMinor": 561,
+      "currency": "USD"
+    },
+    "BENCH_000462": {
+      "name": "Benchmark product 000462",
+      "unitPriceMinor": 562,
+      "currency": "USD"
+    },
+    "BENCH_000463": {
+      "name": "Benchmark product 000463",
+      "unitPriceMinor": 563,
+      "currency": "USD"
+    },
+    "BENCH_000464": {
+      "name": "Benchmark product 000464",
+      "unitPriceMinor": 564,
+      "currency": "USD"
+    },
+    "BENCH_000465": {
+      "name": "Benchmark product 000465",
+      "unitPriceMinor": 565,
+      "currency": "USD"
+    },
+    "BENCH_000466": {
+      "name": "Benchmark product 000466",
+      "unitPriceMinor": 566,
+      "currency": "USD"
+    },
+    "BENCH_000467": {
+      "name": "Benchmark product 000467",
+      "unitPriceMinor": 567,
+      "currency": "USD"
+    },
+    "BENCH_000468": {
+      "name": "Benchmark product 000468",
+      "unitPriceMinor": 568,
+      "currency": "USD"
+    },
+    "BENCH_000469": {
+      "name": "Benchmark product 000469",
+      "unitPriceMinor": 569,
+      "currency": "USD"
+    },
+    "BENCH_000470": {
+      "name": "Benchmark product 000470",
+      "unitPriceMinor": 570,
+      "currency": "USD"
+    },
+    "BENCH_000471": {
+      "name": "Benchmark product 000471",
+      "unitPriceMinor": 571,
+      "currency": "USD"
+    },
+    "BENCH_000472": {
+      "name": "Benchmark product 000472",
+      "unitPriceMinor": 572,
+      "currency": "USD"
+    },
+    "BENCH_000473": {
+      "name": "Benchmark product 000473",
+      "unitPriceMinor": 573,
+      "currency": "USD"
+    },
+    "BENCH_000474": {
+      "name": "Benchmark product 000474",
+      "unitPriceMinor": 574,
+      "currency": "USD"
+    },
+    "BENCH_000475": {
+      "name": "Benchmark product 000475",
+      "unitPriceMinor": 575,
+      "currency": "USD"
+    },
+    "BENCH_000476": {
+      "name": "Benchmark product 000476",
+      "unitPriceMinor": 576,
+      "currency": "USD"
+    },
+    "BENCH_000477": {
+      "name": "Benchmark product 000477",
+      "unitPriceMinor": 577,
+      "currency": "USD"
+    },
+    "BENCH_000478": {
+      "name": "Benchmark product 000478",
+      "unitPriceMinor": 578,
+      "currency": "USD"
+    },
+    "BENCH_000479": {
+      "name": "Benchmark product 000479",
+      "unitPriceMinor": 579,
+      "currency": "USD"
+    },
+    "BENCH_000480": {
+      "name": "Benchmark product 000480",
+      "unitPriceMinor": 580,
+      "currency": "USD"
+    },
+    "BENCH_000481": {
+      "name": "Benchmark product 000481",
+      "unitPriceMinor": 581,
+      "currency": "USD"
+    },
+    "BENCH_000482": {
+      "name": "Benchmark product 000482",
+      "unitPriceMinor": 582,
+      "currency": "USD"
+    },
+    "BENCH_000483": {
+      "name": "Benchmark product 000483",
+      "unitPriceMinor": 583,
+      "currency": "USD"
+    },
+    "BENCH_000484": {
+      "name": "Benchmark product 000484",
+      "unitPriceMinor": 584,
+      "currency": "USD"
+    },
+    "BENCH_000485": {
+      "name": "Benchmark product 000485",
+      "unitPriceMinor": 585,
+      "currency": "USD"
+    },
+    "BENCH_000486": {
+      "name": "Benchmark product 000486",
+      "unitPriceMinor": 586,
+      "currency": "USD"
+    },
+    "BENCH_000487": {
+      "name": "Benchmark product 000487",
+      "unitPriceMinor": 587,
+      "currency": "USD"
+    },
+    "BENCH_000488": {
+      "name": "Benchmark product 000488",
+      "unitPriceMinor": 588,
+      "currency": "USD"
+    },
+    "BENCH_000489": {
+      "name": "Benchmark product 000489",
+      "unitPriceMinor": 589,
+      "currency": "USD"
+    },
+    "BENCH_000490": {
+      "name": "Benchmark product 000490",
+      "unitPriceMinor": 590,
+      "currency": "USD"
+    },
+    "BENCH_000491": {
+      "name": "Benchmark product 000491",
+      "unitPriceMinor": 591,
+      "currency": "USD"
+    },
+    "BENCH_000492": {
+      "name": "Benchmark product 000492",
+      "unitPriceMinor": 592,
+      "currency": "USD"
+    },
+    "BENCH_000493": {
+      "name": "Benchmark product 000493",
+      "unitPriceMinor": 593,
+      "currency": "USD"
+    },
+    "BENCH_000494": {
+      "name": "Benchmark product 000494",
+      "unitPriceMinor": 594,
+      "currency": "USD"
+    },
+    "BENCH_000495": {
+      "name": "Benchmark product 000495",
+      "unitPriceMinor": 595,
+      "currency": "USD"
+    },
+    "BENCH_000496": {
+      "name": "Benchmark product 000496",
+      "unitPriceMinor": 596,
+      "currency": "USD"
+    },
+    "BENCH_000497": {
+      "name": "Benchmark product 000497",
+      "unitPriceMinor": 597,
+      "currency": "USD"
+    },
+    "BENCH_000498": {
+      "name": "Benchmark product 000498",
+      "unitPriceMinor": 598,
+      "currency": "USD"
+    },
+    "BENCH_000499": {
+      "name": "Benchmark product 000499",
+      "unitPriceMinor": 599,
+      "currency": "USD"
+    },
+    "BENCH_000500": {
+      "name": "Benchmark product 000500",
+      "unitPriceMinor": 600,
+      "currency": "USD"
+    },
+    "BENCH_000501": {
+      "name": "Benchmark product 000501",
+      "unitPriceMinor": 601,
+      "currency": "USD"
+    },
+    "BENCH_000502": {
+      "name": "Benchmark product 000502",
+      "unitPriceMinor": 602,
+      "currency": "USD"
+    },
+    "BENCH_000503": {
+      "name": "Benchmark product 000503",
+      "unitPriceMinor": 603,
+      "currency": "USD"
+    },
+    "BENCH_000504": {
+      "name": "Benchmark product 000504",
+      "unitPriceMinor": 604,
+      "currency": "USD"
+    },
+    "BENCH_000505": {
+      "name": "Benchmark product 000505",
+      "unitPriceMinor": 605,
+      "currency": "USD"
+    },
+    "BENCH_000506": {
+      "name": "Benchmark product 000506",
+      "unitPriceMinor": 606,
+      "currency": "USD"
+    },
+    "BENCH_000507": {
+      "name": "Benchmark product 000507",
+      "unitPriceMinor": 607,
+      "currency": "USD"
+    },
+    "BENCH_000508": {
+      "name": "Benchmark product 000508",
+      "unitPriceMinor": 608,
+      "currency": "USD"
+    },
+    "BENCH_000509": {
+      "name": "Benchmark product 000509",
+      "unitPriceMinor": 609,
+      "currency": "USD"
+    },
+    "BENCH_000510": {
+      "name": "Benchmark product 000510",
+      "unitPriceMinor": 610,
+      "currency": "USD"
+    },
+    "BENCH_000511": {
+      "name": "Benchmark product 000511",
+      "unitPriceMinor": 611,
+      "currency": "USD"
+    },
+    "BENCH_000512": {
+      "name": "Benchmark product 000512",
+      "unitPriceMinor": 612,
+      "currency": "USD"
+    },
+    "BENCH_000513": {
+      "name": "Benchmark product 000513",
+      "unitPriceMinor": 613,
+      "currency": "USD"
+    },
+    "BENCH_000514": {
+      "name": "Benchmark product 000514",
+      "unitPriceMinor": 614,
+      "currency": "USD"
+    },
+    "BENCH_000515": {
+      "name": "Benchmark product 000515",
+      "unitPriceMinor": 615,
+      "currency": "USD"
+    },
+    "BENCH_000516": {
+      "name": "Benchmark product 000516",
+      "unitPriceMinor": 616,
+      "currency": "USD"
+    },
+    "BENCH_000517": {
+      "name": "Benchmark product 000517",
+      "unitPriceMinor": 617,
+      "currency": "USD"
+    },
+    "BENCH_000518": {
+      "name": "Benchmark product 000518",
+      "unitPriceMinor": 618,
+      "currency": "USD"
+    },
+    "BENCH_000519": {
+      "name": "Benchmark product 000519",
+      "unitPriceMinor": 619,
+      "currency": "USD"
+    },
+    "BENCH_000520": {
+      "name": "Benchmark product 000520",
+      "unitPriceMinor": 620,
+      "currency": "USD"
+    },
+    "BENCH_000521": {
+      "name": "Benchmark product 000521",
+      "unitPriceMinor": 621,
+      "currency": "USD"
+    },
+    "BENCH_000522": {
+      "name": "Benchmark product 000522",
+      "unitPriceMinor": 622,
+      "currency": "USD"
+    },
+    "BENCH_000523": {
+      "name": "Benchmark product 000523",
+      "unitPriceMinor": 623,
+      "currency": "USD"
+    },
+    "BENCH_000524": {
+      "name": "Benchmark product 000524",
+      "unitPriceMinor": 624,
+      "currency": "USD"
+    },
+    "BENCH_000525": {
+      "name": "Benchmark product 000525",
+      "unitPriceMinor": 625,
+      "currency": "USD"
+    },
+    "BENCH_000526": {
+      "name": "Benchmark product 000526",
+      "unitPriceMinor": 626,
+      "currency": "USD"
+    },
+    "BENCH_000527": {
+      "name": "Benchmark product 000527",
+      "unitPriceMinor": 627,
+      "currency": "USD"
+    },
+    "BENCH_000528": {
+      "name": "Benchmark product 000528",
+      "unitPriceMinor": 628,
+      "currency": "USD"
+    },
+    "BENCH_000529": {
+      "name": "Benchmark product 000529",
+      "unitPriceMinor": 629,
+      "currency": "USD"
+    },
+    "BENCH_000530": {
+      "name": "Benchmark product 000530",
+      "unitPriceMinor": 630,
+      "currency": "USD"
+    },
+    "BENCH_000531": {
+      "name": "Benchmark product 000531",
+      "unitPriceMinor": 631,
+      "currency": "USD"
+    },
+    "BENCH_000532": {
+      "name": "Benchmark product 000532",
+      "unitPriceMinor": 632,
+      "currency": "USD"
+    },
+    "BENCH_000533": {
+      "name": "Benchmark product 000533",
+      "unitPriceMinor": 633,
+      "currency": "USD"
+    },
+    "BENCH_000534": {
+      "name": "Benchmark product 000534",
+      "unitPriceMinor": 634,
+      "currency": "USD"
+    },
+    "BENCH_000535": {
+      "name": "Benchmark product 000535",
+      "unitPriceMinor": 635,
+      "currency": "USD"
+    },
+    "BENCH_000536": {
+      "name": "Benchmark product 000536",
+      "unitPriceMinor": 636,
+      "currency": "USD"
+    },
+    "BENCH_000537": {
+      "name": "Benchmark product 000537",
+      "unitPriceMinor": 637,
+      "currency": "USD"
+    },
+    "BENCH_000538": {
+      "name": "Benchmark product 000538",
+      "unitPriceMinor": 638,
+      "currency": "USD"
+    },
+    "BENCH_000539": {
+      "name": "Benchmark product 000539",
+      "unitPriceMinor": 639,
+      "currency": "USD"
+    },
+    "BENCH_000540": {
+      "name": "Benchmark product 000540",
+      "unitPriceMinor": 640,
+      "currency": "USD"
+    },
+    "BENCH_000541": {
+      "name": "Benchmark product 000541",
+      "unitPriceMinor": 641,
+      "currency": "USD"
+    },
+    "BENCH_000542": {
+      "name": "Benchmark product 000542",
+      "unitPriceMinor": 642,
+      "currency": "USD"
+    },
+    "BENCH_000543": {
+      "name": "Benchmark product 000543",
+      "unitPriceMinor": 643,
+      "currency": "USD"
+    },
+    "BENCH_000544": {
+      "name": "Benchmark product 000544",
+      "unitPriceMinor": 644,
+      "currency": "USD"
+    },
+    "BENCH_000545": {
+      "name": "Benchmark product 000545",
+      "unitPriceMinor": 645,
+      "currency": "USD"
+    },
+    "BENCH_000546": {
+      "name": "Benchmark product 000546",
+      "unitPriceMinor": 646,
+      "currency": "USD"
+    },
+    "BENCH_000547": {
+      "name": "Benchmark product 000547",
+      "unitPriceMinor": 647,
+      "currency": "USD"
+    },
+    "BENCH_000548": {
+      "name": "Benchmark product 000548",
+      "unitPriceMinor": 648,
+      "currency": "USD"
+    },
+    "BENCH_000549": {
+      "name": "Benchmark product 000549",
+      "unitPriceMinor": 649,
+      "currency": "USD"
+    },
+    "BENCH_000550": {
+      "name": "Benchmark product 000550",
+      "unitPriceMinor": 650,
+      "currency": "USD"
+    },
+    "BENCH_000551": {
+      "name": "Benchmark product 000551",
+      "unitPriceMinor": 651,
+      "currency": "USD"
+    },
+    "BENCH_000552": {
+      "name": "Benchmark product 000552",
+      "unitPriceMinor": 652,
+      "currency": "USD"
+    },
+    "BENCH_000553": {
+      "name": "Benchmark product 000553",
+      "unitPriceMinor": 653,
+      "currency": "USD"
+    },
+    "BENCH_000554": {
+      "name": "Benchmark product 000554",
+      "unitPriceMinor": 654,
+      "currency": "USD"
+    },
+    "BENCH_000555": {
+      "name": "Benchmark product 000555",
+      "unitPriceMinor": 655,
+      "currency": "USD"
+    },
+    "BENCH_000556": {
+      "name": "Benchmark product 000556",
+      "unitPriceMinor": 656,
+      "currency": "USD"
+    },
+    "BENCH_000557": {
+      "name": "Benchmark product 000557",
+      "unitPriceMinor": 657,
+      "currency": "USD"
+    },
+    "BENCH_000558": {
+      "name": "Benchmark product 000558",
+      "unitPriceMinor": 658,
+      "currency": "USD"
+    },
+    "BENCH_000559": {
+      "name": "Benchmark product 000559",
+      "unitPriceMinor": 659,
+      "currency": "USD"
+    },
+    "BENCH_000560": {
+      "name": "Benchmark product 000560",
+      "unitPriceMinor": 660,
+      "currency": "USD"
+    },
+    "BENCH_000561": {
+      "name": "Benchmark product 000561",
+      "unitPriceMinor": 661,
+      "currency": "USD"
+    },
+    "BENCH_000562": {
+      "name": "Benchmark product 000562",
+      "unitPriceMinor": 662,
+      "currency": "USD"
+    },
+    "BENCH_000563": {
+      "name": "Benchmark product 000563",
+      "unitPriceMinor": 663,
+      "currency": "USD"
+    },
+    "BENCH_000564": {
+      "name": "Benchmark product 000564",
+      "unitPriceMinor": 664,
+      "currency": "USD"
+    },
+    "BENCH_000565": {
+      "name": "Benchmark product 000565",
+      "unitPriceMinor": 665,
+      "currency": "USD"
+    },
+    "BENCH_000566": {
+      "name": "Benchmark product 000566",
+      "unitPriceMinor": 666,
+      "currency": "USD"
+    },
+    "BENCH_000567": {
+      "name": "Benchmark product 000567",
+      "unitPriceMinor": 667,
+      "currency": "USD"
+    },
+    "BENCH_000568": {
+      "name": "Benchmark product 000568",
+      "unitPriceMinor": 668,
+      "currency": "USD"
+    },
+    "BENCH_000569": {
+      "name": "Benchmark product 000569",
+      "unitPriceMinor": 669,
+      "currency": "USD"
+    },
+    "BENCH_000570": {
+      "name": "Benchmark product 000570",
+      "unitPriceMinor": 670,
+      "currency": "USD"
+    },
+    "BENCH_000571": {
+      "name": "Benchmark product 000571",
+      "unitPriceMinor": 671,
+      "currency": "USD"
+    },
+    "BENCH_000572": {
+      "name": "Benchmark product 000572",
+      "unitPriceMinor": 672,
+      "currency": "USD"
+    },
+    "BENCH_000573": {
+      "name": "Benchmark product 000573",
+      "unitPriceMinor": 673,
+      "currency": "USD"
+    },
+    "BENCH_000574": {
+      "name": "Benchmark product 000574",
+      "unitPriceMinor": 674,
+      "currency": "USD"
+    },
+    "BENCH_000575": {
+      "name": "Benchmark product 000575",
+      "unitPriceMinor": 675,
+      "currency": "USD"
+    },
+    "BENCH_000576": {
+      "name": "Benchmark product 000576",
+      "unitPriceMinor": 676,
+      "currency": "USD"
+    },
+    "BENCH_000577": {
+      "name": "Benchmark product 000577",
+      "unitPriceMinor": 677,
+      "currency": "USD"
+    },
+    "BENCH_000578": {
+      "name": "Benchmark product 000578",
+      "unitPriceMinor": 678,
+      "currency": "USD"
+    },
+    "BENCH_000579": {
+      "name": "Benchmark product 000579",
+      "unitPriceMinor": 679,
+      "currency": "USD"
+    },
+    "BENCH_000580": {
+      "name": "Benchmark product 000580",
+      "unitPriceMinor": 680,
+      "currency": "USD"
+    },
+    "BENCH_000581": {
+      "name": "Benchmark product 000581",
+      "unitPriceMinor": 681,
+      "currency": "USD"
+    },
+    "BENCH_000582": {
+      "name": "Benchmark product 000582",
+      "unitPriceMinor": 682,
+      "currency": "USD"
+    },
+    "BENCH_000583": {
+      "name": "Benchmark product 000583",
+      "unitPriceMinor": 683,
+      "currency": "USD"
+    },
+    "BENCH_000584": {
+      "name": "Benchmark product 000584",
+      "unitPriceMinor": 684,
+      "currency": "USD"
+    },
+    "BENCH_000585": {
+      "name": "Benchmark product 000585",
+      "unitPriceMinor": 685,
+      "currency": "USD"
+    },
+    "BENCH_000586": {
+      "name": "Benchmark product 000586",
+      "unitPriceMinor": 686,
+      "currency": "USD"
+    },
+    "BENCH_000587": {
+      "name": "Benchmark product 000587",
+      "unitPriceMinor": 687,
+      "currency": "USD"
+    },
+    "BENCH_000588": {
+      "name": "Benchmark product 000588",
+      "unitPriceMinor": 688,
+      "currency": "USD"
+    },
+    "BENCH_000589": {
+      "name": "Benchmark product 000589",
+      "unitPriceMinor": 689,
+      "currency": "USD"
+    },
+    "BENCH_000590": {
+      "name": "Benchmark product 000590",
+      "unitPriceMinor": 690,
+      "currency": "USD"
+    },
+    "BENCH_000591": {
+      "name": "Benchmark product 000591",
+      "unitPriceMinor": 691,
+      "currency": "USD"
+    },
+    "BENCH_000592": {
+      "name": "Benchmark product 000592",
+      "unitPriceMinor": 692,
+      "currency": "USD"
+    },
+    "BENCH_000593": {
+      "name": "Benchmark product 000593",
+      "unitPriceMinor": 693,
+      "currency": "USD"
+    },
+    "BENCH_000594": {
+      "name": "Benchmark product 000594",
+      "unitPriceMinor": 694,
+      "currency": "USD"
+    },
+    "BENCH_000595": {
+      "name": "Benchmark product 000595",
+      "unitPriceMinor": 695,
+      "currency": "USD"
+    },
+    "BENCH_000596": {
+      "name": "Benchmark product 000596",
+      "unitPriceMinor": 696,
+      "currency": "USD"
+    },
+    "BENCH_000597": {
+      "name": "Benchmark product 000597",
+      "unitPriceMinor": 697,
+      "currency": "USD"
+    },
+    "BENCH_000598": {
+      "name": "Benchmark product 000598",
+      "unitPriceMinor": 698,
+      "currency": "USD"
+    },
+    "BENCH_000599": {
+      "name": "Benchmark product 000599",
+      "unitPriceMinor": 699,
+      "currency": "USD"
+    },
+    "BENCH_000600": {
+      "name": "Benchmark product 000600",
+      "unitPriceMinor": 700,
+      "currency": "USD"
+    },
+    "BENCH_000601": {
+      "name": "Benchmark product 000601",
+      "unitPriceMinor": 701,
+      "currency": "USD"
+    },
+    "BENCH_000602": {
+      "name": "Benchmark product 000602",
+      "unitPriceMinor": 702,
+      "currency": "USD"
+    },
+    "BENCH_000603": {
+      "name": "Benchmark product 000603",
+      "unitPriceMinor": 703,
+      "currency": "USD"
+    },
+    "BENCH_000604": {
+      "name": "Benchmark product 000604",
+      "unitPriceMinor": 704,
+      "currency": "USD"
+    },
+    "BENCH_000605": {
+      "name": "Benchmark product 000605",
+      "unitPriceMinor": 705,
+      "currency": "USD"
+    },
+    "BENCH_000606": {
+      "name": "Benchmark product 000606",
+      "unitPriceMinor": 706,
+      "currency": "USD"
+    },
+    "BENCH_000607": {
+      "name": "Benchmark product 000607",
+      "unitPriceMinor": 707,
+      "currency": "USD"
+    },
+    "BENCH_000608": {
+      "name": "Benchmark product 000608",
+      "unitPriceMinor": 708,
+      "currency": "USD"
+    },
+    "BENCH_000609": {
+      "name": "Benchmark product 000609",
+      "unitPriceMinor": 709,
+      "currency": "USD"
+    },
+    "BENCH_000610": {
+      "name": "Benchmark product 000610",
+      "unitPriceMinor": 710,
+      "currency": "USD"
+    },
+    "BENCH_000611": {
+      "name": "Benchmark product 000611",
+      "unitPriceMinor": 711,
+      "currency": "USD"
+    },
+    "BENCH_000612": {
+      "name": "Benchmark product 000612",
+      "unitPriceMinor": 712,
+      "currency": "USD"
+    },
+    "BENCH_000613": {
+      "name": "Benchmark product 000613",
+      "unitPriceMinor": 713,
+      "currency": "USD"
+    },
+    "BENCH_000614": {
+      "name": "Benchmark product 000614",
+      "unitPriceMinor": 714,
+      "currency": "USD"
+    },
+    "BENCH_000615": {
+      "name": "Benchmark product 000615",
+      "unitPriceMinor": 715,
+      "currency": "USD"
+    },
+    "BENCH_000616": {
+      "name": "Benchmark product 000616",
+      "unitPriceMinor": 716,
+      "currency": "USD"
+    },
+    "BENCH_000617": {
+      "name": "Benchmark product 000617",
+      "unitPriceMinor": 717,
+      "currency": "USD"
+    },
+    "BENCH_000618": {
+      "name": "Benchmark product 000618",
+      "unitPriceMinor": 718,
+      "currency": "USD"
+    },
+    "BENCH_000619": {
+      "name": "Benchmark product 000619",
+      "unitPriceMinor": 719,
+      "currency": "USD"
+    },
+    "BENCH_000620": {
+      "name": "Benchmark product 000620",
+      "unitPriceMinor": 720,
+      "currency": "USD"
+    },
+    "BENCH_000621": {
+      "name": "Benchmark product 000621",
+      "unitPriceMinor": 721,
+      "currency": "USD"
+    },
+    "BENCH_000622": {
+      "name": "Benchmark product 000622",
+      "unitPriceMinor": 722,
+      "currency": "USD"
+    },
+    "BENCH_000623": {
+      "name": "Benchmark product 000623",
+      "unitPriceMinor": 723,
+      "currency": "USD"
+    },
+    "BENCH_000624": {
+      "name": "Benchmark product 000624",
+      "unitPriceMinor": 724,
+      "currency": "USD"
+    },
+    "BENCH_000625": {
+      "name": "Benchmark product 000625",
+      "unitPriceMinor": 725,
+      "currency": "USD"
+    },
+    "BENCH_000626": {
+      "name": "Benchmark product 000626",
+      "unitPriceMinor": 726,
+      "currency": "USD"
+    },
+    "BENCH_000627": {
+      "name": "Benchmark product 000627",
+      "unitPriceMinor": 727,
+      "currency": "USD"
+    },
+    "BENCH_000628": {
+      "name": "Benchmark product 000628",
+      "unitPriceMinor": 728,
+      "currency": "USD"
+    },
+    "BENCH_000629": {
+      "name": "Benchmark product 000629",
+      "unitPriceMinor": 729,
+      "currency": "USD"
+    },
+    "BENCH_000630": {
+      "name": "Benchmark product 000630",
+      "unitPriceMinor": 730,
+      "currency": "USD"
+    },
+    "BENCH_000631": {
+      "name": "Benchmark product 000631",
+      "unitPriceMinor": 731,
+      "currency": "USD"
+    },
+    "BENCH_000632": {
+      "name": "Benchmark product 000632",
+      "unitPriceMinor": 732,
+      "currency": "USD"
+    },
+    "BENCH_000633": {
+      "name": "Benchmark product 000633",
+      "unitPriceMinor": 733,
+      "currency": "USD"
+    },
+    "BENCH_000634": {
+      "name": "Benchmark product 000634",
+      "unitPriceMinor": 734,
+      "currency": "USD"
+    },
+    "BENCH_000635": {
+      "name": "Benchmark product 000635",
+      "unitPriceMinor": 735,
+      "currency": "USD"
+    },
+    "BENCH_000636": {
+      "name": "Benchmark product 000636",
+      "unitPriceMinor": 736,
+      "currency": "USD"
+    },
+    "BENCH_000637": {
+      "name": "Benchmark product 000637",
+      "unitPriceMinor": 737,
+      "currency": "USD"
+    },
+    "BENCH_000638": {
+      "name": "Benchmark product 000638",
+      "unitPriceMinor": 738,
+      "currency": "USD"
+    },
+    "BENCH_000639": {
+      "name": "Benchmark product 000639",
+      "unitPriceMinor": 739,
+      "currency": "USD"
+    },
+    "BENCH_000640": {
+      "name": "Benchmark product 000640",
+      "unitPriceMinor": 740,
+      "currency": "USD"
+    },
+    "BENCH_000641": {
+      "name": "Benchmark product 000641",
+      "unitPriceMinor": 741,
+      "currency": "USD"
+    },
+    "BENCH_000642": {
+      "name": "Benchmark product 000642",
+      "unitPriceMinor": 742,
+      "currency": "USD"
+    },
+    "BENCH_000643": {
+      "name": "Benchmark product 000643",
+      "unitPriceMinor": 743,
+      "currency": "USD"
+    },
+    "BENCH_000644": {
+      "name": "Benchmark product 000644",
+      "unitPriceMinor": 744,
+      "currency": "USD"
+    },
+    "BENCH_000645": {
+      "name": "Benchmark product 000645",
+      "unitPriceMinor": 745,
+      "currency": "USD"
+    },
+    "BENCH_000646": {
+      "name": "Benchmark product 000646",
+      "unitPriceMinor": 746,
+      "currency": "USD"
+    },
+    "BENCH_000647": {
+      "name": "Benchmark product 000647",
+      "unitPriceMinor": 747,
+      "currency": "USD"
+    },
+    "BENCH_000648": {
+      "name": "Benchmark product 000648",
+      "unitPriceMinor": 748,
+      "currency": "USD"
+    },
+    "BENCH_000649": {
+      "name": "Benchmark product 000649",
+      "unitPriceMinor": 749,
+      "currency": "USD"
+    },
+    "BENCH_000650": {
+      "name": "Benchmark product 000650",
+      "unitPriceMinor": 750,
+      "currency": "USD"
+    },
+    "BENCH_000651": {
+      "name": "Benchmark product 000651",
+      "unitPriceMinor": 751,
+      "currency": "USD"
+    },
+    "BENCH_000652": {
+      "name": "Benchmark product 000652",
+      "unitPriceMinor": 752,
+      "currency": "USD"
+    },
+    "BENCH_000653": {
+      "name": "Benchmark product 000653",
+      "unitPriceMinor": 753,
+      "currency": "USD"
+    },
+    "BENCH_000654": {
+      "name": "Benchmark product 000654",
+      "unitPriceMinor": 754,
+      "currency": "USD"
+    },
+    "BENCH_000655": {
+      "name": "Benchmark product 000655",
+      "unitPriceMinor": 755,
+      "currency": "USD"
+    },
+    "BENCH_000656": {
+      "name": "Benchmark product 000656",
+      "unitPriceMinor": 756,
+      "currency": "USD"
+    },
+    "BENCH_000657": {
+      "name": "Benchmark product 000657",
+      "unitPriceMinor": 757,
+      "currency": "USD"
+    },
+    "BENCH_000658": {
+      "name": "Benchmark product 000658",
+      "unitPriceMinor": 758,
+      "currency": "USD"
+    },
+    "BENCH_000659": {
+      "name": "Benchmark product 000659",
+      "unitPriceMinor": 759,
+      "currency": "USD"
+    },
+    "BENCH_000660": {
+      "name": "Benchmark product 000660",
+      "unitPriceMinor": 760,
+      "currency": "USD"
+    },
+    "BENCH_000661": {
+      "name": "Benchmark product 000661",
+      "unitPriceMinor": 761,
+      "currency": "USD"
+    },
+    "BENCH_000662": {
+      "name": "Benchmark product 000662",
+      "unitPriceMinor": 762,
+      "currency": "USD"
+    },
+    "BENCH_000663": {
+      "name": "Benchmark product 000663",
+      "unitPriceMinor": 763,
+      "currency": "USD"
+    },
+    "BENCH_000664": {
+      "name": "Benchmark product 000664",
+      "unitPriceMinor": 764,
+      "currency": "USD"
+    },
+    "BENCH_000665": {
+      "name": "Benchmark product 000665",
+      "unitPriceMinor": 765,
+      "currency": "USD"
+    },
+    "BENCH_000666": {
+      "name": "Benchmark product 000666",
+      "unitPriceMinor": 766,
+      "currency": "USD"
+    },
+    "BENCH_000667": {
+      "name": "Benchmark product 000667",
+      "unitPriceMinor": 767,
+      "currency": "USD"
+    },
+    "BENCH_000668": {
+      "name": "Benchmark product 000668",
+      "unitPriceMinor": 768,
+      "currency": "USD"
+    },
+    "BENCH_000669": {
+      "name": "Benchmark product 000669",
+      "unitPriceMinor": 769,
+      "currency": "USD"
+    },
+    "BENCH_000670": {
+      "name": "Benchmark product 000670",
+      "unitPriceMinor": 770,
+      "currency": "USD"
+    },
+    "BENCH_000671": {
+      "name": "Benchmark product 000671",
+      "unitPriceMinor": 771,
+      "currency": "USD"
+    },
+    "BENCH_000672": {
+      "name": "Benchmark product 000672",
+      "unitPriceMinor": 772,
+      "currency": "USD"
+    },
+    "BENCH_000673": {
+      "name": "Benchmark product 000673",
+      "unitPriceMinor": 773,
+      "currency": "USD"
+    },
+    "BENCH_000674": {
+      "name": "Benchmark product 000674",
+      "unitPriceMinor": 774,
+      "currency": "USD"
+    },
+    "BENCH_000675": {
+      "name": "Benchmark product 000675",
+      "unitPriceMinor": 775,
+      "currency": "USD"
+    },
+    "BENCH_000676": {
+      "name": "Benchmark product 000676",
+      "unitPriceMinor": 776,
+      "currency": "USD"
+    },
+    "BENCH_000677": {
+      "name": "Benchmark product 000677",
+      "unitPriceMinor": 777,
+      "currency": "USD"
+    },
+    "BENCH_000678": {
+      "name": "Benchmark product 000678",
+      "unitPriceMinor": 778,
+      "currency": "USD"
+    },
+    "BENCH_000679": {
+      "name": "Benchmark product 000679",
+      "unitPriceMinor": 779,
+      "currency": "USD"
+    },
+    "BENCH_000680": {
+      "name": "Benchmark product 000680",
+      "unitPriceMinor": 780,
+      "currency": "USD"
+    },
+    "BENCH_000681": {
+      "name": "Benchmark product 000681",
+      "unitPriceMinor": 781,
+      "currency": "USD"
+    },
+    "BENCH_000682": {
+      "name": "Benchmark product 000682",
+      "unitPriceMinor": 782,
+      "currency": "USD"
+    },
+    "BENCH_000683": {
+      "name": "Benchmark product 000683",
+      "unitPriceMinor": 783,
+      "currency": "USD"
+    },
+    "BENCH_000684": {
+      "name": "Benchmark product 000684",
+      "unitPriceMinor": 784,
+      "currency": "USD"
+    },
+    "BENCH_000685": {
+      "name": "Benchmark product 000685",
+      "unitPriceMinor": 785,
+      "currency": "USD"
+    },
+    "BENCH_000686": {
+      "name": "Benchmark product 000686",
+      "unitPriceMinor": 786,
+      "currency": "USD"
+    },
+    "BENCH_000687": {
+      "name": "Benchmark product 000687",
+      "unitPriceMinor": 787,
+      "currency": "USD"
+    },
+    "BENCH_000688": {
+      "name": "Benchmark product 000688",
+      "unitPriceMinor": 788,
+      "currency": "USD"
+    },
+    "BENCH_000689": {
+      "name": "Benchmark product 000689",
+      "unitPriceMinor": 789,
+      "currency": "USD"
+    },
+    "BENCH_000690": {
+      "name": "Benchmark product 000690",
+      "unitPriceMinor": 790,
+      "currency": "USD"
+    },
+    "BENCH_000691": {
+      "name": "Benchmark product 000691",
+      "unitPriceMinor": 791,
+      "currency": "USD"
+    },
+    "BENCH_000692": {
+      "name": "Benchmark product 000692",
+      "unitPriceMinor": 792,
+      "currency": "USD"
+    },
+    "BENCH_000693": {
+      "name": "Benchmark product 000693",
+      "unitPriceMinor": 793,
+      "currency": "USD"
+    },
+    "BENCH_000694": {
+      "name": "Benchmark product 000694",
+      "unitPriceMinor": 794,
+      "currency": "USD"
+    },
+    "BENCH_000695": {
+      "name": "Benchmark product 000695",
+      "unitPriceMinor": 795,
+      "currency": "USD"
+    },
+    "BENCH_000696": {
+      "name": "Benchmark product 000696",
+      "unitPriceMinor": 796,
+      "currency": "USD"
+    },
+    "BENCH_000697": {
+      "name": "Benchmark product 000697",
+      "unitPriceMinor": 797,
+      "currency": "USD"
+    },
+    "BENCH_000698": {
+      "name": "Benchmark product 000698",
+      "unitPriceMinor": 798,
+      "currency": "USD"
+    },
+    "BENCH_000699": {
+      "name": "Benchmark product 000699",
+      "unitPriceMinor": 799,
+      "currency": "USD"
+    },
+    "BENCH_000700": {
+      "name": "Benchmark product 000700",
+      "unitPriceMinor": 800,
+      "currency": "USD"
+    },
+    "BENCH_000701": {
+      "name": "Benchmark product 000701",
+      "unitPriceMinor": 801,
+      "currency": "USD"
+    },
+    "BENCH_000702": {
+      "name": "Benchmark product 000702",
+      "unitPriceMinor": 802,
+      "currency": "USD"
+    },
+    "BENCH_000703": {
+      "name": "Benchmark product 000703",
+      "unitPriceMinor": 803,
+      "currency": "USD"
+    },
+    "BENCH_000704": {
+      "name": "Benchmark product 000704",
+      "unitPriceMinor": 804,
+      "currency": "USD"
+    },
+    "BENCH_000705": {
+      "name": "Benchmark product 000705",
+      "unitPriceMinor": 805,
+      "currency": "USD"
+    },
+    "BENCH_000706": {
+      "name": "Benchmark product 000706",
+      "unitPriceMinor": 806,
+      "currency": "USD"
+    },
+    "BENCH_000707": {
+      "name": "Benchmark product 000707",
+      "unitPriceMinor": 807,
+      "currency": "USD"
+    },
+    "BENCH_000708": {
+      "name": "Benchmark product 000708",
+      "unitPriceMinor": 808,
+      "currency": "USD"
+    },
+    "BENCH_000709": {
+      "name": "Benchmark product 000709",
+      "unitPriceMinor": 809,
+      "currency": "USD"
+    },
+    "BENCH_000710": {
+      "name": "Benchmark product 000710",
+      "unitPriceMinor": 810,
+      "currency": "USD"
+    },
+    "BENCH_000711": {
+      "name": "Benchmark product 000711",
+      "unitPriceMinor": 811,
+      "currency": "USD"
+    },
+    "BENCH_000712": {
+      "name": "Benchmark product 000712",
+      "unitPriceMinor": 812,
+      "currency": "USD"
+    },
+    "BENCH_000713": {
+      "name": "Benchmark product 000713",
+      "unitPriceMinor": 813,
+      "currency": "USD"
+    },
+    "BENCH_000714": {
+      "name": "Benchmark product 000714",
+      "unitPriceMinor": 814,
+      "currency": "USD"
+    },
+    "BENCH_000715": {
+      "name": "Benchmark product 000715",
+      "unitPriceMinor": 815,
+      "currency": "USD"
+    },
+    "BENCH_000716": {
+      "name": "Benchmark product 000716",
+      "unitPriceMinor": 816,
+      "currency": "USD"
+    },
+    "BENCH_000717": {
+      "name": "Benchmark product 000717",
+      "unitPriceMinor": 817,
+      "currency": "USD"
+    },
+    "BENCH_000718": {
+      "name": "Benchmark product 000718",
+      "unitPriceMinor": 818,
+      "currency": "USD"
+    },
+    "BENCH_000719": {
+      "name": "Benchmark product 000719",
+      "unitPriceMinor": 819,
+      "currency": "USD"
+    },
+    "BENCH_000720": {
+      "name": "Benchmark product 000720",
+      "unitPriceMinor": 820,
+      "currency": "USD"
+    },
+    "BENCH_000721": {
+      "name": "Benchmark product 000721",
+      "unitPriceMinor": 821,
+      "currency": "USD"
+    },
+    "BENCH_000722": {
+      "name": "Benchmark product 000722",
+      "unitPriceMinor": 822,
+      "currency": "USD"
+    },
+    "BENCH_000723": {
+      "name": "Benchmark product 000723",
+      "unitPriceMinor": 823,
+      "currency": "USD"
+    },
+    "BENCH_000724": {
+      "name": "Benchmark product 000724",
+      "unitPriceMinor": 824,
+      "currency": "USD"
+    },
+    "BENCH_000725": {
+      "name": "Benchmark product 000725",
+      "unitPriceMinor": 825,
+      "currency": "USD"
+    },
+    "BENCH_000726": {
+      "name": "Benchmark product 000726",
+      "unitPriceMinor": 826,
+      "currency": "USD"
+    },
+    "BENCH_000727": {
+      "name": "Benchmark product 000727",
+      "unitPriceMinor": 827,
+      "currency": "USD"
+    },
+    "BENCH_000728": {
+      "name": "Benchmark product 000728",
+      "unitPriceMinor": 828,
+      "currency": "USD"
+    },
+    "BENCH_000729": {
+      "name": "Benchmark product 000729",
+      "unitPriceMinor": 829,
+      "currency": "USD"
+    },
+    "BENCH_000730": {
+      "name": "Benchmark product 000730",
+      "unitPriceMinor": 830,
+      "currency": "USD"
+    },
+    "BENCH_000731": {
+      "name": "Benchmark product 000731",
+      "unitPriceMinor": 831,
+      "currency": "USD"
+    },
+    "BENCH_000732": {
+      "name": "Benchmark product 000732",
+      "unitPriceMinor": 832,
+      "currency": "USD"
+    },
+    "BENCH_000733": {
+      "name": "Benchmark product 000733",
+      "unitPriceMinor": 833,
+      "currency": "USD"
+    },
+    "BENCH_000734": {
+      "name": "Benchmark product 000734",
+      "unitPriceMinor": 834,
+      "currency": "USD"
+    },
+    "BENCH_000735": {
+      "name": "Benchmark product 000735",
+      "unitPriceMinor": 835,
+      "currency": "USD"
+    },
+    "BENCH_000736": {
+      "name": "Benchmark product 000736",
+      "unitPriceMinor": 836,
+      "currency": "USD"
+    },
+    "BENCH_000737": {
+      "name": "Benchmark product 000737",
+      "unitPriceMinor": 837,
+      "currency": "USD"
+    },
+    "BENCH_000738": {
+      "name": "Benchmark product 000738",
+      "unitPriceMinor": 838,
+      "currency": "USD"
+    },
+    "BENCH_000739": {
+      "name": "Benchmark product 000739",
+      "unitPriceMinor": 839,
+      "currency": "USD"
+    },
+    "BENCH_000740": {
+      "name": "Benchmark product 000740",
+      "unitPriceMinor": 840,
+      "currency": "USD"
+    },
+    "BENCH_000741": {
+      "name": "Benchmark product 000741",
+      "unitPriceMinor": 841,
+      "currency": "USD"
+    },
+    "BENCH_000742": {
+      "name": "Benchmark product 000742",
+      "unitPriceMinor": 842,
+      "currency": "USD"
+    },
+    "BENCH_000743": {
+      "name": "Benchmark product 000743",
+      "unitPriceMinor": 843,
+      "currency": "USD"
+    },
+    "BENCH_000744": {
+      "name": "Benchmark product 000744",
+      "unitPriceMinor": 844,
+      "currency": "USD"
+    },
+    "BENCH_000745": {
+      "name": "Benchmark product 000745",
+      "unitPriceMinor": 845,
+      "currency": "USD"
+    },
+    "BENCH_000746": {
+      "name": "Benchmark product 000746",
+      "unitPriceMinor": 846,
+      "currency": "USD"
+    },
+    "BENCH_000747": {
+      "name": "Benchmark product 000747",
+      "unitPriceMinor": 847,
+      "currency": "USD"
+    },
+    "BENCH_000748": {
+      "name": "Benchmark product 000748",
+      "unitPriceMinor": 848,
+      "currency": "USD"
+    },
+    "BENCH_000749": {
+      "name": "Benchmark product 000749",
+      "unitPriceMinor": 849,
+      "currency": "USD"
+    },
+    "BENCH_000750": {
+      "name": "Benchmark product 000750",
+      "unitPriceMinor": 850,
+      "currency": "USD"
+    },
+    "BENCH_000751": {
+      "name": "Benchmark product 000751",
+      "unitPriceMinor": 851,
+      "currency": "USD"
+    },
+    "BENCH_000752": {
+      "name": "Benchmark product 000752",
+      "unitPriceMinor": 852,
+      "currency": "USD"
+    },
+    "BENCH_000753": {
+      "name": "Benchmark product 000753",
+      "unitPriceMinor": 853,
+      "currency": "USD"
+    },
+    "BENCH_000754": {
+      "name": "Benchmark product 000754",
+      "unitPriceMinor": 854,
+      "currency": "USD"
+    },
+    "BENCH_000755": {
+      "name": "Benchmark product 000755",
+      "unitPriceMinor": 855,
+      "currency": "USD"
+    },
+    "BENCH_000756": {
+      "name": "Benchmark product 000756",
+      "unitPriceMinor": 856,
+      "currency": "USD"
+    },
+    "BENCH_000757": {
+      "name": "Benchmark product 000757",
+      "unitPriceMinor": 857,
+      "currency": "USD"
+    },
+    "BENCH_000758": {
+      "name": "Benchmark product 000758",
+      "unitPriceMinor": 858,
+      "currency": "USD"
+    },
+    "BENCH_000759": {
+      "name": "Benchmark product 000759",
+      "unitPriceMinor": 859,
+      "currency": "USD"
+    },
+    "BENCH_000760": {
+      "name": "Benchmark product 000760",
+      "unitPriceMinor": 860,
+      "currency": "USD"
+    },
+    "BENCH_000761": {
+      "name": "Benchmark product 000761",
+      "unitPriceMinor": 861,
+      "currency": "USD"
+    },
+    "BENCH_000762": {
+      "name": "Benchmark product 000762",
+      "unitPriceMinor": 862,
+      "currency": "USD"
+    },
+    "BENCH_000763": {
+      "name": "Benchmark product 000763",
+      "unitPriceMinor": 863,
+      "currency": "USD"
+    },
+    "BENCH_000764": {
+      "name": "Benchmark product 000764",
+      "unitPriceMinor": 864,
+      "currency": "USD"
+    },
+    "BENCH_000765": {
+      "name": "Benchmark product 000765",
+      "unitPriceMinor": 865,
+      "currency": "USD"
+    },
+    "BENCH_000766": {
+      "name": "Benchmark product 000766",
+      "unitPriceMinor": 866,
+      "currency": "USD"
+    },
+    "BENCH_000767": {
+      "name": "Benchmark product 000767",
+      "unitPriceMinor": 867,
+      "currency": "USD"
+    },
+    "BENCH_000768": {
+      "name": "Benchmark product 000768",
+      "unitPriceMinor": 868,
+      "currency": "USD"
+    },
+    "BENCH_000769": {
+      "name": "Benchmark product 000769",
+      "unitPriceMinor": 869,
+      "currency": "USD"
+    },
+    "BENCH_000770": {
+      "name": "Benchmark product 000770",
+      "unitPriceMinor": 870,
+      "currency": "USD"
+    },
+    "BENCH_000771": {
+      "name": "Benchmark product 000771",
+      "unitPriceMinor": 871,
+      "currency": "USD"
+    },
+    "BENCH_000772": {
+      "name": "Benchmark product 000772",
+      "unitPriceMinor": 872,
+      "currency": "USD"
+    },
+    "BENCH_000773": {
+      "name": "Benchmark product 000773",
+      "unitPriceMinor": 873,
+      "currency": "USD"
+    },
+    "BENCH_000774": {
+      "name": "Benchmark product 000774",
+      "unitPriceMinor": 874,
+      "currency": "USD"
+    },
+    "BENCH_000775": {
+      "name": "Benchmark product 000775",
+      "unitPriceMinor": 875,
+      "currency": "USD"
+    },
+    "BENCH_000776": {
+      "name": "Benchmark product 000776",
+      "unitPriceMinor": 876,
+      "currency": "USD"
+    },
+    "BENCH_000777": {
+      "name": "Benchmark product 000777",
+      "unitPriceMinor": 877,
+      "currency": "USD"
+    },
+    "BENCH_000778": {
+      "name": "Benchmark product 000778",
+      "unitPriceMinor": 878,
+      "currency": "USD"
+    },
+    "BENCH_000779": {
+      "name": "Benchmark product 000779",
+      "unitPriceMinor": 879,
+      "currency": "USD"
+    },
+    "BENCH_000780": {
+      "name": "Benchmark product 000780",
+      "unitPriceMinor": 880,
+      "currency": "USD"
+    },
+    "BENCH_000781": {
+      "name": "Benchmark product 000781",
+      "unitPriceMinor": 881,
+      "currency": "USD"
+    },
+    "BENCH_000782": {
+      "name": "Benchmark product 000782",
+      "unitPriceMinor": 882,
+      "currency": "USD"
+    },
+    "BENCH_000783": {
+      "name": "Benchmark product 000783",
+      "unitPriceMinor": 883,
+      "currency": "USD"
+    },
+    "BENCH_000784": {
+      "name": "Benchmark product 000784",
+      "unitPriceMinor": 884,
+      "currency": "USD"
+    },
+    "BENCH_000785": {
+      "name": "Benchmark product 000785",
+      "unitPriceMinor": 885,
+      "currency": "USD"
+    },
+    "BENCH_000786": {
+      "name": "Benchmark product 000786",
+      "unitPriceMinor": 886,
+      "currency": "USD"
+    },
+    "BENCH_000787": {
+      "name": "Benchmark product 000787",
+      "unitPriceMinor": 887,
+      "currency": "USD"
+    },
+    "BENCH_000788": {
+      "name": "Benchmark product 000788",
+      "unitPriceMinor": 888,
+      "currency": "USD"
+    },
+    "BENCH_000789": {
+      "name": "Benchmark product 000789",
+      "unitPriceMinor": 889,
+      "currency": "USD"
+    },
+    "BENCH_000790": {
+      "name": "Benchmark product 000790",
+      "unitPriceMinor": 890,
+      "currency": "USD"
+    },
+    "BENCH_000791": {
+      "name": "Benchmark product 000791",
+      "unitPriceMinor": 891,
+      "currency": "USD"
+    },
+    "BENCH_000792": {
+      "name": "Benchmark product 000792",
+      "unitPriceMinor": 892,
+      "currency": "USD"
+    },
+    "BENCH_000793": {
+      "name": "Benchmark product 000793",
+      "unitPriceMinor": 893,
+      "currency": "USD"
+    },
+    "BENCH_000794": {
+      "name": "Benchmark product 000794",
+      "unitPriceMinor": 894,
+      "currency": "USD"
+    },
+    "BENCH_000795": {
+      "name": "Benchmark product 000795",
+      "unitPriceMinor": 895,
+      "currency": "USD"
+    },
+    "BENCH_000796": {
+      "name": "Benchmark product 000796",
+      "unitPriceMinor": 896,
+      "currency": "USD"
+    },
+    "BENCH_000797": {
+      "name": "Benchmark product 000797",
+      "unitPriceMinor": 897,
+      "currency": "USD"
+    },
+    "BENCH_000798": {
+      "name": "Benchmark product 000798",
+      "unitPriceMinor": 898,
+      "currency": "USD"
+    },
+    "BENCH_000799": {
+      "name": "Benchmark product 000799",
+      "unitPriceMinor": 899,
+      "currency": "USD"
+    },
+    "BENCH_000800": {
+      "name": "Benchmark product 000800",
+      "unitPriceMinor": 900,
+      "currency": "USD"
+    },
+    "BENCH_000801": {
+      "name": "Benchmark product 000801",
+      "unitPriceMinor": 901,
+      "currency": "USD"
+    },
+    "BENCH_000802": {
+      "name": "Benchmark product 000802",
+      "unitPriceMinor": 902,
+      "currency": "USD"
+    },
+    "BENCH_000803": {
+      "name": "Benchmark product 000803",
+      "unitPriceMinor": 903,
+      "currency": "USD"
+    },
+    "BENCH_000804": {
+      "name": "Benchmark product 000804",
+      "unitPriceMinor": 904,
+      "currency": "USD"
+    },
+    "BENCH_000805": {
+      "name": "Benchmark product 000805",
+      "unitPriceMinor": 905,
+      "currency": "USD"
+    },
+    "BENCH_000806": {
+      "name": "Benchmark product 000806",
+      "unitPriceMinor": 906,
+      "currency": "USD"
+    },
+    "BENCH_000807": {
+      "name": "Benchmark product 000807",
+      "unitPriceMinor": 907,
+      "currency": "USD"
+    },
+    "BENCH_000808": {
+      "name": "Benchmark product 000808",
+      "unitPriceMinor": 908,
+      "currency": "USD"
+    },
+    "BENCH_000809": {
+      "name": "Benchmark product 000809",
+      "unitPriceMinor": 909,
+      "currency": "USD"
+    },
+    "BENCH_000810": {
+      "name": "Benchmark product 000810",
+      "unitPriceMinor": 910,
+      "currency": "USD"
+    },
+    "BENCH_000811": {
+      "name": "Benchmark product 000811",
+      "unitPriceMinor": 911,
+      "currency": "USD"
+    },
+    "BENCH_000812": {
+      "name": "Benchmark product 000812",
+      "unitPriceMinor": 912,
+      "currency": "USD"
+    },
+    "BENCH_000813": {
+      "name": "Benchmark product 000813",
+      "unitPriceMinor": 913,
+      "currency": "USD"
+    },
+    "BENCH_000814": {
+      "name": "Benchmark product 000814",
+      "unitPriceMinor": 914,
+      "currency": "USD"
+    },
+    "BENCH_000815": {
+      "name": "Benchmark product 000815",
+      "unitPriceMinor": 915,
+      "currency": "USD"
+    },
+    "BENCH_000816": {
+      "name": "Benchmark product 000816",
+      "unitPriceMinor": 916,
+      "currency": "USD"
+    },
+    "BENCH_000817": {
+      "name": "Benchmark product 000817",
+      "unitPriceMinor": 917,
+      "currency": "USD"
+    },
+    "BENCH_000818": {
+      "name": "Benchmark product 000818",
+      "unitPriceMinor": 918,
+      "currency": "USD"
+    },
+    "BENCH_000819": {
+      "name": "Benchmark product 000819",
+      "unitPriceMinor": 919,
+      "currency": "USD"
+    },
+    "BENCH_000820": {
+      "name": "Benchmark product 000820",
+      "unitPriceMinor": 920,
+      "currency": "USD"
+    },
+    "BENCH_000821": {
+      "name": "Benchmark product 000821",
+      "unitPriceMinor": 921,
+      "currency": "USD"
+    },
+    "BENCH_000822": {
+      "name": "Benchmark product 000822",
+      "unitPriceMinor": 922,
+      "currency": "USD"
+    },
+    "BENCH_000823": {
+      "name": "Benchmark product 000823",
+      "unitPriceMinor": 923,
+      "currency": "USD"
+    },
+    "BENCH_000824": {
+      "name": "Benchmark product 000824",
+      "unitPriceMinor": 924,
+      "currency": "USD"
+    },
+    "BENCH_000825": {
+      "name": "Benchmark product 000825",
+      "unitPriceMinor": 925,
+      "currency": "USD"
+    },
+    "BENCH_000826": {
+      "name": "Benchmark product 000826",
+      "unitPriceMinor": 926,
+      "currency": "USD"
+    },
+    "BENCH_000827": {
+      "name": "Benchmark product 000827",
+      "unitPriceMinor": 927,
+      "currency": "USD"
+    },
+    "BENCH_000828": {
+      "name": "Benchmark product 000828",
+      "unitPriceMinor": 928,
+      "currency": "USD"
+    },
+    "BENCH_000829": {
+      "name": "Benchmark product 000829",
+      "unitPriceMinor": 929,
+      "currency": "USD"
+    },
+    "BENCH_000830": {
+      "name": "Benchmark product 000830",
+      "unitPriceMinor": 930,
+      "currency": "USD"
+    },
+    "BENCH_000831": {
+      "name": "Benchmark product 000831",
+      "unitPriceMinor": 931,
+      "currency": "USD"
+    },
+    "BENCH_000832": {
+      "name": "Benchmark product 000832",
+      "unitPriceMinor": 932,
+      "currency": "USD"
+    },
+    "BENCH_000833": {
+      "name": "Benchmark product 000833",
+      "unitPriceMinor": 933,
+      "currency": "USD"
+    },
+    "BENCH_000834": {
+      "name": "Benchmark product 000834",
+      "unitPriceMinor": 934,
+      "currency": "USD"
+    },
+    "BENCH_000835": {
+      "name": "Benchmark product 000835",
+      "unitPriceMinor": 935,
+      "currency": "USD"
+    },
+    "BENCH_000836": {
+      "name": "Benchmark product 000836",
+      "unitPriceMinor": 936,
+      "currency": "USD"
+    },
+    "BENCH_000837": {
+      "name": "Benchmark product 000837",
+      "unitPriceMinor": 937,
+      "currency": "USD"
+    },
+    "BENCH_000838": {
+      "name": "Benchmark product 000838",
+      "unitPriceMinor": 938,
+      "currency": "USD"
+    },
+    "BENCH_000839": {
+      "name": "Benchmark product 000839",
+      "unitPriceMinor": 939,
+      "currency": "USD"
+    },
+    "BENCH_000840": {
+      "name": "Benchmark product 000840",
+      "unitPriceMinor": 940,
+      "currency": "USD"
+    },
+    "BENCH_000841": {
+      "name": "Benchmark product 000841",
+      "unitPriceMinor": 941,
+      "currency": "USD"
+    },
+    "BENCH_000842": {
+      "name": "Benchmark product 000842",
+      "unitPriceMinor": 942,
+      "currency": "USD"
+    },
+    "BENCH_000843": {
+      "name": "Benchmark product 000843",
+      "unitPriceMinor": 943,
+      "currency": "USD"
+    },
+    "BENCH_000844": {
+      "name": "Benchmark product 000844",
+      "unitPriceMinor": 944,
+      "currency": "USD"
+    },
+    "BENCH_000845": {
+      "name": "Benchmark product 000845",
+      "unitPriceMinor": 945,
+      "currency": "USD"
+    },
+    "BENCH_000846": {
+      "name": "Benchmark product 000846",
+      "unitPriceMinor": 946,
+      "currency": "USD"
+    },
+    "BENCH_000847": {
+      "name": "Benchmark product 000847",
+      "unitPriceMinor": 947,
+      "currency": "USD"
+    },
+    "BENCH_000848": {
+      "name": "Benchmark product 000848",
+      "unitPriceMinor": 948,
+      "currency": "USD"
+    },
+    "BENCH_000849": {
+      "name": "Benchmark product 000849",
+      "unitPriceMinor": 949,
+      "currency": "USD"
+    },
+    "BENCH_000850": {
+      "name": "Benchmark product 000850",
+      "unitPriceMinor": 950,
+      "currency": "USD"
+    },
+    "BENCH_000851": {
+      "name": "Benchmark product 000851",
+      "unitPriceMinor": 951,
+      "currency": "USD"
+    },
+    "BENCH_000852": {
+      "name": "Benchmark product 000852",
+      "unitPriceMinor": 952,
+      "currency": "USD"
+    },
+    "BENCH_000853": {
+      "name": "Benchmark product 000853",
+      "unitPriceMinor": 953,
+      "currency": "USD"
+    },
+    "BENCH_000854": {
+      "name": "Benchmark product 000854",
+      "unitPriceMinor": 954,
+      "currency": "USD"
+    },
+    "BENCH_000855": {
+      "name": "Benchmark product 000855",
+      "unitPriceMinor": 955,
+      "currency": "USD"
+    },
+    "BENCH_000856": {
+      "name": "Benchmark product 000856",
+      "unitPriceMinor": 956,
+      "currency": "USD"
+    },
+    "BENCH_000857": {
+      "name": "Benchmark product 000857",
+      "unitPriceMinor": 957,
+      "currency": "USD"
+    },
+    "BENCH_000858": {
+      "name": "Benchmark product 000858",
+      "unitPriceMinor": 958,
+      "currency": "USD"
+    },
+    "BENCH_000859": {
+      "name": "Benchmark product 000859",
+      "unitPriceMinor": 959,
+      "currency": "USD"
+    },
+    "BENCH_000860": {
+      "name": "Benchmark product 000860",
+      "unitPriceMinor": 960,
+      "currency": "USD"
+    },
+    "BENCH_000861": {
+      "name": "Benchmark product 000861",
+      "unitPriceMinor": 961,
+      "currency": "USD"
+    },
+    "BENCH_000862": {
+      "name": "Benchmark product 000862",
+      "unitPriceMinor": 962,
+      "currency": "USD"
+    },
+    "BENCH_000863": {
+      "name": "Benchmark product 000863",
+      "unitPriceMinor": 963,
+      "currency": "USD"
+    },
+    "BENCH_000864": {
+      "name": "Benchmark product 000864",
+      "unitPriceMinor": 964,
+      "currency": "USD"
+    },
+    "BENCH_000865": {
+      "name": "Benchmark product 000865",
+      "unitPriceMinor": 965,
+      "currency": "USD"
+    },
+    "BENCH_000866": {
+      "name": "Benchmark product 000866",
+      "unitPriceMinor": 966,
+      "currency": "USD"
+    },
+    "BENCH_000867": {
+      "name": "Benchmark product 000867",
+      "unitPriceMinor": 967,
+      "currency": "USD"
+    },
+    "BENCH_000868": {
+      "name": "Benchmark product 000868",
+      "unitPriceMinor": 968,
+      "currency": "USD"
+    },
+    "BENCH_000869": {
+      "name": "Benchmark product 000869",
+      "unitPriceMinor": 969,
+      "currency": "USD"
+    },
+    "BENCH_000870": {
+      "name": "Benchmark product 000870",
+      "unitPriceMinor": 970,
+      "currency": "USD"
+    },
+    "BENCH_000871": {
+      "name": "Benchmark product 000871",
+      "unitPriceMinor": 971,
+      "currency": "USD"
+    },
+    "BENCH_000872": {
+      "name": "Benchmark product 000872",
+      "unitPriceMinor": 972,
+      "currency": "USD"
+    },
+    "BENCH_000873": {
+      "name": "Benchmark product 000873",
+      "unitPriceMinor": 973,
+      "currency": "USD"
+    },
+    "BENCH_000874": {
+      "name": "Benchmark product 000874",
+      "unitPriceMinor": 974,
+      "currency": "USD"
+    },
+    "BENCH_000875": {
+      "name": "Benchmark product 000875",
+      "unitPriceMinor": 975,
+      "currency": "USD"
+    },
+    "BENCH_000876": {
+      "name": "Benchmark product 000876",
+      "unitPriceMinor": 976,
+      "currency": "USD"
+    },
+    "BENCH_000877": {
+      "name": "Benchmark product 000877",
+      "unitPriceMinor": 977,
+      "currency": "USD"
+    },
+    "BENCH_000878": {
+      "name": "Benchmark product 000878",
+      "unitPriceMinor": 978,
+      "currency": "USD"
+    },
+    "BENCH_000879": {
+      "name": "Benchmark product 000879",
+      "unitPriceMinor": 979,
+      "currency": "USD"
+    },
+    "BENCH_000880": {
+      "name": "Benchmark product 000880",
+      "unitPriceMinor": 980,
+      "currency": "USD"
+    },
+    "BENCH_000881": {
+      "name": "Benchmark product 000881",
+      "unitPriceMinor": 981,
+      "currency": "USD"
+    },
+    "BENCH_000882": {
+      "name": "Benchmark product 000882",
+      "unitPriceMinor": 982,
+      "currency": "USD"
+    },
+    "BENCH_000883": {
+      "name": "Benchmark product 000883",
+      "unitPriceMinor": 983,
+      "currency": "USD"
+    },
+    "BENCH_000884": {
+      "name": "Benchmark product 000884",
+      "unitPriceMinor": 984,
+      "currency": "USD"
+    },
+    "BENCH_000885": {
+      "name": "Benchmark product 000885",
+      "unitPriceMinor": 985,
+      "currency": "USD"
+    },
+    "BENCH_000886": {
+      "name": "Benchmark product 000886",
+      "unitPriceMinor": 986,
+      "currency": "USD"
+    },
+    "BENCH_000887": {
+      "name": "Benchmark product 000887",
+      "unitPriceMinor": 987,
+      "currency": "USD"
+    },
+    "BENCH_000888": {
+      "name": "Benchmark product 000888",
+      "unitPriceMinor": 988,
+      "currency": "USD"
+    },
+    "BENCH_000889": {
+      "name": "Benchmark product 000889",
+      "unitPriceMinor": 989,
+      "currency": "USD"
+    },
+    "BENCH_000890": {
+      "name": "Benchmark product 000890",
+      "unitPriceMinor": 990,
+      "currency": "USD"
+    },
+    "BENCH_000891": {
+      "name": "Benchmark product 000891",
+      "unitPriceMinor": 991,
+      "currency": "USD"
+    },
+    "BENCH_000892": {
+      "name": "Benchmark product 000892",
+      "unitPriceMinor": 992,
+      "currency": "USD"
+    },
+    "BENCH_000893": {
+      "name": "Benchmark product 000893",
+      "unitPriceMinor": 993,
+      "currency": "USD"
+    },
+    "BENCH_000894": {
+      "name": "Benchmark product 000894",
+      "unitPriceMinor": 994,
+      "currency": "USD"
+    },
+    "BENCH_000895": {
+      "name": "Benchmark product 000895",
+      "unitPriceMinor": 995,
+      "currency": "USD"
+    },
+    "BENCH_000896": {
+      "name": "Benchmark product 000896",
+      "unitPriceMinor": 996,
+      "currency": "USD"
+    },
+    "BENCH_000897": {
+      "name": "Benchmark product 000897",
+      "unitPriceMinor": 997,
+      "currency": "USD"
+    },
+    "BENCH_000898": {
+      "name": "Benchmark product 000898",
+      "unitPriceMinor": 998,
+      "currency": "USD"
+    },
+    "BENCH_000899": {
+      "name": "Benchmark product 000899",
+      "unitPriceMinor": 999,
+      "currency": "USD"
+    },
+    "BENCH_000900": {
+      "name": "Benchmark product 000900",
+      "unitPriceMinor": 1000,
+      "currency": "USD"
+    },
+    "BENCH_000901": {
+      "name": "Benchmark product 000901",
+      "unitPriceMinor": 1001,
+      "currency": "USD"
+    },
+    "BENCH_000902": {
+      "name": "Benchmark product 000902",
+      "unitPriceMinor": 1002,
+      "currency": "USD"
+    },
+    "BENCH_000903": {
+      "name": "Benchmark product 000903",
+      "unitPriceMinor": 1003,
+      "currency": "USD"
+    },
+    "BENCH_000904": {
+      "name": "Benchmark product 000904",
+      "unitPriceMinor": 1004,
+      "currency": "USD"
+    },
+    "BENCH_000905": {
+      "name": "Benchmark product 000905",
+      "unitPriceMinor": 1005,
+      "currency": "USD"
+    },
+    "BENCH_000906": {
+      "name": "Benchmark product 000906",
+      "unitPriceMinor": 1006,
+      "currency": "USD"
+    },
+    "BENCH_000907": {
+      "name": "Benchmark product 000907",
+      "unitPriceMinor": 1007,
+      "currency": "USD"
+    },
+    "BENCH_000908": {
+      "name": "Benchmark product 000908",
+      "unitPriceMinor": 1008,
+      "currency": "USD"
+    },
+    "BENCH_000909": {
+      "name": "Benchmark product 000909",
+      "unitPriceMinor": 1009,
+      "currency": "USD"
+    },
+    "BENCH_000910": {
+      "name": "Benchmark product 000910",
+      "unitPriceMinor": 1010,
+      "currency": "USD"
+    },
+    "BENCH_000911": {
+      "name": "Benchmark product 000911",
+      "unitPriceMinor": 1011,
+      "currency": "USD"
+    },
+    "BENCH_000912": {
+      "name": "Benchmark product 000912",
+      "unitPriceMinor": 1012,
+      "currency": "USD"
+    },
+    "BENCH_000913": {
+      "name": "Benchmark product 000913",
+      "unitPriceMinor": 1013,
+      "currency": "USD"
+    },
+    "BENCH_000914": {
+      "name": "Benchmark product 000914",
+      "unitPriceMinor": 1014,
+      "currency": "USD"
+    },
+    "BENCH_000915": {
+      "name": "Benchmark product 000915",
+      "unitPriceMinor": 1015,
+      "currency": "USD"
+    },
+    "BENCH_000916": {
+      "name": "Benchmark product 000916",
+      "unitPriceMinor": 1016,
+      "currency": "USD"
+    },
+    "BENCH_000917": {
+      "name": "Benchmark product 000917",
+      "unitPriceMinor": 1017,
+      "currency": "USD"
+    },
+    "BENCH_000918": {
+      "name": "Benchmark product 000918",
+      "unitPriceMinor": 1018,
+      "currency": "USD"
+    },
+    "BENCH_000919": {
+      "name": "Benchmark product 000919",
+      "unitPriceMinor": 1019,
+      "currency": "USD"
+    },
+    "BENCH_000920": {
+      "name": "Benchmark product 000920",
+      "unitPriceMinor": 1020,
+      "currency": "USD"
+    },
+    "BENCH_000921": {
+      "name": "Benchmark product 000921",
+      "unitPriceMinor": 1021,
+      "currency": "USD"
+    },
+    "BENCH_000922": {
+      "name": "Benchmark product 000922",
+      "unitPriceMinor": 1022,
+      "currency": "USD"
+    },
+    "BENCH_000923": {
+      "name": "Benchmark product 000923",
+      "unitPriceMinor": 1023,
+      "currency": "USD"
+    },
+    "BENCH_000924": {
+      "name": "Benchmark product 000924",
+      "unitPriceMinor": 1024,
+      "currency": "USD"
+    },
+    "BENCH_000925": {
+      "name": "Benchmark product 000925",
+      "unitPriceMinor": 1025,
+      "currency": "USD"
+    },
+    "BENCH_000926": {
+      "name": "Benchmark product 000926",
+      "unitPriceMinor": 1026,
+      "currency": "USD"
+    },
+    "BENCH_000927": {
+      "name": "Benchmark product 000927",
+      "unitPriceMinor": 1027,
+      "currency": "USD"
+    },
+    "BENCH_000928": {
+      "name": "Benchmark product 000928",
+      "unitPriceMinor": 1028,
+      "currency": "USD"
+    },
+    "BENCH_000929": {
+      "name": "Benchmark product 000929",
+      "unitPriceMinor": 1029,
+      "currency": "USD"
+    },
+    "BENCH_000930": {
+      "name": "Benchmark product 000930",
+      "unitPriceMinor": 1030,
+      "currency": "USD"
+    },
+    "BENCH_000931": {
+      "name": "Benchmark product 000931",
+      "unitPriceMinor": 1031,
+      "currency": "USD"
+    },
+    "BENCH_000932": {
+      "name": "Benchmark product 000932",
+      "unitPriceMinor": 1032,
+      "currency": "USD"
+    },
+    "BENCH_000933": {
+      "name": "Benchmark product 000933",
+      "unitPriceMinor": 1033,
+      "currency": "USD"
+    },
+    "BENCH_000934": {
+      "name": "Benchmark product 000934",
+      "unitPriceMinor": 1034,
+      "currency": "USD"
+    },
+    "BENCH_000935": {
+      "name": "Benchmark product 000935",
+      "unitPriceMinor": 1035,
+      "currency": "USD"
+    },
+    "BENCH_000936": {
+      "name": "Benchmark product 000936",
+      "unitPriceMinor": 1036,
+      "currency": "USD"
+    },
+    "BENCH_000937": {
+      "name": "Benchmark product 000937",
+      "unitPriceMinor": 1037,
+      "currency": "USD"
+    },
+    "BENCH_000938": {
+      "name": "Benchmark product 000938",
+      "unitPriceMinor": 1038,
+      "currency": "USD"
+    },
+    "BENCH_000939": {
+      "name": "Benchmark product 000939",
+      "unitPriceMinor": 1039,
+      "currency": "USD"
+    },
+    "BENCH_000940": {
+      "name": "Benchmark product 000940",
+      "unitPriceMinor": 1040,
+      "currency": "USD"
+    },
+    "BENCH_000941": {
+      "name": "Benchmark product 000941",
+      "unitPriceMinor": 1041,
+      "currency": "USD"
+    },
+    "BENCH_000942": {
+      "name": "Benchmark product 000942",
+      "unitPriceMinor": 1042,
+      "currency": "USD"
+    },
+    "BENCH_000943": {
+      "name": "Benchmark product 000943",
+      "unitPriceMinor": 1043,
+      "currency": "USD"
+    },
+    "BENCH_000944": {
+      "name": "Benchmark product 000944",
+      "unitPriceMinor": 1044,
+      "currency": "USD"
+    },
+    "BENCH_000945": {
+      "name": "Benchmark product 000945",
+      "unitPriceMinor": 1045,
+      "currency": "USD"
+    },
+    "BENCH_000946": {
+      "name": "Benchmark product 000946",
+      "unitPriceMinor": 1046,
+      "currency": "USD"
+    },
+    "BENCH_000947": {
+      "name": "Benchmark product 000947",
+      "unitPriceMinor": 1047,
+      "currency": "USD"
+    },
+    "BENCH_000948": {
+      "name": "Benchmark product 000948",
+      "unitPriceMinor": 1048,
+      "currency": "USD"
+    },
+    "BENCH_000949": {
+      "name": "Benchmark product 000949",
+      "unitPriceMinor": 1049,
+      "currency": "USD"
+    },
+    "BENCH_000950": {
+      "name": "Benchmark product 000950",
+      "unitPriceMinor": 1050,
+      "currency": "USD"
+    },
+    "BENCH_000951": {
+      "name": "Benchmark product 000951",
+      "unitPriceMinor": 1051,
+      "currency": "USD"
+    },
+    "BENCH_000952": {
+      "name": "Benchmark product 000952",
+      "unitPriceMinor": 1052,
+      "currency": "USD"
+    },
+    "BENCH_000953": {
+      "name": "Benchmark product 000953",
+      "unitPriceMinor": 1053,
+      "currency": "USD"
+    },
+    "BENCH_000954": {
+      "name": "Benchmark product 000954",
+      "unitPriceMinor": 1054,
+      "currency": "USD"
+    },
+    "BENCH_000955": {
+      "name": "Benchmark product 000955",
+      "unitPriceMinor": 1055,
+      "currency": "USD"
+    },
+    "BENCH_000956": {
+      "name": "Benchmark product 000956",
+      "unitPriceMinor": 1056,
+      "currency": "USD"
+    },
+    "BENCH_000957": {
+      "name": "Benchmark product 000957",
+      "unitPriceMinor": 1057,
+      "currency": "USD"
+    },
+    "BENCH_000958": {
+      "name": "Benchmark product 000958",
+      "unitPriceMinor": 1058,
+      "currency": "USD"
+    },
+    "BENCH_000959": {
+      "name": "Benchmark product 000959",
+      "unitPriceMinor": 1059,
+      "currency": "USD"
+    },
+    "BENCH_000960": {
+      "name": "Benchmark product 000960",
+      "unitPriceMinor": 1060,
+      "currency": "USD"
+    },
+    "BENCH_000961": {
+      "name": "Benchmark product 000961",
+      "unitPriceMinor": 1061,
+      "currency": "USD"
+    },
+    "BENCH_000962": {
+      "name": "Benchmark product 000962",
+      "unitPriceMinor": 1062,
+      "currency": "USD"
+    },
+    "BENCH_000963": {
+      "name": "Benchmark product 000963",
+      "unitPriceMinor": 1063,
+      "currency": "USD"
+    },
+    "BENCH_000964": {
+      "name": "Benchmark product 000964",
+      "unitPriceMinor": 1064,
+      "currency": "USD"
+    },
+    "BENCH_000965": {
+      "name": "Benchmark product 000965",
+      "unitPriceMinor": 1065,
+      "currency": "USD"
+    },
+    "BENCH_000966": {
+      "name": "Benchmark product 000966",
+      "unitPriceMinor": 1066,
+      "currency": "USD"
+    },
+    "BENCH_000967": {
+      "name": "Benchmark product 000967",
+      "unitPriceMinor": 1067,
+      "currency": "USD"
+    },
+    "BENCH_000968": {
+      "name": "Benchmark product 000968",
+      "unitPriceMinor": 1068,
+      "currency": "USD"
+    },
+    "BENCH_000969": {
+      "name": "Benchmark product 000969",
+      "unitPriceMinor": 1069,
+      "currency": "USD"
+    },
+    "BENCH_000970": {
+      "name": "Benchmark product 000970",
+      "unitPriceMinor": 1070,
+      "currency": "USD"
+    },
+    "BENCH_000971": {
+      "name": "Benchmark product 000971",
+      "unitPriceMinor": 1071,
+      "currency": "USD"
+    },
+    "BENCH_000972": {
+      "name": "Benchmark product 000972",
+      "unitPriceMinor": 1072,
+      "currency": "USD"
+    },
+    "BENCH_000973": {
+      "name": "Benchmark product 000973",
+      "unitPriceMinor": 1073,
+      "currency": "USD"
+    },
+    "BENCH_000974": {
+      "name": "Benchmark product 000974",
+      "unitPriceMinor": 1074,
+      "currency": "USD"
+    },
+    "BENCH_000975": {
+      "name": "Benchmark product 000975",
+      "unitPriceMinor": 1075,
+      "currency": "USD"
+    },
+    "BENCH_000976": {
+      "name": "Benchmark product 000976",
+      "unitPriceMinor": 1076,
+      "currency": "USD"
+    },
+    "BENCH_000977": {
+      "name": "Benchmark product 000977",
+      "unitPriceMinor": 1077,
+      "currency": "USD"
+    },
+    "BENCH_000978": {
+      "name": "Benchmark product 000978",
+      "unitPriceMinor": 1078,
+      "currency": "USD"
+    },
+    "BENCH_000979": {
+      "name": "Benchmark product 000979",
+      "unitPriceMinor": 1079,
+      "currency": "USD"
+    },
+    "BENCH_000980": {
+      "name": "Benchmark product 000980",
+      "unitPriceMinor": 1080,
+      "currency": "USD"
+    },
+    "BENCH_000981": {
+      "name": "Benchmark product 000981",
+      "unitPriceMinor": 1081,
+      "currency": "USD"
+    },
+    "BENCH_000982": {
+      "name": "Benchmark product 000982",
+      "unitPriceMinor": 1082,
+      "currency": "USD"
+    },
+    "BENCH_000983": {
+      "name": "Benchmark product 000983",
+      "unitPriceMinor": 1083,
+      "currency": "USD"
+    },
+    "BENCH_000984": {
+      "name": "Benchmark product 000984",
+      "unitPriceMinor": 1084,
+      "currency": "USD"
+    },
+    "BENCH_000985": {
+      "name": "Benchmark product 000985",
+      "unitPriceMinor": 1085,
+      "currency": "USD"
+    },
+    "BENCH_000986": {
+      "name": "Benchmark product 000986",
+      "unitPriceMinor": 1086,
+      "currency": "USD"
+    },
+    "BENCH_000987": {
+      "name": "Benchmark product 000987",
+      "unitPriceMinor": 1087,
+      "currency": "USD"
+    },
+    "BENCH_000988": {
+      "name": "Benchmark product 000988",
+      "unitPriceMinor": 1088,
+      "currency": "USD"
+    },
+    "BENCH_000989": {
+      "name": "Benchmark product 000989",
+      "unitPriceMinor": 1089,
+      "currency": "USD"
+    },
+    "BENCH_000990": {
+      "name": "Benchmark product 000990",
+      "unitPriceMinor": 1090,
+      "currency": "USD"
+    },
+    "BENCH_000991": {
+      "name": "Benchmark product 000991",
+      "unitPriceMinor": 1091,
+      "currency": "USD"
+    },
+    "BENCH_000992": {
+      "name": "Benchmark product 000992",
+      "unitPriceMinor": 1092,
+      "currency": "USD"
+    },
+    "BENCH_000993": {
+      "name": "Benchmark product 000993",
+      "unitPriceMinor": 1093,
+      "currency": "USD"
+    },
+    "BENCH_000994": {
+      "name": "Benchmark product 000994",
+      "unitPriceMinor": 1094,
+      "currency": "USD"
+    },
+    "BENCH_000995": {
+      "name": "Benchmark product 000995",
+      "unitPriceMinor": 1095,
+      "currency": "USD"
+    },
+    "BENCH_000996": {
+      "name": "Benchmark product 000996",
+      "unitPriceMinor": 1096,
+      "currency": "USD"
+    },
+    "BENCH_000997": {
+      "name": "Benchmark product 000997",
+      "unitPriceMinor": 1097,
+      "currency": "USD"
+    },
+    "BENCH_000998": {
+      "name": "Benchmark product 000998",
+      "unitPriceMinor": 1098,
+      "currency": "USD"
+    },
+    "BENCH_000999": {
+      "name": "Benchmark product 000999",
+      "unitPriceMinor": 1099,
+      "currency": "USD"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "mode": "off",
+  "rate": 500.0,
+  "repetition": 1,
+  "caseDirectory": "01-off-r500-rep1",
+  "container": {
+    "containerId": "c27dda93bd10e2bacdfd8198398336855b6d94e5c359544909946730a520b2ac",
+    "imageId": "sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e",
+    "imageTag": "wenqi-order-platform/inventory:cache-baseline",
+    "memoryBytes": 805306368,
+    "nanoCpus": 1000000000,
+    "cacheEnvironment": {
+      "INVENTORY_CACHE_FAILURE_COOLDOWN_MS": "1000",
+      "INVENTORY_CACHE_MAX_IN_FLIGHT": "256",
+      "INVENTORY_CACHE_TTL_SECONDS": "30",
+      "INVENTORY_CACHE_ENABLED": "false"
+    }
+  },
+  "prefillSeconds": 2.0815059542655945e-07,
+  "report": "01-off-r500-rep1/measurement/20261024T235745926624Z-off-1.json",
+  "summary": {
+    "offeredRequests": 30000,
+    "startedRequests": 30000,
+    "successfulRequests": 30000,
+    "droppedRequests": 0,
+    "failedRequests": 0,
+    "elapsedSecondsIncludingDrain": 60.00335579086095,
+    "successfulRequestsPerSecond": 499.9720366401452,
+    "meanMs": 0.8814061469708879,
+    "p50Ms": 0.7373751141130924,
+    "p95Ms": 1.2355828657746315,
+    "p99Ms": 2.4017500691115856,
+    "meanScheduledLatencyMs": 1.3235119889024645,
+    "p95ScheduledLatencyMs": 1.7935832105564486,
+    "p95SchedulerDelayMs": 0.5825002565984505,
+    "percentileMethod": "nearest rank; latency is successful, correct HTTP 200 requests only; drops separately counted"
+  },
+  "requestSequenceSha256": "b270427a3afcec738996047aa05793e31071daf47c9827f56eaa34d3cc0bf254",
+  "metrics": {
+    "counterAndTimerDeltas": {
+      "inventory_cache_bypasses_total": 30000.0,
+      "inventory_cache_decode_seconds_count": 0.0,
+      "inventory_cache_decode_seconds_sum": 0.0,
+      "inventory_cache_errors_total": 0.0,
+      "inventory_cache_hits_total": 0.0,
+      "inventory_cache_misses_total": 0.0,
+      "inventory_cache_redis_seconds_count{operation=\"get\"}": 0.0,
+      "inventory_cache_redis_seconds_sum{operation=\"get\"}": 0.0,
+      "inventory_cache_redis_seconds_count{operation=\"set\"}": 0.0,
+      "inventory_cache_redis_seconds_sum{operation=\"set\"}": 0.0,
+      "inventory_catalog_database_reads_total": 30000.0,
+      "inventory_catalog_database_seconds_count": 30000.0,
+      "inventory_catalog_database_seconds_sum": 3.2892642370000047,
+      "inventory_catalog_lookup_seconds_count{source=\"database\"}": 30000.0,
+      "inventory_catalog_lookup_seconds_sum{source=\"database\"}": 3.3425101969999957
+    },
+    "timerMeanMilliseconds": {
+      "inventory_catalog_database_mean_ms": 0.10964214123333349,
+      "inventory_catalog_lookup_mean_ms{source=\"database\"}": 0.11141700656666653
+    },
+    "note": "Means derive from measured timer sum/count deltas; full metrics snapshots retain gauges/maxima."
+  },
+  "statsNote": "Before/after instantaneous snapshots, not interval-average CPU"
+}
