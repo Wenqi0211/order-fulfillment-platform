@@ -1,40 +1,40 @@
-# AWS 费用与 CI/CD 状态 · 2026-10-24
+# AWS Costs and CI/CD Status · 2026-10-24
 
-按当前项目默认的 **Oregon / us-west-2，Linux，按需付费，单台 t4g.large、40 GiB gp3、1 个公网 IPv4** 估算。金额为美元、税前，未扣新账号 credits。没有创建任何 AWS 资源。
+Estimate based on the project's current defaults: **Oregon / us-west-2, Linux, on-demand pricing, one t4g.large instance, 40 GiB gp3, and 1 public IPv4 address**. Amounts are in US dollars, before tax, without deducting new-account credits. No AWS resources have been created.
 
-## 大概要多少钱
+## Approximate costs
 
-| 项目 | 已核对的单价 | 连续运行 730 小时 |
+| Item | Verified unit price | 730 hours of continuous operation |
 | --- | --- | ---: |
-| EC2 t4g.large，2 vCPU / 8 GiB | $0.0672 / 小时 | $49.06 |
-| 40 GiB EBS gp3，默认基础性能 | $0.08 / GB·月 | $3.20 |
-| 1 个公网 IPv4 | $0.005 / 小时 | $3.65 |
-| 合计 | 按 730 小时折算 | **约 $55.91 / 月** |
+| EC2 t4g.large, 2 vCPU / 8 GiB | $0.0672 / hour | $49.06 |
+| 40 GiB EBS gp3, default baseline performance | $0.08 / GB-month | $3.20 |
+| 1 public IPv4 address | $0.005 / hour | $3.65 |
+| Total | Based on 730 hours | **Approximately $55.91 / month** |
 
-EC2 与 EBS 单价从 AWS 官网使用的公开定价 JSON 中核对，文件发布时间为 `2026-10-23T22:13:55Z`：[EC2 Oregon/Linux 定价数据](https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/US%20West%20%28Oregon%29/Linux/index.json)、[EBS 定价数据](https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/ec2/USD/current/ebs.json)。公网地址单价见 [AWS VPC 官方定价](https://aws.amazon.com/vpc/pricing/)。
+EC2 and EBS unit prices were checked against the public pricing JSON used by the AWS website, published at `2026-10-23T22:13:55Z`: [EC2 Oregon/Linux pricing data](https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/US%20West%20%28Oregon%29/Linux/index.json), [EBS pricing data](https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/ec2/USD/current/ebs.json). See [official AWS VPC pricing](https://aws.amazon.com/vpc/pricing/) for the public-address unit price.
 
-如果只部署、演示、测试 **20 小时后删除这组资源**，计算费约 $1.34，公网 IPv4 约 $0.10，磁盘按时间折算约 $0.09，基础合计 **约 $1.53**。如果仅停止主机、让 40 GiB 磁盘保留整月，按公网自动地址已释放计算，基础合计约 **$4.64**。磁盘只要还保留就继续计费，见 [EBS 计费说明](https://aws.amazon.com/ebs/pricing/)。
+If you deploy, demonstrate, and test for **20 hours, then delete these resources**, compute costs approximately $1.34, public IPv4 approximately $0.10, and time-prorated storage approximately $0.09, for a base total of **approximately $1.53**. If you only stop the instance and retain the 40 GiB disk for the whole month, assuming the automatically assigned public address is released, the base total is approximately **$4.64**. Storage continues to incur charges while retained; see [EBS billing details](https://aws.amazon.com/ebs/pricing/).
 
-这些估算不含税、超额出网、快照、日志、额外 IOPS/吞吐量、收费支持计划和 CI runner 等费用。T4g 默认 Unlimited，长时间高 CPU 可能增加 CPU credit 费用；官方当前列出的额外费率为 $0.04/vCPU·小时，参见 [T4g 官方说明](https://aws.amazon.com/ec2/instance-types/t4/)。因此 $55.91 是所列基础资源估算，不是月账单上限。
+These estimates exclude tax, excess outbound data transfer, snapshots, logs, additional IOPS/throughput, paid support plans, CI runners, and other charges. T4g uses Unlimited mode by default, so sustained high CPU usage may incur CPU credit charges. The additional rate currently listed by AWS is $0.04/vCPU-hour; see the [official T4g description](https://aws.amazon.com/ec2/instance-types/t4/). Therefore, $55.91 is an estimate for the listed base resources, not a monthly bill cap.
 
-这可以作为把三个应用、PostgreSQL、Kafka、Redis 同放在一台 EC2 上的学习/演示环境基础预算；能否承受目标流量还要在云端验证。当前 Terraform 只创建主机和网络/SSM，没有替你安装并运行整套依赖。当前 Kubernetes 模板使用外部数据库、Kafka、Redis；若选择 RDS、MSK、ElastiCache，需要单独增加费用估算，不能把 $55.91 当成整套托管集群的价格。
+This can serve as a base budget for a learning/demo environment with all three applications, PostgreSQL, Kafka, and Redis on one EC2 instance. Whether it can handle the target traffic still requires cloud validation. The current Terraform creates only the instance and network/SSM resources; it does not install and run the full dependency stack. The current Kubernetes templates use external databases, Kafka, and Redis. If you choose RDS, MSK, and ElastiCache, estimate their additional costs separately; $55.91 is not the price of a complete managed cluster.
 
-## AWS 账号本身要花钱吗
+## Does the AWS account itself cost money?
 
-注册账号本身免费，Paid Plan 按服务用量收费。当前新客户可获得 $100 注册 credits，并通过指定活动再获得最多 $100；Free Plan 最长六个月，或 credits 先用尽时结束。是否符合资格、注册流程和可用资源以你的实际账号为准。近期 AWS 正逐步推出新的注册体验，大部分新客户不要求先提供支付方式，部分客户仍需身份验证。见 [当前 Free Tier FAQ](https://aws.amazon.com/free/free-tier-faqs/) 和 [新注册流程说明](https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html)。
+Account registration itself is free; the Paid Plan charges for service usage. New customers can currently receive $100 in signup credits and earn up to another $100 through specified activities. The Free Plan lasts up to six months, or ends earlier when credits run out. Eligibility, the signup process, and available resources depend on your actual account. AWS is gradually rolling out a new signup experience: most new customers do not need to provide a payment method upfront, while some still require identity verification. See the [current Free Tier FAQ](https://aws.amazon.com/free/free-tier-faqs/) and [new signup process](https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html).
 
-**当前模板的 t4g.large 不在 EC2 文档列出的 Free Tier eligible 实例清单中。** 不应直接承诺这个配置免费；需看账号允许的规格、计划和 credits，必要时调整模板或使用付费计划。[EC2 Free Tier 规格说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-free-tier-usage.html)
+**The current template's t4g.large is not in the list of Free Tier eligible instances in the EC2 documentation.** Do not promise that this configuration is free. Check the instance types, plan, and credits available to the account, then adjust the template or use a paid plan if necessary. [EC2 Free Tier instance details](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-free-tier-usage.html)
 
-## CI/CD 是什么，现在有没有做
+## What is CI/CD, and what has been implemented?
 
-- **CI，持续集成**：提交代码后自动编译、测试、检查配置，提前发现改动破坏了什么。
-- **CD，持续交付/部署**：把检查通过的版本发布到测试或正式环境。当前设计由人触发发布，属于带人工发布控制的持续交付。
+- **CI, continuous integration**: Automatically builds, tests, and checks configuration after code is submitted, detecting broken behavior early.
+- **CD, continuous delivery/deployment**: Releases a version that has passed checks to a test or production environment. The current design uses manually triggered releases, making it continuous delivery with human release control.
 
-本地已写好：
+Implemented locally:
 
-| 配置 | 已实现的流程 |
+| Configuration | Implemented workflow |
 | --- | --- |
-| `.github/workflows/ci.yml` | PR/main 提交触发；Java/PostgreSQL 测试；部署脚本安全测试；YAML/Kustomize 检查；真实 Compose/Kafka 流程与故障检查；全部成功后在 main 构建并发布三个多架构镜像及其 digest |
-| `.github/workflows/deploy.yml` | 手动选择 staging/prod 与已验证 commit；检查成功 CI、镜像 digest、目标集群/命名空间；等待三个服务发布并检查接口；失败时尝试恢复全部已记录的应用版本 |
+| `.github/workflows/ci.yml` | Triggered by PR/main submissions; Java/PostgreSQL tests; deployment-script safety tests; YAML/Kustomize checks; real Compose/Kafka flows and failure checks; after all checks pass, builds and publishes three multi-architecture images and their digests on main |
+| `.github/workflows/deploy.yml` | Manually select staging/prod and a verified commit; checks successful CI, image digests, and the target cluster/namespace; waits for all three service deployments and checks endpoints; attempts to restore all recorded application versions on failure |
 
-**配置和本地相关测试已经完成，尚无 GitHub 托管工作流、镜像推送和云端发布成功运行的记录。** 真正启用还需要 GitHub 仓库、环境与权限、镜像仓库、可访问集群的部署 runner，以及实际执行流水线。生产环境审批规则也需要在 GitHub 环境设置中配置。
+**As of this 2026-10-24 record, configuration and related local tests were complete, but there was no record of a successful GitHub-hosted workflow run, image push, or cloud release.** Enabling them still requires a GitHub repository, environments and permissions, an image registry, a deployment runner with cluster access, and actual pipeline execution. Production approval rules also need to be configured in GitHub environment settings.

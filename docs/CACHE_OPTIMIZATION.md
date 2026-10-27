@@ -1,147 +1,147 @@
-# 缓存瓶颈定位与优化记录 · 2026-10-24
+# Cache Bottleneck Diagnosis and Optimization Record · 2026-10-24
 
-仓库随附的精简证据位于 [docs/evidence](evidence/README.md)，保留原报告在 `reports/` 下的相对层级，复制文件中的测量值、时间戳、镜像 ID 和历史路径元数据均未改写。完整原始 JSONL、日志、Maven XML、指标快照和 baseline 源码仍保存在原电脑本地 `reports/`，不随 Git 仓库上传；JSON 中的原始绝对路径是历史运行位置，不能在新克隆中直接访问。
+The repository includes a compact evidence set in [docs/evidence](evidence/README.md), preserving the original reports' relative hierarchy under `reports/`. Measurements, timestamps, image IDs, and historical path metadata in the copied files have not been changed. Complete raw JSONL, logs, Maven XML, metric snapshots, and baseline source code remain in the original computer's local `reports/` directory and are not uploaded with the Git repository. Original absolute paths in the JSON identify historical run locations and cannot be accessed directly in a new clone.
 
-本次定位使用真实运行的本地 Docker 服务、PostgreSQL 和 Redis，通过 HTTP 产生负载并保存逐请求记录。商品和请求为合成测试数据；这些数值是真实测量结果，不代表真实用户、生产容量或线上 SLO。
+This investigation used real local Docker services, PostgreSQL, and Redis, generating HTTP load and saving per-request records. Products and requests are synthetic test data. The numbers are actual measurements; they do not represent real users, production capacity, or live-service SLOs.
 
-已证实的收益集中在两处：**并发冷缓存时减少重复数据库查询，以及 Redis 不可用时避免每个请求重复等待两个超时。** 完成的九轮普通负载压测没有显示正常查询提速，下面同时保留收益和代价。
+Confirmed benefits are concentrated in two areas: **reducing duplicate database queries for concurrent cold-cache requests, and avoiding two repeated timeout waits per request when Redis is unavailable.** The nine completed regular-load test rounds did not show faster normal queries. Both benefits and costs are retained below.
 
-## 实验身份与环境
+## Experiment identity and environment
 
-库存服务在 macOS arm64 的本地 Docker 中运行，单实例，限制为 **1 CPU、768 MiB**。缓存 TTL 为 30 秒。以下两份记录用于本次正式诊断比较；更早的优化试运行不作为本节最终结果。
+The inventory service ran as a single instance in local Docker on macOS arm64, limited to **1 CPU and 768 MiB**. Cache TTL was 30 seconds. The following two records form the formal diagnostic comparison; earlier optimization trial runs are not treated as the final results in this section.
 
-| 版本 | 不可变容器镜像 ID | 证据 |
+| Version | Immutable container image ID | Evidence |
 | --- | --- | --- |
-| baseline | `sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e` | [诊断汇总](evidence/cache-diagnostics/20261024T234859Z-baseline/summary.json) |
-| optimized-final | `sha256:f1a0b65d6a425aff52b794090434e835b1f24e4c96e37d9de4de068b42f7d818` | [诊断汇总](evidence/cache-diagnostics/20261024T235426Z-optimized-final/summary.json) |
+| baseline | `sha256:717a9f3ed767e0a9e13c213646de22f780742fc93b026378b70efd72f1a9a73e` | [Diagnostic summary](evidence/cache-diagnostics/20261024T234859Z-baseline/summary.json) |
+| optimized-final | `sha256:f1a0b65d6a425aff52b794090434e835b1f24e4c96e37d9de4de068b42f7d818` | [Diagnostic summary](evidence/cache-diagnostics/20261024T235426Z-optimized-final/summary.json) |
 
-原电脑 `reports/` 中的各实验目录保存数据集、原始 JSON/JSONL、指标前后快照和容器资源设置；仓库的 `docs/evidence/` 仅包含已列明的精简副本。每次计时的成功请求均校验商品内容，失败与未发出的请求单独统计。分位数使用 nearest-rank 方法，延迟统计的分母是返回正确内容的 HTTP 200 请求。baseline 为加入相同基础计时指标后的旧行为，对应的 [baseline 源码摘要](evidence/cache-baseline-source/hashes.json) 已随附，完整源码快照仍保存在原电脑 `reports/cache-baseline-source/`。实验元数据中的 `sourceAtStart/sourceAtEnd` 描述运行脚本时的当前工作目录；旧版应用身份以该 baseline 快照和不可变镜像 ID 为准，不能用当前源码哈希代替旧版源码。
+Each experiment directory in the original computer's `reports/` contains the dataset, raw JSON/JSONL, before/after metric snapshots, and container resource settings. The repository's `docs/evidence/` contains only the listed compact copies. Product content was validated for every successful timed request; failed and unsent requests were counted separately. Percentiles use the nearest-rank method, and latency statistics include only HTTP 200 requests that returned the correct content. The baseline represents the old behavior with the same basic timing metrics added. The corresponding [baseline source hashes](evidence/cache-baseline-source/hashes.json) are included; the complete source snapshot remains in the original computer's `reports/cache-baseline-source/`. The `sourceAtStart/sourceAtEnd` experiment metadata describes the current working directory when the scripts ran. The old application is identified by that baseline snapshot and immutable image ID; current source hashes cannot substitute for the old source.
 
-## 先定位，再选择改动
+## Diagnose before choosing changes
 
-为商品查询添加了 Redis GET、Redis SET、缓存 JSON 解码、实际数据库读取和整个商品查询路径的分段计时，以及数据库读取次数、缓存旁路和合并请求计数。未向 SQL 或网络人为加入延迟。
+Product-query instrumentation was added for Redis GET, Redis SET, cached JSON decoding, actual database reads, and the entire product-query path, along with counts for database reads, cache bypasses, and coalesced requests. No artificial delay was added to SQL or the network.
 
-健康诊断使用 100 个 SKU、固定 500 请求/秒、15 秒、并发上限 64；此前先运行 15 秒预热。baseline 的 7,500 个请求全部成功，失败和丢弃均为 0。指标差值显示：
+The healthy-service diagnostic used 100 SKUs, a fixed 500 requests/second, 15 seconds, and a concurrency limit of 64, preceded by a 15-second warmup. All 7,500 baseline requests succeeded, with 0 failures and 0 dropped requests. Metric differences showed:
 
-| 分段 | 调用数 | 单次平均耗时 |
+| Segment | Calls | Mean duration per call |
 | --- | ---: | ---: |
-| Redis GET | 7,500 | 约 0.117 ms |
-| 实际商品数据库 SELECT | 74 | 约 0.108 ms |
-| 缓存 JSON 解码 | 7,426 | 约 3.6 µs |
-| Redis SET | 74 | 约 0.136 ms |
+| Redis GET | 7,500 | Approximately 0.117 ms |
+| Actual product database SELECT | 74 | Approximately 0.108 ms |
+| Cached JSON decoding | 7,426 | Approximately 3.6 µs |
+| Redis SET | 74 | Approximately 0.136 ms |
 
-这些是该次运行中不同分段的平均值，不是独立服务的性能上限。它们说明：当前小数据、本机数据库条件下，商品 SELECT 本身很快，Redis 往返没有显示明显速度优势，JSON 解码也不是主要耗时。缓存未命中则原本需要串行执行 GET → SELECT → SET。
+These are averages for different segments in that run, not performance ceilings for standalone services. They show that, with this small dataset and local database, the product SELECT itself was fast, Redis round trips showed no clear speed advantage, and JSON decoding was not a major cost. A cache miss originally required GET → SELECT → SET in sequence.
 
-短健康诊断的 HTTP 结果也没有支持普通查询提速：
+HTTP results from the short healthy-service diagnostic also did not support faster normal queries:
 
-| 版本 | 平均响应 ms | p95 ms | p99 ms | 失败/丢弃 |
+| Version | Mean response ms | p95 ms | p99 ms | Failed/dropped |
 | --- | ---: | ---: | ---: | ---: |
 | baseline | 0.831 | 1.200 | 2.588 | 0 / 0 |
 | optimized-final | 0.868 | 1.423 | 3.241 | 0 / 0 |
 
-这只是每个版本一次 15 秒诊断；应结合后续更长、重复和交替顺序的实验判断普通负载表现。30 秒 TTL 也意味着“warm”是起始已预热，轮内仍可能发生过期与回填，不能当作 100% 命中。
+This was only one 15-second diagnostic per version. Regular-load performance should be assessed alongside the longer, repeated experiments with alternating order described later. The 30-second TTL also means “warm” describes the starting condition; expiration and refill can still occur during a round, so it does not mean a 100% hit rate.
 
-## 优化一：合并同一 SKU 的并发未命中
+## Optimization 1: Coalesce concurrent misses for the same SKU
 
-原代码中，同一商品缓存失效后，多个请求可以同时发现未命中，分别查询 PostgreSQL 并回填 Redis。新实现只对**正在进行中的商品加载**合并：
+In the original code, after a product's cache entry expired, multiple requests could discover the miss simultaneously, each querying PostgreSQL and refilling Redis. The new implementation coalesces only **product loads currently in progress**:
 
-- 同一进程、同一 SKU 的一个请求负责加载，其他请求等待同一个结果或异常。
-- 在途 key 默认最多 256 个；达到上限时直接走正常数据库回源，不继续扩张在途表。
-- 跟随请求最多等待 4 秒，超时返回可重试的 503；中断保留线程中断状态，不取消负责加载的请求。
-- 完成或失败后清理在途条目并释放名额，结果不会留作长期本地缓存。
-- 获得加载资格后再检查一次 Redis，处理另一次加载恰好已经完成回填的竞争窗口。
+- Within the same process and for the same SKU, one request performs the load; other requests wait for the same result or exception.
+- The default limit is 256 in-flight keys. At capacity, requests fall back to the normal database path without expanding the in-flight table.
+- Following requests wait at most 4 seconds, then return a retryable 503. Interruption preserves the thread's interrupt status without canceling the request responsible for loading.
+- On completion or failure, the in-flight entry is removed and its slot released. The result is not retained as a long-term local cache.
+- After becoming the loader, the request checks Redis again to handle the race in which another load has just completed its refill.
 
-这项保护限于当前服务进程。多个副本仍可能各自执行一次加载，不能将它描述为跨实例的全局唯一数据库查询。
+This protection is limited to the current service process. Multiple replicas may still perform one load each; it cannot be described as a single global database query across instances.
 
-真实 64 并发、相同 SKU、起始冷缓存的三轮诊断如下；每轮 64 个请求均返回正确结果：
+Three actual diagnostic rounds used 64 concurrent requests for the same SKU, starting with a cold cache. All 64 requests in each round returned the correct result:
 
-| 轮次 | baseline 数据库读取数 | optimized-final 数据库读取数 | baseline p95 ms | optimized-final p95 ms |
+| Round | baseline database reads | optimized-final database reads | baseline p95 ms | optimized-final p95 ms |
 | --- | ---: | ---: | ---: | ---: |
 | 1 | 6 | 1 | 9.936 | 10.797 |
 | 2 | 2 | 1 | 10.730 | 10.837 |
 | 3 | 5 | 1 | 10.365 | 11.907 |
 
-可证实的是三轮合计重复数据库读取由 13 次变成 3 次。**这些突发请求的 p95 没有改善**，不能把减少读取次数写成相同幅度的响应时间改善。合并和二次检查有成本，独立未命中还会多一次 Redis GET。
+The evidence establishes that total database reads across the three rounds fell from 13 to 3. **The p95 of these bursts did not improve.** Fewer reads cannot be reported as an equivalent response-time improvement. Coalescing and the second check have a cost; an isolated miss also incurs an extra Redis GET.
 
-原始逐请求结果位于两个诊断目录的 `burst-1-raw.json`、`burst-2-raw.json`、`burst-3-raw.json`；读取次数取自对应指标快照差值。
+Raw per-request results are in `burst-1-raw.json`, `burst-2-raw.json`, and `burst-3-raw.json` in the two diagnostic directories. Read counts come from the corresponding metric-snapshot differences.
 
-## 优化二：Redis 故障旁路与受控恢复
+## Optimization 2: Redis failure bypass and controlled recovery
 
-baseline 的故障诊断中，Redis 停止后，750 个请求仍各自尝试一次 GET 和一次 SET。两个操作分别平均等待约 251 ms；回源 PostgreSQL 后依然等待一个已经不可用的 Redis，形成约 504 ms 的商品查询路径。
+In the baseline failure diagnostic, after Redis stopped, all 750 requests still attempted one GET and one SET each. Each operation waited approximately 251 ms on average. Requests still waited for an unavailable Redis after falling back to PostgreSQL, producing a product-query path of approximately 504 ms.
 
-新实现遇到 Redis 操作异常后短暂进入旁路状态，默认冷却 1 秒：
+The new implementation briefly enters bypass mode after a Redis operation exception, with a default 1-second cooldown:
 
-- 冷却期间直接查询数据库，并跳过 Redis 回填，避免再次等待写超时。
-- 冷却结束后只允许一个恢复探针访问 Redis，其他请求继续回源。
-- 探针成功后恢复缓存访问；失败则重新冷却。
-- 先前已发出的普通请求即使稍后成功，也不会清除其他请求已经开启的冷却状态；恢复由获得许可的探针确认。
+- During cooldown, requests query the database directly and skip Redis refill, avoiding another write-timeout wait.
+- After cooldown, only one recovery probe may access Redis; other requests continue falling back to the database.
+- A successful probe restores cache access; a failed probe restarts cooldown.
+- Previously issued normal requests cannot clear a cooldown started by other requests, even if they later succeed. Recovery is confirmed by the authorized probe.
 
-故障诊断实际停止并恢复本项目 Redis，保持同样的 **50 请求/秒、15 秒、750 个请求**：
+The failure diagnostic actually stopped and restored this project's Redis, keeping the same **50 requests/second, 15 seconds, and 750 requests**:
 
-| 指标 | baseline | optimized-final |
+| Metric | baseline | optimized-final |
 | --- | ---: | ---: |
-| 成功请求 | 750 | 750 |
-| 失败 / 丢弃 | 0 / 0 | 0 / 0 |
-| 平均 HTTP 响应 ms | 505.607 | 10.642 |
+| Successful requests | 750 | 750 |
+| Failed / dropped | 0 / 0 | 0 / 0 |
+| Mean HTTP response ms | 505.607 | 10.642 |
 | p95 ms | 510.643 | 6.581 |
 | p99 ms | 513.519 | 254.960 |
-| 实际 Redis GET 尝试 | 750 | 24 |
-| 实际 Redis SET 尝试 | 750 | 0 |
-| 实际数据库读取 | 750 | 750 |
-| Redis 恢复后出现真实缓存命中 | 是 | 是 |
+| Actual Redis GET attempts | 750 | 24 |
+| Actual Redis SET attempts | 750 | 0 |
+| Actual database reads | 750 | 750 |
+| Actual cache hits observed after Redis recovery | Yes | Yes |
 
-[baseline 故障统计记录](evidence/cache-diagnostics/20261024T234859Z-baseline/redis-outage/20261024T234948674993Z-warm-1.json)与[最终优化故障统计记录](evidence/cache-diagnostics/20261024T235426Z-optimized-final/redis-outage/20261024T235515087032Z-warm-1.json)保存完整统计；原电脑 `reports/` 中对应目录的 JSONL 保留每次请求。
+The [baseline failure statistics](evidence/cache-diagnostics/20261024T234859Z-baseline/redis-outage/20261024T234948674993Z-warm-1.json) and [final optimized failure statistics](evidence/cache-diagnostics/20261024T235426Z-optimized-final/redis-outage/20261024T235515087032Z-warm-1.json) contain the full statistics. JSONL in the corresponding directories of the original computer's `reports/` retains every request.
 
-这里改善的是 **Redis 不可用时的降级响应**。p99 仍约 255 ms，因为首次失败请求和恢复探针仍可能等待配置的超时。这不是正常缓存命中速度的提升，也不是生产高可用或可用率保证。
+The improvement here is **degraded-mode response when Redis is unavailable**. p99 remains approximately 255 ms because the first failing requests and recovery probes may still wait for the configured timeout. This is not a normal cache-hit speed improvement or a guarantee of production high availability or availability rates.
 
-## 正确性和指标解释
+## Correctness and metric interpretation
 
-- 缓存仅服务商品展示。成交报价、库存查询、预留、提交和释放继续以 PostgreSQL 为准。
-- 关闭缓存时不会使用请求合并或隐藏的 L1 结果缓存，数据库基线仍是真实数据库读取。
-- JSON 内容依旧校验 SKU、价格、货币和版本；异常缓存条目继续回源。
-- 请求合并覆盖并发等待、失败传播、清理后重试、容量上限、不同 key 并行、线程中断及关闭缓存旁路等测试；恢复保护包含旧请求不能重新关闭新冷却状态的测试。
-- 当前干净构建结果为 **41 个 Java 单元测试、44 个 PostgreSQL 集成测试**，失败、错误、跳过均为 0。Python 工具测试 **23 个**通过。压测结束后重新通过 **6 项系统流程检查、9 项 HTTP 边界检查**，并恢复优化版库存服务为 healthy。
-- `inventory.cache.hits / (hits + misses)` 反映缓存检查次数的命中比例，包含 leader 的二次检查。HTTP 请求来源比例应读取 `inventory.catalog.lookup` 中 `redis`、`database`、`coalesced` 的计数。冷却旁路也可能每个 leader 检查两次，旁路计数不能直接当作 HTTP 请求数。
+- The cache serves only product display. Purchase quotes, stock queries, reservation, commit, and release continue to use PostgreSQL as the authority.
+- Disabling the cache also disables request coalescing and any hidden L1 result cache; the database baseline still performs actual database reads.
+- JSON content is still validated for SKU, price, currency, and version; invalid cache entries continue to fall back to the database.
+- Request-coalescing tests cover concurrent waiting, failure propagation, retry after cleanup, capacity limits, parallel requests for different keys, thread interruption, and bypass when caching is disabled. Recovery protection includes a test ensuring that an old request cannot close a newer cooldown state.
+- The current clean build passed **41 Java unit tests and 44 PostgreSQL integration tests**, with 0 failures, errors, or skips. **23 Python tooling tests** passed. After load testing, **6 system flow checks and 9 HTTP boundary checks** passed again, and the optimized inventory service was restored to healthy status.
+- `inventory.cache.hits / (hits + misses)` measures the hit ratio of cache checks, including the leader's second check. For HTTP request source proportions, use the `redis`, `database`, and `coalesced` counts in `inventory.catalog.lookup`. Cooldown bypass may also be checked twice per leader, so bypass counts cannot be treated directly as HTTP request counts.
 
-## 完成的普通负载对比
+## Completed regular-load comparison
 
-方法为：相同 1,000 SKU 数据集、固定 500 请求/秒、并发上限 64、随机种子 2027、每轮测量 60 秒、此前独立预热 15 秒。baseline 的关闭缓存与 warm 模式各重复三轮，模式顺序交替；optimized-final 的 warm 模式重复三轮。每轮重启库存服务、预热 JVM，再重置本实验商品缓存；warm 组在正式计时前回填。TTL 仍为 30 秒，测量中允许正常过期。
+Method: the same 1,000-SKU dataset, fixed 500 requests/second, concurrency limit 64, random seed 2027, and a 60-second measurement per round, preceded by a separate 15-second warmup. The baseline's cache-off and warm modes each ran three times with alternating mode order; optimized-final warm mode ran three times. Each round restarted inventory, warmed up the JVM, and reset this experiment's product cache; warm groups refilled the cache before formal timing. TTL remained 30 seconds, with normal expiration allowed during measurement.
 
-九轮共 **270,000 个正式测量请求，全部内容正确，失败 0、丢弃 0**。全部轮次如下，未挑选最快一轮：
+The nine rounds contained **270,000 formal measurement requests, all with correct content, 0 failures, and 0 dropped requests**. All rounds are listed below, without selecting only the fastest:
 
-| 版本与模式 | 轮次 | 成功请求 | 平均 ms | p95 ms | p99 ms | 数据库 SELECT 调用 |
+| Version and mode | Round | Successful requests | Mean ms | p95 ms | p99 ms | Database SELECT calls |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| baseline，关闭缓存 | 1 | 30,000 | 0.881 | 1.236 | 2.402 | 30,000 |
-| baseline，缓存开启 | 1 | 30,000 | 0.865 | 1.208 | 1.953 | 1,250 |
-| baseline，缓存开启 | 2 | 30,000 | 0.871 | 1.203 | 2.127 | 1,271 |
-| baseline，关闭缓存 | 2 | 30,000 | 0.824 | 1.254 | 2.194 | 30,000 |
-| baseline，关闭缓存 | 3 | 30,000 | 0.781 | 1.144 | 1.705 | 30,000 |
-| baseline，缓存开启 | 3 | 30,000 | 0.899 | 1.262 | 2.608 | 1,238 |
-| optimized-final，缓存开启 | 1 | 30,000 | 0.906 | 1.336 | 2.317 | 1,268 |
-| optimized-final，缓存开启 | 2 | 30,000 | 0.903 | 1.286 | 2.300 | 1,261 |
-| optimized-final，缓存开启 | 3 | 30,000 | 0.885 | 1.270 | 2.130 | 1,267 |
+| baseline, cache off | 1 | 30,000 | 0.881 | 1.236 | 2.402 | 30,000 |
+| baseline, cache on | 1 | 30,000 | 0.865 | 1.208 | 1.953 | 1,250 |
+| baseline, cache on | 2 | 30,000 | 0.871 | 1.203 | 2.127 | 1,271 |
+| baseline, cache off | 2 | 30,000 | 0.824 | 1.254 | 2.194 | 30,000 |
+| baseline, cache off | 3 | 30,000 | 0.781 | 1.144 | 1.705 | 30,000 |
+| baseline, cache on | 3 | 30,000 | 0.899 | 1.262 | 2.608 | 1,238 |
+| optimized-final, cache on | 1 | 30,000 | 0.906 | 1.336 | 2.317 | 1,268 |
+| optimized-final, cache on | 2 | 30,000 | 0.903 | 1.286 | 2.300 | 1,261 |
+| optimized-final, cache on | 3 | 30,000 | 0.885 | 1.270 | 2.130 | 1,267 |
 
-| 组别 | 成功加权平均 ms | 各轮 p95 范围 ms | 三轮总 SELECT 调用 |
+| Group | Weighted mean of successful responses ms | Per-round p95 range ms | Total SELECT calls across three rounds |
 | --- | ---: | ---: | ---: |
-| baseline，关闭缓存 | 0.829 | 1.144–1.254 | 90,000 |
-| baseline，缓存开启 | 0.878 | 1.203–1.262 | 3,759 |
-| optimized-final，缓存开启 | 0.898 | 1.270–1.336 | 3,796 |
+| baseline, cache off | 0.829 | 1.144–1.254 | 90,000 |
+| baseline, cache on | 0.878 | 1.203–1.262 | 3,759 |
+| optimized-final, cache on | 0.898 | 1.270–1.336 | 3,796 |
 
-应区分两个结论：
+Two conclusions must be distinguished:
 
-- **原有缓存的作用**：同一个 baseline 镜像，关闭缓存到开启缓存，SELECT 调用减少约 **95.8%**；平均 HTTP 延迟反而增加约 **6.0%**。此处是减少查询调用，并不等同于数据库 CPU、磁盘 I/O 或账单也下降 95.8%。
-- **这次新增优化的作用**：已有缓存到优化版缓存，平均延迟观察到增加约 **2.2%**，SQL 次数也未降低。普通均匀请求在本机数据库已很快的条件下，没有证据支持正常延迟加速；新增保护的明确收益来自前面的同 key 冷并发与 Redis 故障实验。不能把原有缓存的 95.8% 归为本次新增优化。
+- **Effect of the existing cache**: With the same baseline image, turning the cache on reduced SELECT calls by approximately **95.8%**, while mean HTTP latency increased by approximately **6.0%**. Fewer query calls do not imply that database CPU, disk I/O, or costs also fell by 95.8%.
+- **Effect of this new optimization**: Compared with the existing cache, the optimized cache showed an approximately **2.2%** increase in mean latency and no reduction in SQL calls. For ordinary uniformly distributed requests against this already-fast local database, there is no evidence of faster normal responses. The clear benefits of the new protection come from the same-key cold-concurrency and Redis failure experiments above. The existing cache's 95.8% reduction cannot be attributed to this new optimization.
 
-这些是本机实测差异，不表示统计显著性。baseline 内部交替开关顺序；优化版三轮随后执行，因此跨版本比较仍可能受时间和共享主机资源波动影响。客户端与服务共享同一台机器，不代表生产容量。没有将各轮 p95 的平均冒充总体 p95。
+These are observed local differences, not evidence of statistical significance. The baseline alternated cache on/off order internally; the three optimized rounds ran afterward, so cross-version comparisons may still be affected by time and fluctuations in shared host resources. The client and services share one machine; these results do not represent production capacity. Per-round p95 values were not averaged and presented as an overall p95.
 
-预先划分的九次 JVM 预热共计划 **67,500 个请求**，成功 **59,575**、失败 **0**、丢弃 **7,925**。这里的丢弃指压测客户端因调度/并发上限未发送的请求，不是服务返回 7,925 个 HTTP 错误；它们仍说明冷启动阶段不能维持同样的目标负载。预热未混入正式延迟，但逐轮结果完整保留，不能声称冷启动无损。
+The nine separately designated JVM warmups planned **67,500 requests**, with **59,575 successes**, **0 failures**, and **7,925 dropped requests**. Dropped requests here were not sent by the load client because of scheduling/concurrency limits; they were not 7,925 HTTP errors returned by the service. They still show that the same target load could not be sustained during cold startup. Warmup was excluded from formal latency measurements, but all per-round results are retained; a lossless cold start cannot be claimed.
 
-精简证据见 [全部轮次与预热汇总](evidence/cache-study-final/summary.md)、[机器可读汇总](evidence/cache-study-final/summary.json)、[baseline 执行计划](evidence/cache-ab/20261024T235551478707Z-baseline-v2/experiment.json)和[优化版执行计划](evidence/cache-ab/20261025T000457900776Z-optimized-v2/experiment.json)。汇总脚本校验实验均为 COMPLETE、计划轮次完整、请求序列与数据集一致、CPU/内存/TTL/时长一致，以及计时窗口不重叠；原始 JSONL、调度延迟、指标差值与镜像身份均保留。
+Compact evidence is available in the [all-round and warmup summary](evidence/cache-study-final/summary.md), [machine-readable summary](evidence/cache-study-final/summary.json), [baseline execution plan](evidence/cache-ab/20261024T235551478707Z-baseline-v2/experiment.json), and [optimized execution plan](evidence/cache-ab/20261025T000457900776Z-optimized-v2/experiment.json). The summary script checks that experiments are COMPLETE, planned rounds are complete, request sequences and datasets match, CPU/memory/TTL/duration match, and timing windows do not overlap. Raw JSONL, scheduling delays, metric differences, and image identities are retained.
 
-复现脚本为 `scripts/cache_diagnostics.py`、`scripts/cache_benchmark.py`、`scripts/load_test.py`；汇总为 `scripts/summarize_cache_study.py`。诊断脚本会临时停止并恢复本项目 Redis；普通对比会重启库存服务，应在可中断的本地环境执行。重复执行会生成新的时间戳目录，不能保证得到相同数值。
+Reproduction scripts are `scripts/cache_diagnostics.py`, `scripts/cache_benchmark.py`, and `scripts/load_test.py`; the summary script is `scripts/summarize_cache_study.py`. Diagnostics temporarily stop and restore this project's Redis; regular comparisons restart inventory, so run them in a local environment where interruption is acceptable. Repeated execution creates new timestamped directories and does not guarantee identical values.
 
-## 当前可以准确描述的工程成果
+## Engineering results that can currently be described accurately
 
-可以描述：通过分段计时定位了重复回源与故障双超时；实现有界的同 SKU 在途请求合并，以及 Redis 冷却旁路/单探针恢复；用真实依赖、并发和故障实验验证行为，并保留原始数据。
+Supported description: used segmented timing to identify duplicate database fallback and double timeouts during failures; implemented bounded in-flight request coalescing for the same SKU and Redis cooldown bypass/single-probe recovery; validated behavior with real dependencies, concurrency, and failure experiments, retaining raw data.
 
-其中降级延迟数字必须附上“本地 Redis 不可用、50 请求/秒、15 秒”的范围。普通负载稳定加速比例、生产规模吞吐量和真实线上可用率仍需对应证据。本轮没有执行云部署，也没有为测量创建 AWS 资源。
+Degraded-mode latency figures must include the scope: “local Redis unavailable, 50 requests/second, 15 seconds.” Consistent regular-load speedup percentages, production-scale throughput, and actual live-service availability still require corresponding evidence. This work did not perform cloud deployment or create AWS resources for measurement.

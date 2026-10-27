@@ -1,5 +1,5 @@
 {
-  "scope": "Selected local test summaries and experiment metadata; no new tests were run during copying.",
+  "scope": "Selected local test summaries and experiment metadata; no new tests were run during copying. Measurement JSON and dataset copies remain byte-identical. Markdown summary prose was translated to English; its original source digest and published digest are both retained.",
   "files": [
     {
       "source": "reports/api-contract-4a9800d42638.json",
@@ -412,8 +412,11 @@
     {
       "source": "reports/cache-study-final/summary.md",
       "copy": "docs/evidence/cache-study-final/summary.md",
-      "bytes": 4316,
-      "sha256": "f780a53355b65d747a26ee3314a51162af9d9d3d08491f459a878a3c72d76f9a"
+      "bytes": 4716,
+      "sha256": "de394fc0e682485dc731f49143a9c5f9b379d432d674e79a04b7c903c5207ffb",
+      "original_source_bytes": 4316,
+      "original_source_sha256": "f780a53355b65d747a26ee3314a51162af9d9d3d08491f459a878a3c72d76f9a",
+      "transformation": "English Markdown prose regenerated from unchanged measured summary.json using the translated report generator; numeric results are unchanged."
     },
     {
       "source": "reports/dlt-smoke-2797639f1cb1.json",

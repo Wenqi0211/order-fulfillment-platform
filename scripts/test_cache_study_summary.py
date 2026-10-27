@@ -66,7 +66,7 @@ class CacheStudyEvidenceTest(unittest.TestCase):
         self.assertEqual(5,group['medianOfRunP95Ms'])
         self.assertEqual([1,100],group['runP95MsRange'])
         self.assertNotIn('pooledP95Ms',group)
-        self.assertIn('预热总计失败 0、丢弃 9',markdown(value))
+        self.assertIn('Warmup totals: 0 failed, 9 dropped',markdown(value))
 
     def test_measurement_failures_are_retained_and_disable_healthy_claim(self):
         directory=self.root/'baseline';metadata=json.loads((directory/'experiment.json').read_text())

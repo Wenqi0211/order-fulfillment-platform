@@ -249,37 +249,37 @@ def number(value):
 
 
 def markdown(study):
-    out = ['# 缓存实验汇总', '', '仅合并状态为 COMPLETE 的两组实验。数据集、预期响应、请求序列、CPU/内存、TTL、时长、预热和重复次数已核对。所有预声明测量轮次均保留。', '',
-        '## 每轮测量', '', '| 版本 | 模式 | 轮次 | RPS | 成功 | 失败 | 丢弃 | 平均 ms | p95 ms | p99 ms |', '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
+    out = ['# Cache experiment summary', '', 'Only the two experiments with COMPLETE status are merged. The dataset, expected responses, request sequence, CPU/memory, TTL, duration, warmup, and repetition count have been checked. All predeclared measurement runs are retained.', '',
+        '## Measurements by run', '', '| Variant | Mode | Run | RPS | Successful | Failed | Dropped | Mean ms | p95 ms | p99 ms |', '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
     for case in study['allMeasuredCases']:
         s = case['summary']
         out.append('| ' + ' | '.join(number(v) for v in [case['variant'],case['mode'],case['repetition'],case['rate'],s['successfulRequests'],s['failedRequests'],s['droppedRequests'],s['meanMs'],s['p95Ms'],s['p99Ms']]) + ' |')
-    out += ['', '平均值与分位数仅统计返回正确内容的成功响应。失败和丢弃同时列出，不能用成功延迟掩盖不健康负载。', '', '## 数据库与缓存计数', '',
-        '| 版本 | 模式 | 轮次 | 数据库 SELECT 调用 | cache.get 命中 | cache.get 未命中 | HTTP 来源：Redis | HTTP 来源：数据库 | HTTP 来源：合并等待 |',
+    out += ['', 'Means and percentiles include only successful responses with correct content. Failures and drops are also listed; successful-response latency must not conceal an unhealthy workload.', '', '## Database and cache counts', '',
+        '| Variant | Mode | Run | Database SELECT calls | cache.get hits | cache.get misses | HTTP source: Redis | HTTP source: database | HTTP source: coalesced wait |',
         '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
     for case in study['allMeasuredCases']:
         m = case['metrics'];sources = m['httpLookupsBySource']
         out.append('| ' + ' | '.join(number(v) for v in [case['variant'],case['mode'],case['repetition'],m['databaseSelectCalls'],m['cacheGetHits'],m['cacheGetMisses'],sources.get('redis',0),sources.get('database',0),sources.get('coalesced',0)]) + ' |')
-    out += ['', '命中/未命中计数针对缓存读取调用；优化版本可能为请求进行再次检查，因此不能将该比例直接当成 HTTP 命中率。', '', '## 汇总与两种比较', '',
-        '| 版本 | 模式 | RPS | 加权成功平均 ms | 各轮 p95 范围 ms | 各轮 p95 的中位数 ms | 测量失败/丢弃 |',
+    out += ['', 'Hit/miss counts refer to cache-read calls; the optimized version may recheck a request, so this ratio cannot be treated directly as the HTTP hit rate.', '', '## Aggregates and two comparisons', '',
+        '| Variant | Mode | RPS | Weighted successful-response mean ms | Per-run p95 range ms | Median of run p95 values ms | Measurement failures/drops |',
         '| --- | --- | ---: | ---: | --- | ---: | --- |']
     for group in study['groups']:
         interval=group['runP95MsRange'];span='—' if interval is None else f'{interval[0]:.3f}–{interval[1]:.3f}'
         out.append(f"| {group['variant']} | {group['mode']} | {number(group['rate'])} | {number(group['weightedMeanSuccessfulMs'])} | {span} | {number(group['medianOfRunP95Ms'])} | {group['failedRequests']}/{group['droppedRequests']} |")
     for entry in study['comparisons']:
-        out += ['', f"在 {number(entry['rate'])} RPS："]
-        for key,label in [('cacheBenefitWithinBaselineImage','同一 baseline 镜像，关闭缓存 → 开启缓存'),('incrementalOptimization','已有缓存 baseline → 本次优化缓存')]:
+        out += ['', f"At {number(entry['rate'])} RPS:"]
+        for key,label in [('cacheBenefitWithinBaselineImage','Same baseline image, cache disabled → enabled'),('incrementalOptimization','Cache-enabled baseline → optimized cache')]:
             c=entry[key]
-            out.append(f"- {label}：成功响应加权平均相对减少 {number(c['weightedMeanReductionPercent'])}%；数据库 SELECT 调用相对减少 {number(c['databaseSelectCallReductionPercent'])}%；两组测量均无失败/丢弃：{c['eligibleForHealthyLatencyComparison']}。")
-        out += ['', '正数表示减少，负数表示增加；这是观察到的变化，不表示统计显著性。新增优化的成果只看第二项，不能把缓存本身的全部收益算作新增优化。']
-    out += ['', '没有把各轮 p95 平均后冒充总体 p95；表中给出逐轮范围与“各轮 p95 的中位数”。', '', '## 预热结果单列保留', '',
-        '| 版本 | 模式 | 轮次 | 成功 | 失败 | 丢弃 |', '| --- | --- | ---: | ---: | ---: | ---: |']
+            out.append(f"- {label}: relative reduction in weighted successful-response mean {number(c['weightedMeanReductionPercent'])}%; relative reduction in database SELECT calls {number(c['databaseSelectCallReductionPercent'])}%; both measured groups have no failures/drops: {c['eligibleForHealthyLatencyComparison']}.")
+        out += ['', 'Positive values mean a reduction; negative values mean an increase. These are observed changes and do not establish statistical significance. Only the second comparison measures the added optimization; the full benefit of caching itself must not be attributed to that optimization.']
+    out += ['', 'Run p95 values are not averaged and presented as an overall p95; the table shows the per-run range and the median of run p95 values.', '', '## Warmup results retained separately', '',
+        '| Variant | Mode | Run | Successful | Failed | Dropped |', '| --- | --- | ---: | ---: | ---: | ---: |']
     for case in study['allMeasuredCases']:
         for record in case['warmupReports']:
             s=record['summary'];out.append(f"| {case['variant']} | {case['mode']} | {case['repetition']} | {s['successfulRequests']} | {s['failedRequests']} | {s['droppedRequests']} |")
     w=study['warmup']
-    out += ['', f"预热总计失败 {w['failedRequests']}、丢弃 {w['droppedRequests']}。这些属于预先区分的预热阶段，未计入正式测量延迟，但已完整保留，不能声称冷启动也没有问题。", '',
-        '本机客户端与服务共享机器资源，结果不代表生产容量。原始文件路径、每轮指标、镜像 ID、控制变量和全部预热报告见同目录 JSON 汇总。', '']
+    out += ['', f"Warmup totals: {w['failedRequests']} failed, {w['droppedRequests']} dropped. These belong to the separately declared warmup phase and are excluded from measured latency, but are fully retained; they do not support a claim that cold starts are also healthy.", '',
+        'The local client and services share machine resources; these results do not establish production capacity. See the JSON summary in the same directory for raw file paths, per-run metrics, image IDs, controlled variables, and all warmup reports.', '']
     return '\n'.join(out)
 
 
