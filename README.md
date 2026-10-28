@@ -6,22 +6,14 @@ A distributed order-processing backend with durable checkout recovery, transacti
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    Client[API client] --> Orders[Order service]
-    Orders --> Inventory[Inventory service]
-    Orders --> Payments[Payment service]
-    Orders --> ODB[(Orders database)]
-    Inventory --> IDB[(Inventory database)]
-    Payments --> PDB[(Payments database)]
-    Inventory --> Redis[(Redis metadata cache)]
-    Payments --> Provider[Simulated payment provider]
-    Warehouse[Warehouse integration] -->|Event ingress| Orders
-    ODB -->|Transactional outbox| Kafka[(Kafka)]
-    IDB -->|Transactional outbox| Kafka
-    PDB -->|Transactional outbox| Kafka
-    Kafka -->|Warehouse status events| Orders
-```
+| Component | Responsibility | State and dependencies |
+| --- | --- | --- |
+| Order service | Order APIs, request idempotency, persisted checkout Saga, warehouse ingress and consumption | Orders PostgreSQL database; HTTP calls to inventory and payment; Kafka |
+| Inventory service | Authoritative quotes, atomic stock reservations, product metadata | Inventory PostgreSQL database; Redis display cache; Kafka outbox |
+| Payment service | Durable payment intents and idempotent provider requests | Payments PostgreSQL database; simulated provider; Kafka outbox |
+| Event transport | Asynchronous domain events and warehouse status delivery | Kafka topics, transactional outbox relays, consumer receipts, and dead-letter delivery |
+
+Checkout follows `Client → Orders → Inventory / Payments`. Warehouse updates follow `Event ingress → Order outbox → Kafka → Warehouse consumer → Orders database`.
 
 Services communicate through HTTP APIs and Kafka rather than cross-database joins. Each service has its own migrations, database role, and transaction boundary. The local Compose stack hosts the three databases in one PostgreSQL instance.
 
