@@ -1,0 +1,96 @@
+# Local-only overlay: docker compose -f compose.yaml -f compose.observability.yaml up -d
+# Run scripts/init_observability.py first. Host UID/GID preserves private secret permissions.
+x-observability-defaults: &observability-defaults
+  user: "${OBSERVABILITY_UID:?Run python3 scripts/init_observability.py}:${OBSERVABILITY_GID:?Run python3 scripts/init_observability.py}"
+  restart: unless-stopped
+  init: true
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  pids_limit: 128
+  cpus: 0.5
+  mem_limit: 512m
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m
+  logging:
+    driver: json-file
+    options: {max-size: "10m", max-file: "3"}
+  networks: [backend]
+services:
+  prometheus:
+    <<: *observability-defaults
+    image: prom/prometheus:v3.15.1
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=24h
+      - --storage.tsdb.retention.size=512MB
+      - --web.listen-address=0.0.0.0:9090
+      - --query.max-concurrency=4
+      - --query.max-samples=1000000
+      - --query.timeout=15s
+    ports: ["127.0.0.1:9090:9090"]
+    volumes:
+      - type: bind
+        source: ./infra/observability/prometheus
+        target: /etc/prometheus
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./.local/observability/app-api-key
+        target: /run/secrets/app-api-key
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./.local/observability/prometheus-data
+        target: /prometheus
+        bind: {create_host_path: false}
+    healthcheck:
+      test: [CMD, /bin/promtool, check, ready, --url=http://localhost:9090]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+  grafana:
+    <<: *observability-defaults
+    image: grafana/grafana:13.2.4
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana-admin-password
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SECURITY_DISABLE_GRAVATAR: "true"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES: "false"
+      GF_PLUGINS_PREINSTALL_DISABLED: "true"
+      GF_LOG_MODE: console
+    ports: ["127.0.0.1:3000:3000"]
+    volumes:
+      - type: bind
+        source: ./infra/observability/grafana/provisioning
+        target: /etc/grafana/provisioning
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./infra/observability/grafana/dashboards
+        target: /var/lib/grafana/dashboards
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./.local/observability/grafana-admin-password
+        target: /run/secrets/grafana-admin-password
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./.local/observability/grafana-data
+        target: /var/lib/grafana
+        bind: {create_host_path: false}
+    depends_on:
+      prometheus: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:3000/api/health]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s

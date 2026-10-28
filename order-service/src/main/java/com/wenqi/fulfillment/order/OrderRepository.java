@@ -1,6 +1,7 @@
 package com.wenqi.fulfillment.order;
 
 import com.wenqi.fulfillment.common.Api.*;
+import java.time.Instant;
 import java.util.*;
 import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.Repository;
@@ -8,6 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class OrderRepository {
   public record Stored(OrderView view, String requestHash, String paymentToken) {}
+
+  public record SagaBacklog(
+      String status, String step, long count, long retryDue, Instant oldestPendingCreatedAt) {}
 
   private final JdbcTemplate jdbc;
   private final OrderJson json;
@@ -51,6 +55,34 @@ public class OrderRepository {
     return one(
         "SELECT * FROM orders WHERE status='PENDING' AND next_attempt_at<=now() ORDER BY"
             + " next_attempt_at,created_at,id LIMIT 1 FOR UPDATE SKIP LOCKED");
+  }
+
+  /** One bounded query for a scheduled snapshot; never called by a metric's scrape callback. */
+  public List<SagaBacklog> sagaBacklog(int queryTimeoutSeconds) {
+    if (queryTimeoutSeconds < 1 || queryTimeoutSeconds > 30)
+      throw new IllegalArgumentException("Invalid Saga metrics query timeout");
+    return jdbc.query(
+        connection -> {
+          var statement =
+              connection.prepareStatement(
+                  "SELECT status,workflow_step,count(*) AS backlog,"
+                      + " count(*) FILTER (WHERE status='PENDING' AND attempts>0"
+                      + " AND next_attempt_at<=statement_timestamp()) AS retry_due,"
+                      + " min(created_at) FILTER (WHERE status='PENDING') AS oldest_pending"
+                      + " FROM orders WHERE status IN ('PENDING','MANUAL_REVIEW')"
+                      + " GROUP BY status,workflow_step");
+          statement.setQueryTimeout(queryTimeoutSeconds);
+          return statement;
+        },
+        (rs, n) -> {
+          var oldest = rs.getTimestamp("oldest_pending");
+          return new SagaBacklog(
+              rs.getString("status"),
+              rs.getString("workflow_step"),
+              rs.getLong("backlog"),
+              rs.getLong("retry_due"),
+              oldest == null ? null : oldest.toInstant());
+        });
   }
 
   private Optional<Stored> one(String sql, Object... params) {

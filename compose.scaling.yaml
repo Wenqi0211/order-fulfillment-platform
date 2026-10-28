@@ -1,0 +1,37 @@
+# Local horizontal scaling; use together with compose.yaml (Compose >=2.24.4).
+services:
+  order-service:
+    # A fixed published port would collide between replicas. Only edge publishes it.
+    ports: !reset []
+    scale: 2
+  edge:
+    image: nginx:1.30.6-alpine
+    entrypoint: [nginx]
+    command: [-g, "daemon off;"]
+    user: "101:101"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=32m,uid=101,gid=101
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    stop_grace_period: 30s
+    mem_limit: 128m
+    cpus: 0.5
+    volumes:
+      - ./infra/local/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports: ["127.0.0.1:8080:8080"]
+    networks: [backend]
+    depends_on:
+      order-service: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, wget, -q, -T, "3", -O, /dev/null, http://127.0.0.1:8080/actuator/health/readiness]
+      interval: 10s
+      timeout: 4s
+      retries: 12
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

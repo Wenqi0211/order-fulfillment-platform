@@ -1,0 +1,165 @@
+{
+  "timestamp": "2026-10-28T05:49:19.114288+00:00",
+  "passed": true,
+  "mode": "local Docker Compose manual horizontal scaling",
+  "replicas": 2,
+  "edgeWarmup": {
+    "timeoutSeconds": 30,
+    "requiredStableSeconds": 5,
+    "elapsedSeconds": 5.653,
+    "rounds": 6,
+    "transientFailures": []
+  },
+  "routingRequests": {
+    "wenqi-order-platform-order-service-1": 96,
+    "wenqi-order-platform-order-service-2": 96
+  },
+  "confirmedOrders": 24,
+  "idempotentReplays": 48,
+  "crossReplicaReplayKeys": 24,
+  "idempotencyRouting": {
+    "0": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "1": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "2": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "3": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "4": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "5": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "6": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "7": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "8": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "9": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "10": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "11": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "12": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "13": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "14": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "15": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "16": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "17": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "18": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "19": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "20": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "21": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "22": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ],
+    "23": [
+      "wenqi-order-platform-order-service-1",
+      "wenqi-order-platform-order-service-2"
+    ]
+  },
+  "sagaCommitDeltaByReplica": {
+    "wenqi-order-platform-order-service-1": 8.0,
+    "wenqi-order-platform-order-service-2": 16.0
+  },
+  "workerDistributionRequired": true,
+  "stock": {
+    "sku": "SCALE_483eed6b23b1",
+    "onHand": 10,
+    "reserved": 0,
+    "available": 10
+  },
+  "sku": "SCALE_483eed6b23b1",
+  "orderIds": [
+    "0828584a-4bae-43a8-b650-91db0a144f8d",
+    "0b361181-d6a1-4b18-a7b6-64a635ff3200",
+    "0ea560a6-f3ff-4f96-bed8-ec8942fed0ca",
+    "1e4bd1a3-d00d-4852-a8d6-a70dff6602aa",
+    "27e0053e-ba5f-4ce8-8b2c-83a4e19ecb51",
+    "2bde1b28-a3aa-4f47-b07d-214f00bb6ba4",
+    "434c2a44-7302-42bd-9022-6b934878ad7a",
+    "4f8d53f8-d02b-4385-9b05-915223e9d5a6",
+    "4fc9c4ba-c778-41d5-953a-fcdd5feb5b7b",
+    "5365625d-a679-4ee8-b123-26503dca9568",
+    "606cd5d8-13e2-49dc-bef5-b1d5a886c458",
+    "6af9226e-62a1-4c98-9807-44b73aaf9116",
+    "6e579f2c-f65a-468a-bf35-5c4cbe9397ec",
+    "76b291ec-2742-4c40-ac4a-753324934458",
+    "852e3d3a-1f4b-41cd-8b0b-f87a309dfd55",
+    "9122ad42-1927-46de-84c4-ec78f045309a",
+    "93358777-4e6e-439a-8765-7c191ef2cab2",
+    "9a195a8c-c472-4deb-9288-1c0d782571cd",
+    "b78179f8-ba0e-4953-b38d-2c80bc6eaa3d",
+    "bf5dd09e-df09-4307-9843-453db96ec297",
+    "c047cd00-f693-4065-be40-20e26b334021",
+    "c39e76cd-1e9c-4474-8f72-7ef11297234c",
+    "d243e5d6-6781-46dc-860f-8b89487e7b2a",
+    "f9236009-b147-4d53-9313-911848ad7e45"
+  ],
+  "checks": [
+    "all replicas healthy",
+    "all replicas routed through edge",
+    "API key rejection and request ID propagation",
+    "cross-replica idempotency",
+    "concurrent durable workflows confirmed",
+    "exact stock and no leaked reservations"
+  ],
+  "paymentProvider": "simulated; no real charge"
+}

@@ -1,0 +1,11 @@
+apiVersion: 1
+providers:
+  - name: Order Fulfillment
+    orgId: 1
+    folder: Order Fulfillment
+    type: file
+    disableDeletion: true
+    allowUiUpdates: false
+    updateIntervalSeconds: 30
+    options:
+      path: /var/lib/grafana/dashboards

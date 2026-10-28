@@ -66,6 +66,14 @@ server:
     include-message: never
     include-stacktrace: never
 management:
+  metrics:
+    tags:
+      service: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      slo:
+        http.server.requests: 10ms,50ms,100ms,250ms,500ms,1s,2s,5s
   endpoints:
     web:
       exposure:

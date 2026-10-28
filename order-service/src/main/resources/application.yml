@@ -30,3 +30,8 @@ app:
     poll-ms: ${ORDER_WORKER_POLL_MS:250}
     max-attempts: ${ORDER_WORKER_MAX_ATTEMPTS:20}
     backoff-ms: ${ORDER_WORKER_BACKOFF_MS:1000}
+  saga:
+    metrics:
+      enabled: ${SAGA_METRICS_ENABLED:true}
+      refresh-ms: ${SAGA_METRICS_REFRESH_MS:5000}
+      query-timeout-seconds: ${SAGA_METRICS_QUERY_TIMEOUT_SECONDS:3}

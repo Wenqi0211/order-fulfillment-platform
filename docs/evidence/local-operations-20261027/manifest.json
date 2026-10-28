@@ -1,0 +1,33 @@
+{
+  "scope": "Local container validation only; no AWS deployment or autoscaling claim",
+  "reports": [
+    {
+      "path": "dashboard-query-check.json",
+      "sha256": "f7bd59eaacb5e74be04d685117616dd66dc3b129624ee58ba4920c23a8d5fd9d"
+    },
+    {
+      "path": "observability-smoke-856da9329cfd.json",
+      "sha256": "393fd3e2b26a45d1d57dc3b32be0b3c198f3c30288182f0cd1eeb0eba1388319"
+    },
+    {
+      "path": "scaling-smoke-483eed6b23b1.json",
+      "sha256": "c85761b128de5f04e49ae2fbf3d982e43f3cd908a07ecaad557fcc03f57d0406"
+    },
+    {
+      "path": "scaling-smoke-b13be9352ee0.json",
+      "sha256": "0ed7c54fde38f5293dd1d5fe49ba63fd51cf09d0a5d2ec07c81e605a74843434"
+    },
+    {
+      "path": "scaling-smoke-bcef875110f4.json",
+      "sha256": "3539c72c089dab53c902f7a8065a9dd28d9c50b27b92b9edbef2bde3cc1054cb"
+    },
+    {
+      "path": "smoke-325015759273.json",
+      "sha256": "3810889182968bb54c26a382c5a72d7cbd044811baecbc17aef6b2080f0533b2"
+    },
+    {
+      "path": "test-summary.json",
+      "sha256": "fd80459afc4908355700c9e982c9317768a97666bbafc77dbdf643d907e5372c"
+    }
+  ]
+}

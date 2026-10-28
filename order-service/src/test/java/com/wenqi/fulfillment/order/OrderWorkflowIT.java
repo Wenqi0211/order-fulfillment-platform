@@ -35,6 +35,7 @@ class OrderWorkflowIT {
   private FaultEvents events;
   private ObjectMapper mapper;
   private TransactionTemplate tx;
+  private SimpleMeterRegistry metrics;
 
   @BeforeAll
   static void database() {
@@ -94,7 +95,7 @@ class OrderWorkflowIT {
     repository = new OrderRepository(jdbc, json);
     gateway = new FakeGateway();
     events = new FaultEvents(jdbc, mapper);
-    var metrics = new SimpleMeterRegistry();
+    metrics = new SimpleMeterRegistry();
     orders =
         new OrderService(
             repository, json, gateway, events, mapper, tx, jdbc, "fulfillment.events.v1");
@@ -113,6 +114,11 @@ class OrderWorkflowIT {
             "warehouse.status.v1",
             "fulfillment.events.v1");
     failures = new ConsumerFailureStore(jdbc);
+  }
+
+  @AfterEach
+  void closeMetrics() {
+    metrics.close();
   }
 
   private CreateOrderRequest request(String token) {
@@ -225,6 +231,110 @@ class OrderWorkflowIT {
     assertEquals("DONE", orders.get(order.id()).workflowStep());
     assertEquals(1, gateway.paymentEffects.get());
     assertEquals(0, gateway.releaseCalls.get());
+  }
+
+  @Test
+  void outerRollbackDoesNotReportCommittedPhaseAndRetainsUnknownPaymentForRetry() {
+    var order = create();
+    step(order.id());
+    tx.executeWithoutResult(
+        status -> {
+          assertTrue(saga.processNext());
+          assertNull(
+              metrics
+                  .find("fulfillment.saga.attempts")
+                  .tags("step", "PAYMENT", "outcome", "advanced")
+                  .counter());
+          status.setRollbackOnly();
+        });
+    assertEquals("PAYMENT", orders.get(order.id()).workflowStep());
+    assertEquals(0, orders.get(order.id()).attempts());
+    assertEquals(1, gateway.paymentEffects.get());
+    assertEquals(0, gateway.releaseCalls.get());
+    assertEquals(
+        1,
+        metrics
+            .get("fulfillment.saga.attempts")
+            .tags("step", "PAYMENT", "outcome", "rolled_back")
+            .counter()
+            .count());
+    assertNull(
+        metrics
+            .find("fulfillment.saga.attempts")
+            .tags("step", "PAYMENT", "outcome", "advanced")
+            .counter());
+    step(order.id());
+    step(order.id());
+    assertEquals("CONFIRMED", orders.get(order.id()).status());
+    assertEquals(1, gateway.paymentEffects.get());
+  }
+
+  @Test
+  void sagaSnapshotCountsPersistedActiveStatesAndOnlyRetriesAlreadyDue() {
+    var duePayment = create();
+    var delayedPayment = create();
+    var manualReview = create();
+    var terminal = create();
+    create();
+    jdbc.update(
+        "UPDATE orders SET workflow_step='PAYMENT',attempts=1, created_at=now()-interval '2"
+            + " minutes',next_attempt_at=now()-interval '1 second' WHERE id=?",
+        duePayment.id());
+    jdbc.update(
+        "UPDATE orders SET workflow_step='PAYMENT',attempts=2,"
+            + " next_attempt_at=now()+interval '1 hour' WHERE id=?",
+        delayedPayment.id());
+    jdbc.update(
+        "UPDATE orders SET status='MANUAL_REVIEW',workflow_step='PAYMENT',attempts=3 WHERE id=?",
+        manualReview.id());
+    jdbc.update(
+        "UPDATE orders SET status='CONFIRMED',workflow_step='DONE',"
+            + " created_at=now()-interval '1 day' WHERE id=?",
+        terminal.id());
+    var snapshots = new SagaBacklogMetrics(repository, metrics, 3);
+    snapshots.refresh();
+    assertEquals(
+        2,
+        metrics
+            .get("fulfillment.saga.backlog")
+            .tags("status", "PENDING", "step", "PAYMENT")
+            .gauge()
+            .value());
+    assertEquals(
+        1,
+        metrics
+            .get("fulfillment.saga.backlog")
+            .tags("status", "MANUAL_REVIEW", "step", "PAYMENT")
+            .gauge()
+            .value());
+    assertEquals(
+        1,
+        metrics
+            .get("fulfillment.saga.backlog")
+            .tags("status", "PENDING", "step", "RESERVE")
+            .gauge()
+            .value());
+    assertEquals(
+        1, metrics.get("fulfillment.saga.retry.due").tag("step", "PAYMENT").gauge().value());
+    assertEquals(
+        0, metrics.get("fulfillment.saga.retry.due").tag("step", "RESERVE").gauge().value());
+    assertEquals(
+        0,
+        metrics
+            .get("fulfillment.saga.backlog")
+            .tags("status", "PENDING", "step", "DONE")
+            .gauge()
+            .value());
+    double age = metrics.get("fulfillment.saga.oldest.pending.age").gauge().value();
+    assertTrue(age >= 119 && age < 130, "Pending age excludes old terminal orders");
+
+    jdbc.update("UPDATE orders SET status='CANCELLED',workflow_step='DONE'");
+    snapshots.refresh();
+    assertEquals(0, metrics.get("fulfillment.saga.oldest.pending.age").gauge().value());
+    assertTrue(
+        metrics.find("fulfillment.saga.backlog").gauges().stream().allMatch(g -> g.value() == 0));
+    assertTrue(
+        metrics.find("fulfillment.saga.retry.due").gauges().stream().allMatch(g -> g.value() == 0));
   }
 
   @Test

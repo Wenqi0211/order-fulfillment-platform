@@ -1,0 +1,89 @@
+groups:
+  - name: fulfillment-local
+    rules:
+      # Each replica reads the same database. Use only fresh, successful snapshots;
+      # the raw gauges remain available for diagnosing stale/failed refreshes.
+      - record: fulfillment:saga_snapshot_fresh
+        expr: fulfillment_saga_snapshot_refresh_success == 1 and on (job, instance) fulfillment_saga_snapshot_age_seconds <= 60
+      - record: fulfillment:saga_backlog
+        expr: max without (instance, job) (fulfillment_saga_backlog and on (job, instance) fulfillment:saga_snapshot_fresh)
+      - record: fulfillment:saga_retry_due
+        expr: max without (instance, job) (fulfillment_saga_retry_due and on (job, instance) fulfillment:saga_snapshot_fresh)
+      - record: fulfillment:saga_oldest_pending_age_seconds
+        expr: max by (service) (fulfillment_saga_oldest_pending_age_seconds and on (job, instance) fulfillment:saga_snapshot_fresh)
+      - alert: ApplicationTargetDown
+        expr: up{job=~"order-service|inventory-service|payment-service"} == 0
+        for: 2m
+        labels: {severity: critical}
+        annotations:
+          summary: "{{ $labels.service }} scrape failed on {{ $labels.instance }}"
+          description: "Check container readiness, the private scrape key, and Prometheus Targets. A failed scrape does not identify the underlying application fault."
+      - alert: ApplicationTargetsMissing
+        expr: absent(up{job="order-service"}) or absent(up{job="inventory-service"}) or absent(up{job="payment-service"})
+        for: 2m
+        labels: {severity: critical}
+        annotations:
+          summary: "No discovered targets for {{ $labels.job }}"
+          description: "Docker DNS has no target for this service. Check the Compose service and backend network. This also detects a service disappearing entirely."
+      - alert: HttpServerErrorsHigh
+        expr: |
+          (
+            sum by (service) (rate(http_server_requests_seconds_count{status=~"5..",uri!~"/actuator.*"}[5m]))
+            / sum by (service) (rate(http_server_requests_seconds_count{uri!~"/actuator.*"}[5m]))
+          ) > 0.05
+          and on (service)
+          sum by (service) (rate(http_server_requests_seconds_count{uri!~"/actuator.*"}[5m])) >= 0.1
+        for: 2m
+        labels: {severity: warning}
+        annotations:
+          summary: "{{ $labels.service }} returned more than 5% HTTP 5xx"
+          description: "Five-minute application request rate is at least 0.1/s. Inspect HTTP error and latency panels, then correlate request IDs in application logs."
+      - alert: SagaManualReviewRequired
+        expr: sum by (service) (fulfillment:saga_backlog{status="MANUAL_REVIEW"}) > 0
+        for: 1m
+        labels: {severity: warning}
+        annotations:
+          summary: "Saga orders require manual review"
+          description: "Inspect parked orders and dependency failures. Backlog is a shared database snapshot; replicas are deduplicated before summing steps."
+      - alert: SagaBacklogHigh
+        expr: sum by (service) (fulfillment:saga_backlog{status="PENDING"}) > 100
+        for: 5m
+        labels: {severity: warning}
+        annotations:
+          summary: "Pending Saga backlog exceeded 100 orders"
+          description: "Check retry due counts, processing rate, and inventory/payment availability. This threshold is a local starting point, not an SLO."
+      - alert: SagaPendingTooOld
+        expr: fulfillment:saga_oldest_pending_age_seconds > 120
+        for: 2m
+        labels: {severity: warning}
+        annotations:
+          summary: "Oldest pending Saga order is over two minutes old"
+          description: "Check deferred attempts and worker progress. Age includes retry backoff. Confirm snapshot freshness before acting."
+      - alert: SagaSnapshotUnhealthy
+        expr: fulfillment_saga_snapshot_refresh_success == 0 or fulfillment_saga_snapshot_age_seconds > 60
+        for: 1m
+        labels: {severity: warning}
+        annotations:
+          summary: "Saga snapshot stale or failing on {{ $labels.instance }}"
+          description: "The process is reachable but its database snapshot is not fresh. Do not interpret retained backlog values as a current database count."
+      - alert: CatalogCacheBypassing
+        expr: sum by (service) (rate(inventory_cache_bypasses_total[5m])) > 0.1
+        for: 2m
+        labels: {severity: warning}
+        annotations:
+          summary: "Catalog cache bypass checks are sustained"
+          description: "Check cache enablement, Redis reachability, and admission pressure. Bypasses count cache checks, which can occur twice per HTTP request."
+      - alert: CatalogCacheErrors
+        expr: sum by (service) (increase(inventory_cache_errors_total[5m])) > 0
+        for: 2m
+        labels: {severity: warning}
+        annotations:
+          summary: "Catalog cache reported errors"
+          description: "Inspect Redis configuration and application logs. Database fallback can keep requests successful while Redis is unavailable."
+      - alert: OutboxDeliveryStalled
+        expr: max by (service) (fulfillment_outbox_oldest_age_seconds) > 120
+        for: 2m
+        labels: {severity: warning}
+        annotations:
+          summary: "{{ $labels.service }} has outbox events older than two minutes"
+          description: "Check Kafka readiness and outbox failed attempts. The shared database age is deduplicated across service replicas."

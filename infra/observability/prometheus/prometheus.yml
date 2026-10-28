@@ -1,0 +1,61 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 5s
+  evaluation_interval: 15s
+  external_labels:
+    environment: local
+    platform: order-fulfillment
+
+rule_files:
+  - /etc/prometheus/alerts.yml
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+  - job_name: order-service
+    metrics_path: /actuator/prometheus
+    sample_limit: 20000
+    body_size_limit: 5MB
+    http_headers:
+      X-API-Key:
+        files: [/run/secrets/app-api-key]
+    # Docker DNS returns every replica; static target DNS would select only one address.
+    dns_sd_configs:
+      - names: [order-service]
+        type: A
+        port: 8080
+        refresh_interval: 10s
+    relabel_configs:
+      - target_label: service
+        replacement: order-service
+  - job_name: inventory-service
+    metrics_path: /actuator/prometheus
+    sample_limit: 20000
+    body_size_limit: 5MB
+    http_headers:
+      X-API-Key:
+        files: [/run/secrets/app-api-key]
+    dns_sd_configs:
+      - names: [inventory-service]
+        type: A
+        port: 8081
+        refresh_interval: 10s
+    relabel_configs:
+      - target_label: service
+        replacement: inventory-service
+  - job_name: payment-service
+    metrics_path: /actuator/prometheus
+    sample_limit: 20000
+    body_size_limit: 5MB
+    http_headers:
+      X-API-Key:
+        files: [/run/secrets/app-api-key]
+    dns_sd_configs:
+      - names: [payment-service]
+        type: A
+        port: 8082
+        refresh_interval: 10s
+    relabel_configs:
+      - target_label: service
+        replacement: payment-service

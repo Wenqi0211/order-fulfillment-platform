@@ -1,6 +1,6 @@
 # Order Fulfillment Platform
 
-A distributed order-processing backend with durable checkout recovery, transactional event delivery, and concurrency-safe inventory reservations. Three Spring Boot services own separate PostgreSQL databases; Kafka carries asynchronous warehouse updates, and Redis caches product metadata.
+A distributed order-processing backend with durable checkout recovery, transactional event delivery, and concurrency-safe inventory reservations. Three Spring Boot services own separate PostgreSQL databases; Kafka carries asynchronous warehouse updates, and Redis caches product metadata. Local deployment supports multiple order replicas behind NGINX, with Prometheus metrics, Grafana dashboards and alert rules.
 
 **Stack:** Java 17 · Spring Boot 3.5 · PostgreSQL · Apache Kafka · Redis · Docker · Kubernetes · Terraform · GitHub Actions
 
@@ -23,6 +23,7 @@ Services communicate through HTTP APIs and Kafka rather than cross-database join
 - **Inventory correctness:** SKU rows are locked in a fixed order to avoid lock-order deadlocks. Multi-SKU reservations commit or roll back atomically; database constraints prevent negative inventory and excess reservations. Reserve, commit, and release are idempotent transitions.
 - **Idempotent order and payment APIs:** An `Idempotency-Key` binds an order request to a stored result; conflicting payloads return HTTP 409. Payment intents are persisted before provider calls, and retries reuse the same order identity. Authoritative quotes and integer minor-unit amounts keep checkout independent of cached display prices.
 - **Reliable event delivery:** Domain changes and outbox records commit in one PostgreSQL transaction. Relays mark events published after Kafka acknowledgement. Consumers deduplicate event IDs and apply receipts with state changes in one transaction. Sequence checks prevent out-of-order warehouse updates from regressing shipment status. Failed messages use bounded retries and dead-letter delivery; events accepted by the warehouse ingress can be replayed with their original identity.
+- **Operational visibility:** Transaction-completion-aware Saga counters distinguish advanced, deferred, parked and rolled-back attempts. Scheduled database snapshots expose active backlog, due retries and oldest pending age without querying the database during scrapes. Freshness-aware queries avoid double-counting the same database across replicas.
 - **Cache failure isolation:** Redis serves product metadata; stock reservations and checkout quotes always use PostgreSQL. Bounded same-SKU request coalescing reduces duplicate cold-cache reads. A cooldown bypass and single recovery probe avoid repeated Redis timeouts while database fallback continues serving requests.
 
 Core implementations: [SagaProcessor](order-service/src/main/java/com/wenqi/fulfillment/order/SagaProcessor.java), [InventoryService](inventory-service/src/main/java/com/wenqi/fulfillment/inventory/InventoryService.java), [PaymentService](payment-service/src/main/java/com/wenqi/fulfillment/payment/PaymentService.java), [OutboxRelay](common/src/main/java/com/wenqi/fulfillment/common/OutboxRelay.java), and [WarehouseService](order-service/src/main/java/com/wenqi/fulfillment/order/WarehouseService.java).
@@ -33,10 +34,14 @@ Recorded validation includes:
 
 | Layer | Results and coverage |
 | --- | --- |
-| Java unit and PostgreSQL integration | 41 unit tests and 44 integration tests passed with no failures, errors, or skips; inventory contention, atomic reservations, concurrent idempotency, unknown payment outcomes, workflow recovery, and consumer/outbox transaction boundaries |
+| Java unit and PostgreSQL integration | 52 unit tests and 46 integration tests passed with no failures, errors, or skips; inventory contention, atomic reservations, concurrent idempotency, unknown payment outcomes, workflow recovery, and consumer/outbox transaction boundaries |
 | End-to-end HTTP and Kafka | 6 workflow checks and 9 HTTP boundary checks passed; order replay, authoritative totals, inventory commit, shipment events, payment-decline compensation, and insufficient-stock cancellation |
 | Dependency recovery and dead-letter delivery | 3 recovery checks and 3 Kafka DLT checks passed; Redis fallback, payment-service recovery, Kafka backlog delivery, and dead-letter readback |
-| Tooling and configuration | 23 Python tests passed; 31 YAML documents checked, both Kubernetes overlays rendered, and Terraform formatting/provider validation completed |
+| Tooling and configuration | 40 Python tests passed; 31 YAML documents checked, both Kubernetes overlays rendered, and Terraform formatting/provider validation completed |
+
+The local observability/scaling checks additionally verified two and three order replicas, cross-replica request idempotency, payment-outage workflow recovery, Redis fallback and recovery, authenticated metric scraping, and provisioned dashboards. Eight alert-rule tests passed; the four recording rules and ten alerts were validated with promtool. These are local container checks, not AWS deployment or autoscaling measurements.
+
+See [local deployment results](docs/OBSERVABILITY_RESULTS.md), [monitoring operations](docs/OBSERVABILITY.md) and [manual horizontal scaling](docs/LOCAL_SCALING.md).
 
 See the [verification record](docs/VERIFICATION.md) and [retained evidence](docs/evidence/README.md) for test scope and reports.
 
@@ -51,6 +56,22 @@ Measurements used a single inventory-service container limited to 1 CPU / 768 Mi
 | Steady-state lookup | 1,000 SKUs, 500 requests/second, nine 60-second rounds | All 270,000 measured requests returned correct content with zero failures or drops. The added cache protections did not improve normal-operation latency in this environment. |
 
 These are local experiments. The outage comparison measures degraded-mode behavior, and the steady-state counts exclude separately recorded warmups. [Methods, per-run results, and warmup data](docs/CACHE_OPTIMIZATION.md).
+
+## Local deployment with monitoring
+
+Generate private local monitoring credentials and state, then start the two-replica deployment:
+
+```sh
+python3 scripts/init_env.py
+python3 scripts/init_observability.py
+./scripts/docker-local.sh compose -f compose.yaml -f compose.scaling.yaml -f compose.observability.yaml up -d --build --wait --wait-timeout 360
+python3 scripts/scaling_smoke.py --expected-replicas 2
+python3 scripts/observability_smoke.py --faults --expected-order-replicas 2
+```
+
+Order APIs are available at `http://127.0.0.1:8080`, Prometheus at `http://127.0.0.1:9090`, and Grafana at `http://127.0.0.1:3000/d/fulfillment-local`. Grafana uses the `admin` account and the generated owner-only `.local/observability/grafana-admin-password` file. API keys and monitoring passwords are never committed. The fault check temporarily stops and restores the local payment service and Redis; run it without other load/fault tests.
+
+See [the scaling guide](docs/LOCAL_SCALING.md) for the tested 2→3→2 replica lifecycle. Compose scaling is manual; Kubernetes HPA remains a separately prepared deployment configuration.
 
 ## Quick start
 

@@ -1,0 +1,2005 @@
+{
+  "uid": "fulfillment-local",
+  "title": "Order Fulfillment \u2014 Local Operations",
+  "description": "Provisioned local operating dashboard for the three fulfillment applications. No external exporters or cloud validation are implied.",
+  "tags": [
+    "fulfillment",
+    "local",
+    "provisioned"
+  ],
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": false,
+  "timezone": "browser",
+  "refresh": "15s",
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "links": [
+    {
+      "title": "Prometheus targets",
+      "url": "http://127.0.0.1:9090/targets",
+      "type": "link",
+      "targetBlank": true
+    },
+    {
+      "title": "Prometheus alerts",
+      "url": "http://127.0.0.1:9090/alerts",
+      "type": "link",
+      "targetBlank": true
+    }
+  ],
+  "templating": {
+    "list": [
+      {
+        "name": "service",
+        "label": "Service",
+        "type": "query",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "fulfillment-prometheus"
+        },
+        "query": "label_values(up{service!=\"\"}, service)",
+        "definition": "label_values(up{service!=\"\"}, service)",
+        "refresh": 1,
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "options": []
+      },
+      {
+        "name": "instance",
+        "label": "Instance",
+        "type": "query",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "fulfillment-prometheus"
+        },
+        "query": "label_values(up{service=~\"$service\"}, instance)",
+        "definition": "label_values(up{service=~\"$service\"}, instance)",
+        "refresh": 1,
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "options": []
+      }
+    ]
+  },
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "panels": [
+    {
+      "type": "text",
+      "title": "Local operating view",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "Data comes from authenticated application scrapes every 15s. DNS discovery includes all replicas. Fresh, successful shared database snapshots use the maximum per status/step across replicas, then sum steps. Use the snapshot health panels before interpreting backlog. **No data** means no matching samples or no traffic; it is not proof of zero errors. HTTP panels exclude Actuator traffic. Alerts are local Prometheus rules; notifications are not configured."
+      },
+      "id": 1
+    },
+    {
+      "type": "stat",
+      "title": "Reachable replicas",
+      "description": "Number of successful scrape targets, filtered by service/instance. Expected targets depend on configured replicas.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 3
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(up{service=~\"$service\",instance=~\"$instance\"})",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": false,
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "id": 2
+    },
+    {
+      "type": "stat",
+      "title": "Pending orders",
+      "description": "Shared database count, deduplicated across replicas. Instance filter is intentionally ignored for shared gauges.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 3
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(fulfillment:saga_backlog{service=~\"$service\",status=\"PENDING\"})",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": false,
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "id": 3
+    },
+    {
+      "type": "stat",
+      "title": "Manual review",
+      "description": "Parked orders needing operator review. Read snapshot health before acting.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 3
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(fulfillment:saga_backlog{service=~\"$service\",status=\"MANUAL_REVIEW\"})",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": false,
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "id": 4
+    },
+    {
+      "type": "stat",
+      "title": "Oldest pending",
+      "description": "Maximum pending age across database snapshots; includes retry backoff.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 3
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max(fulfillment:saga_oldest_pending_age_seconds{service=~\"$service\"})",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": false,
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "id": 5
+    },
+    {
+      "type": "stat",
+      "title": "Oldest snapshot",
+      "description": "Time since last successful snapshot. Failed refresh retains the last snapshot; before first success values are unknown.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 3
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max(fulfillment_saga_snapshot_age_seconds{service=~\"$service\",instance=~\"$instance\"})",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": false,
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "id": 6
+    },
+    {
+      "type": "stat",
+      "title": "Firing local alerts",
+      "description": "All local Prometheus alerts, independent of service/instance filters. Open Prometheus /alerts for details.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 3
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "count(ALERTS{alertstate=\"firing\"}) or vector(0)",
+          "legendFormat": "",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": false,
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "id": 7
+    },
+    {
+      "type": "row",
+      "title": "HTTP requests, errors, and latency",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "panels": [],
+      "id": 8
+    },
+    {
+      "type": "timeseries",
+      "title": "Application requests / second",
+      "description": "Includes all application routes and excludes Actuator; the URI label is a route template.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(service,instance)(rate(http_server_requests_seconds_count{service=~\"$service\",instance=~\"$instance\",uri!~\"/actuator.*\"}[$__rate_interval]))",
+          "legendFormat": "{{service}} {{instance}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 9
+    },
+    {
+      "type": "timeseries",
+      "title": "HTTP p95 / p99",
+      "description": "Aggregated classic histogram quantiles, enabled by the common application configuration. No traffic gives no quantile.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "histogram_quantile(0.95,sum by(service,le)(rate(http_server_requests_seconds_bucket{service=~\"$service\",instance=~\"$instance\",uri!~\"/actuator.*\"}[$__rate_interval])))",
+          "legendFormat": "{{service}} p95",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "expr": "histogram_quantile(0.99,sum by(service,le)(rate(http_server_requests_seconds_bucket{service=~\"$service\",instance=~\"$instance\",uri!~\"/actuator.*\"}[$__rate_interval])))",
+          "legendFormat": "{{service}} p99",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 10
+    },
+    {
+      "type": "timeseries",
+      "title": "HTTP 5xx ratio",
+      "description": "An absent error meter can produce No data before the first 5xx; inspect HTTP counts and target health together.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(service)(rate(http_server_requests_seconds_count{service=~\"$service\",instance=~\"$instance\",uri!~\"/actuator.*\",status=~\"5..\"}[$__rate_interval])) / sum by(service)(rate(http_server_requests_seconds_count{service=~\"$service\",instance=~\"$instance\",uri!~\"/actuator.*\"}[$__rate_interval]))",
+          "legendFormat": "{{service}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 11
+    },
+    {
+      "type": "timeseries",
+      "title": "Mean HTTP latency",
+      "description": "Request-weighted mean from timer sum/count; no requests means no measurement.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(service)(rate(http_server_requests_seconds_sum{service=~\"$service\",instance=~\"$instance\",uri!~\"/actuator.*\"}[$__rate_interval])) / sum by(service)(rate(http_server_requests_seconds_count{service=~\"$service\",instance=~\"$instance\",uri!~\"/actuator.*\"}[$__rate_interval]))",
+          "legendFormat": "{{service}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 12
+    },
+    {
+      "type": "row",
+      "title": "Saga durability and recovery",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "panels": [],
+      "id": 13
+    },
+    {
+      "type": "timeseries",
+      "title": "Saga backlog by status / step",
+      "description": "Fresh successful snapshots only. Every replica reads the same database; maximum deduplicates counts. This can briefly overestimate between refreshes. Instance filter is intentionally ignored.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "fulfillment:saga_backlog{service=~\"$service\"}",
+          "legendFormat": "{{status}} / {{step}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 14
+    },
+    {
+      "type": "timeseries",
+      "title": "Retry attempts due",
+      "description": "Pending orders that have a prior failed attempt and are now due, from the shared database snapshot.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "fulfillment:saga_retry_due{service=~\"$service\"}",
+          "legendFormat": "{{step}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 15
+    },
+    {
+      "type": "timeseries",
+      "title": "Saga phase outcomes / second",
+      "description": "Advanced/deferred/parked counts are recorded after transaction commit; rolled_back and unknown report transaction completion separately. Counters appear after the first corresponding event.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 33
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(step,outcome)(rate(fulfillment_saga_attempts_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{step}} {{outcome}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 16
+    },
+    {
+      "type": "timeseries",
+      "title": "Saga phase processing p95",
+      "description": "Transaction phase processing duration, including dependency calls. No matching execution gives no data.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "histogram_quantile(0.95,sum by(step,outcome,le)(rate(fulfillment_saga_processing_seconds_bucket{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval])))",
+          "legendFormat": "{{step}} {{outcome}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 17
+    },
+    {
+      "type": "timeseries",
+      "title": "Snapshot refresh health",
+      "description": "Per-instance refresh success: 1 after a successful refresh, 0 on failure/startup. The top snapshot age stat shows time since the last successful snapshot; failed/stale snapshots are excluded from shared backlog records.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 41
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "fulfillment_saga_snapshot_refresh_success{service=~\"$service\",instance=~\"$instance\"}",
+          "legendFormat": "{{instance}} last refresh success",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 18
+    },
+    {
+      "type": "timeseries",
+      "title": "Snapshot refresh failures / second",
+      "description": "Refresh failures do not turn unknown/stale database state into a zero backlog.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 41
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(instance)(rate(fulfillment_saga_snapshot_refresh_failures_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{instance}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 19
+    },
+    {
+      "type": "row",
+      "title": "Redis catalog cache and database fallback",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "panels": [],
+      "id": 20
+    },
+    {
+      "type": "timeseries",
+      "title": "Cache checks / second",
+      "description": "Cache checks, not HTTP requests. The singleflight leader may check twice; bypasses and errors are not request counts.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 50
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(service)(rate(inventory_cache_hits_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "hit",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "expr": "sum by(service)(rate(inventory_cache_misses_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "miss",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "C",
+          "expr": "sum by(service)(rate(inventory_cache_bypasses_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "bypass",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "D",
+          "expr": "sum by(service)(rate(inventory_cache_errors_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "error",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 21
+    },
+    {
+      "type": "timeseries",
+      "title": "Catalog request source / second",
+      "description": "One catalog lookup timer per request. Sources distinguish Redis, database and coalesced results; use this for request source proportions.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 50
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(source)(rate(inventory_catalog_lookup_seconds_count{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{source}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 22
+    },
+    {
+      "type": "timeseries",
+      "title": "Redis mean operation time",
+      "description": "Application-observed Redis operation time. This is not a Redis server exporter and does not measure Redis CPU or memory.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 58
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(operation)(rate(inventory_cache_redis_seconds_sum{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval])) / sum by(operation)(rate(inventory_cache_redis_seconds_count{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{operation}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 23
+    },
+    {
+      "type": "timeseries",
+      "title": "Database catalog reads / second",
+      "description": "Database fallback and cold reads for catalog display; purchase quotes/reservations remain database authoritative.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 58
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(service)(rate(inventory_catalog_database_reads_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{service}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 24
+    },
+    {
+      "type": "timeseries",
+      "title": "Singleflight activity / second",
+      "description": "Leaders, coalesced followers and admission bypasses. Interpret with Redis errors and cache inflight.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 66
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(role)(rate(inventory_cache_singleflight_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{role}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 25
+    },
+    {
+      "type": "timeseries",
+      "title": "Cache in-flight keys",
+      "description": "Per-instance in-memory coalescing entries, not a shared cache size.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 66
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "inventory_cache_inflight{service=~\"$service\",instance=~\"$instance\"}",
+          "legendFormat": "{{instance}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 26
+    },
+    {
+      "type": "row",
+      "title": "JVM, database pool, and event outbox",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 74
+      },
+      "panels": [],
+      "id": 27
+    },
+    {
+      "type": "timeseries",
+      "title": "JVM heap used / max",
+      "description": "Heap values from each application process. A max of -1 means undefined and is excluded.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 75
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(service,instance)(jvm_memory_used_bytes{service=~\"$service\",instance=~\"$instance\",area=\"heap\"})",
+          "legendFormat": "{{service}} {{instance}} used",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "expr": "sum by(service,instance)(jvm_memory_max_bytes{service=~\"$service\",instance=~\"$instance\",area=\"heap\"} > 0)",
+          "legendFormat": "{{service}} {{instance}} max",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 28
+    },
+    {
+      "type": "timeseries",
+      "title": "Process CPU utilization",
+      "description": "JVM process CPU gauge, normalized by available processors. Container limits still apply.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 75
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "process_cpu_usage{service=~\"$service\",instance=~\"$instance\"}",
+          "legendFormat": "{{service}} {{instance}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 29
+    },
+    {
+      "type": "timeseries",
+      "title": "Hikari active / pending / max connections",
+      "description": "Per-instance connection pool gauges. With replicas, total database connections grow with each configured pool.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 83
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "hikaricp_connections_active{service=~\"$service\",instance=~\"$instance\"}",
+          "legendFormat": "{{service}} {{instance}} active",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "expr": "hikaricp_connections_pending{service=~\"$service\",instance=~\"$instance\"}",
+          "legendFormat": "{{service}} {{instance}} pending",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "C",
+          "expr": "hikaricp_connections_max{service=~\"$service\",instance=~\"$instance\"}",
+          "legendFormat": "{{service}} {{instance}} max",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 30
+    },
+    {
+      "type": "timeseries",
+      "title": "GC pause time / second",
+      "description": "Seconds spent in observed GC pauses per wall second; inspect alongside heap and request latency.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 83
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(service,instance)(rate(jvm_gc_pause_seconds_sum{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{service}} {{instance}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 31
+    },
+    {
+      "type": "timeseries",
+      "title": "Unpublished outbox events",
+      "description": "Shared database count per service, deduplicated across replicas. Existing outbox gauges query the database during each scrape.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 91
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max without(instance,job)(fulfillment_outbox_pending{service=~\"$service\"})",
+          "legendFormat": "{{service}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 32
+    },
+    {
+      "type": "timeseries",
+      "title": "Oldest unpublished event",
+      "description": "Time since the oldest unpublished event was created. Inspect broker health and delivery retries if age grows.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 91
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max by(service)(fulfillment_outbox_oldest_age_seconds{service=~\"$service\"})",
+          "legendFormat": "{{service}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 33
+    },
+    {
+      "type": "timeseries",
+      "title": "Outbox publish / failure rate",
+      "description": "Counters are local to the process. Publication is at least once; a crash after broker acknowledgment may replay an event.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 99
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(service)(rate(fulfillment_outbox_published_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{service}} published",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "expr": "sum by(service)(rate(fulfillment_outbox_failed_total{service=~\"$service\",instance=~\"$instance\"}[$__rate_interval]))",
+          "legendFormat": "{{service}} failed",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 34
+    },
+    {
+      "type": "timeseries",
+      "title": "Scrape health per replica",
+      "description": "1 = authenticated scrape succeeded, 0 = scrape failed. A vanished DNS target is detected by the separate missing-target alert.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fulfillment-prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 99
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "up{service=~\"$service\",instance=~\"$instance\"}",
+          "legendFormat": "{{service}} {{instance}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fulfillment-prometheus"
+          },
+          "range": true,
+          "instant": false
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "id": 35
+    }
+  ]
+}

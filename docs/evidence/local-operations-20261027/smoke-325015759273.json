@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-28T05:45:03.068816+00:00",
+  "passed": true,
+  "checks": [
+    "API rejects invalid authentication",
+    "Identical order replay is idempotent; changed payload rejected",
+    "Durable reservation/payment/commit workflow confirms order at authoritative price",
+    "Kafka warehouse pipeline applies delivery; duplicates/conflicts/stale/backward updates cannot regress shipment",
+    "Declined payment compensates reserved stock without consuming inventory",
+    "Insufficient stock cancels order"
+  ],
+  "sku": "SMOKE_325015759273",
+  "orderIds": [
+    "2c67c5a0-c321-4741-887b-cab424bd38a9",
+    "f739696c-969f-4ff3-ba93-352a316cbb88",
+    "534a68ab-3f1f-4b89-9b25-d9c86c26e89a"
+  ],
+  "paymentProvider": "simulated; no real charge",
+  "transport": "HTTP and actual configured Kafka"
+}

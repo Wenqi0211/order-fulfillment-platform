@@ -1,0 +1,195 @@
+{
+  "passed": true,
+  "queries": [
+    {
+      "panel": "Reachable replicas",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Pending orders",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Manual review",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Oldest pending",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Oldest snapshot",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Firing local alerts",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Application requests / second",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "HTTP p95 / p99",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "HTTP p95 / p99",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "HTTP 5xx ratio",
+      "status": "success",
+      "samples": 0
+    },
+    {
+      "panel": "Mean HTTP latency",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "Saga backlog by status / step",
+      "status": "success",
+      "samples": 10
+    },
+    {
+      "panel": "Retry attempts due",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "Saga phase outcomes / second",
+      "status": "success",
+      "samples": 4
+    },
+    {
+      "panel": "Saga phase processing p95",
+      "status": "success",
+      "samples": 4
+    },
+    {
+      "panel": "Snapshot refresh health",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "Snapshot refresh failures / second",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "Cache checks / second",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Cache checks / second",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Cache checks / second",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Cache checks / second",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Catalog request source / second",
+      "status": "success",
+      "samples": 2
+    },
+    {
+      "panel": "Redis mean operation time",
+      "status": "success",
+      "samples": 2
+    },
+    {
+      "panel": "Database catalog reads / second",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "Singleflight activity / second",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "Cache in-flight keys",
+      "status": "success",
+      "samples": 1
+    },
+    {
+      "panel": "JVM heap used / max",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "JVM heap used / max",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "Process CPU utilization",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "Hikari active / pending / max connections",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "Hikari active / pending / max connections",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "Hikari active / pending / max connections",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "GC pause time / second",
+      "status": "success",
+      "samples": 5
+    },
+    {
+      "panel": "Unpublished outbox events",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "Oldest unpublished event",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "Outbox publish / failure rate",
+      "status": "success",
+      "samples": 3
+    },
+    {
+      "panel": "Outbox publish / failure rate",
+      "status": "success",
+      "samples": 0
+    },
+    {
+      "panel": "Scrape health per replica",
+      "status": "success",
+      "samples": 6
+    }
+  ]
+}

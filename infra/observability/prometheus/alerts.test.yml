@@ -1,0 +1,139 @@
+# Run inside the pinned image; see docs/OBSERVABILITY.md. No application secrets required.
+rule_files: [alerts.yml]
+evaluation_interval: 15s
+tests:
+  - name: failed scrape fires after two minutes
+    interval: 15s
+    input_series:
+      - series: 'up{job="order-service",service="order-service",instance="order-1:8080"}'
+        values: '0+0x40'
+      - series: 'up{job="inventory-service",service="inventory-service"}'
+        values: '1+0x40'
+      - series: 'up{job="payment-service",service="payment-service"}'
+        values: '1+0x40'
+    promql_expr_test:
+      - expr: 'count(ALERTS{alertname="ApplicationTargetDown",alertstate="firing"})'
+        eval_time: 3m
+        exp_samples: [{labels: '{}', value: 1}]
+  - name: disappearing service is not silently healthy
+    interval: 15s
+    input_series:
+      - series: 'up{job="order-service",service="order-service"}'
+        values: '1+0x40'
+      - series: 'up{job="payment-service",service="payment-service"}'
+        values: '1+0x40'
+    promql_expr_test:
+      - expr: 'ALERTS{alertname="ApplicationTargetsMissing",alertstate="firing"}'
+        eval_time: 3m
+        exp_samples:
+          - labels: 'ALERTS{alertname="ApplicationTargetsMissing",alertstate="firing",job="inventory-service",severity="critical"}'
+            value: 1
+  - name: database backlog is deduplicated across replicas
+    interval: 15s
+    input_series:
+      - series: 'fulfillment_saga_backlog{job="order-service",service="order-service",instance="order-1:8080",status="PENDING",step="PAYMENT"}'
+        values: '80+0x40'
+      - series: 'fulfillment_saga_backlog{job="order-service",service="order-service",instance="order-2:8080",status="PENDING",step="PAYMENT"}'
+        values: '80+0x40'
+      - series: 'fulfillment_saga_backlog{job="order-service",service="order-service",instance="order-3:8080",status="PENDING",step="PAYMENT"}'
+        values: '80+0x40'
+      - series: 'fulfillment_saga_backlog{job="order-service",service="order-service",instance="order-1:8080",status="MANUAL_REVIEW",step="COMMIT"}'
+        values: '1+0x40'
+      - series: 'fulfillment_saga_backlog{job="order-service",service="order-service",instance="order-2:8080",status="MANUAL_REVIEW",step="COMMIT"}'
+        values: '1+0x40'
+      - series: 'fulfillment_saga_snapshot_refresh_success{job="order-service",service="order-service",instance="order-1:8080"}'
+        values: '1+0x40'
+      - series: 'fulfillment_saga_snapshot_age_seconds{job="order-service",service="order-service",instance="order-1:8080"}'
+        values: '5+0x40'
+      - series: 'fulfillment_saga_snapshot_refresh_success{job="order-service",service="order-service",instance="order-2:8080"}'
+        values: '1+0x40'
+      - series: 'fulfillment_saga_snapshot_age_seconds{job="order-service",service="order-service",instance="order-2:8080"}'
+        values: '5+0x40'
+      - series: 'fulfillment_saga_snapshot_refresh_success{job="order-service",service="order-service",instance="order-3:8080"}'
+        values: '1+0x40'
+      - series: 'fulfillment_saga_snapshot_age_seconds{job="order-service",service="order-service",instance="order-3:8080"}'
+        values: '5+0x40'
+    promql_expr_test:
+      - expr: 'sum(fulfillment:saga_backlog{status="PENDING"})'
+        eval_time: 6m
+        exp_samples: [{labels: '{}', value: 80}]
+      - expr: 'ALERTS{alertname="SagaBacklogHigh",alertstate="firing"}'
+        eval_time: 6m
+        exp_samples: []
+      - expr: 'count(ALERTS{alertname="SagaManualReviewRequired",alertstate="firing"})'
+        eval_time: 3m
+        exp_samples: [{labels: '{}', value: 1}]
+  - name: real application errors are not diluted by actuator traffic
+    interval: 15s
+    input_series:
+      - series: 'http_server_requests_seconds_count{service="order-service",status="200",uri="/api/orders"}'
+        values: '0+13x40'
+      - series: 'http_server_requests_seconds_count{service="order-service",status="500",uri="/api/orders"}'
+        values: '0+2x40'
+      - series: 'http_server_requests_seconds_count{service="order-service",status="200",uri="/actuator/prometheus"}'
+        values: '0+900x40'
+    promql_expr_test:
+      - expr: 'count(ALERTS{alertname="HttpServerErrorsHigh",alertstate="firing"})'
+        eval_time: 3m
+        exp_samples: [{labels: '{}', value: 1}]
+  - name: idle traffic does not produce an HTTP error alert
+    interval: 15s
+    input_series:
+      - series: 'http_server_requests_seconds_count{service="order-service",status="200",uri="/api/orders"}'
+        values: '0+0x40'
+      - series: 'http_server_requests_seconds_count{service="order-service",status="500",uri="/api/orders"}'
+        values: '0+0x40'
+    promql_expr_test:
+      - expr: 'ALERTS{alertname="HttpServerErrorsHigh",alertstate="firing"}'
+        eval_time: 6m
+        exp_samples: []
+  - name: stale snapshots are reported per replica
+    interval: 15s
+    input_series:
+      - series: 'fulfillment_saga_snapshot_refresh_success{service="order-service",instance="order-1:8080"}'
+        values: '1+0x40'
+      - series: 'fulfillment_saga_snapshot_age_seconds{service="order-service",instance="order-1:8080"}'
+        values: '65+0x40'
+      - series: 'fulfillment_saga_snapshot_refresh_success{service="order-service",instance="order-2:8080"}'
+        values: '1+0x40'
+      - series: 'fulfillment_saga_snapshot_age_seconds{service="order-service",instance="order-2:8080"}'
+        values: '5+0x40'
+    promql_expr_test:
+      - expr: 'count(ALERTS{alertname="SagaSnapshotUnhealthy",alertstate="firing"})'
+        eval_time: 3m
+        exp_samples: [{labels: '{}', value: 1}]
+  - name: sustained cache bypass is visible even when HTTP succeeds
+    interval: 15s
+    input_series:
+      - series: 'inventory_cache_bypasses_total{service="inventory-service"}'
+        values: '0+3x40'
+    promql_expr_test:
+      # rate[5m] needs the initial window to fill before the two-minute hold expires.
+      - expr: 'count(ALERTS{alertname="CatalogCacheBypassing",alertstate="firing"})'
+        eval_time: 3m
+        exp_samples: []
+      - expr: 'count(ALERTS{alertname="CatalogCacheBypassing",alertstate="firing"})'
+        eval_time: 6m
+        exp_samples: [{labels: '{}', value: 1}]
+  - name: failed replica cannot inflate a healthy shared snapshot
+    interval: 15s
+    input_series:
+      - series: 'fulfillment_saga_snapshot_refresh_success{job="order-service",service="order-service",instance="order-1:8080"}'
+        values: '1+0x40'
+      - series: 'fulfillment_saga_snapshot_age_seconds{job="order-service",service="order-service",instance="order-1:8080"}'
+        values: '5+0x40'
+      - series: 'fulfillment_saga_backlog{job="order-service",service="order-service",instance="order-1:8080",status="PENDING",step="PAYMENT"}'
+        values: '2+0x40'
+      - series: 'fulfillment_saga_snapshot_refresh_success{job="order-service",service="order-service",instance="order-2:8080"}'
+        values: '0+0x40'
+      - series: 'fulfillment_saga_snapshot_age_seconds{job="order-service",service="order-service",instance="order-2:8080"}'
+        values: '65+0x40'
+      - series: 'fulfillment_saga_backlog{job="order-service",service="order-service",instance="order-2:8080",status="PENDING",step="PAYMENT"}'
+        values: '500+0x40'
+    promql_expr_test:
+      - expr: 'sum(fulfillment:saga_backlog{status="PENDING"})'
+        eval_time: 6m
+        exp_samples: [{labels: '{}', value: 2}]
+      - expr: 'ALERTS{alertname="SagaBacklogHigh",alertstate="firing"}'
+        eval_time: 6m
+        exp_samples: []

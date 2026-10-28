@@ -1,0 +1,146 @@
+{
+  "timestamp": "2026-10-28T05:41:50.441929+00:00",
+  "passed": true,
+  "scope": "local Docker Compose; simulated payments; no throughput or cloud deployment claim",
+  "faultsExercised": true,
+  "expectedOrderReplicas": 2,
+  "checks": [
+    {
+      "check": "Prometheus and Grafana healthy; provisioned dashboard loads",
+      "dashboardUid": "fulfillment-local",
+      "panelCount": 35,
+      "targets": [
+        {
+          "service": "inventory-service",
+          "instance": "172.18.0.8:8081",
+          "health": "up"
+        },
+        {
+          "service": "order-service",
+          "instance": "172.18.0.6:8080",
+          "health": "up"
+        },
+        {
+          "service": "order-service",
+          "instance": "172.18.0.9:8080",
+          "health": "up"
+        },
+        {
+          "service": "payment-service",
+          "instance": "172.18.0.5:8082",
+          "health": "up"
+        }
+      ]
+    },
+    {
+      "check": "All service metrics reject missing API credentials",
+      "status": 401
+    },
+    {
+      "check": "HTTP 400/404/409 are visible in scraped application counters",
+      "counters": {
+        "400": {
+          "before": 0.0,
+          "after": 1.0,
+          "delta": 1.0
+        },
+        "404": {
+          "before": 0.0,
+          "after": 1.0,
+          "delta": 1.0
+        },
+        "409": {
+          "before": 1.0,
+          "after": 2.0,
+          "delta": 1.0
+        }
+      },
+      "confirmedOrderId": "30036f57-fada-4a36-8ae1-850d68b5b8d7"
+    },
+    {
+      "check": "Payment outage retains reservation and exposes deferred workflow/backlog",
+      "orderId": "372f4dea-291d-448a-bf32-44318b5ebe77",
+      "status": "PENDING",
+      "step": "PAYMENT",
+      "attempts": 1,
+      "heldStock": {
+        "sku": "OBS_856da9329cfd",
+        "onHand": 9,
+        "reserved": 2,
+        "available": 7
+      },
+      "deferredCounter": {
+        "before": 0.0,
+        "after": 3.0,
+        "delta": 3.0
+      },
+      "backlogBefore": 0.0,
+      "backlogDuring": 1.0
+    },
+    {
+      "check": "Payment recovery confirms order once and clears reservation/backlog",
+      "orderId": "372f4dea-291d-448a-bf32-44318b5ebe77",
+      "status": "CONFIRMED",
+      "finalStock": {
+        "sku": "OBS_856da9329cfd",
+        "onHand": 7,
+        "reserved": 0,
+        "available": 7
+      },
+      "backlogAfter": 0.0
+    },
+    {
+      "check": "Redis outage preserves catalog content and exposes cache bypass/errors",
+      "catalogReads": 6,
+      "elapsedSeconds": 11.372,
+      "bypassCounter": {
+        "before": 0.0,
+        "after": 11.0,
+        "delta": 11.0
+      },
+      "errorCounter": {
+        "before": 0.0,
+        "after": 1.0,
+        "delta": 1.0
+      }
+    },
+    {
+      "check": "Redis recovery returns to actual cache hits",
+      "hitsBeforeRecovery": 0.0,
+      "hitsAfterRecovery": 11.0
+    }
+  ],
+  "finalTargets": [
+    {
+      "service": "inventory-service",
+      "instance": "172.18.0.8:8081",
+      "health": "up"
+    },
+    {
+      "service": "order-service",
+      "instance": "172.18.0.6:8080",
+      "health": "up"
+    },
+    {
+      "service": "order-service",
+      "instance": "172.18.0.9:8080",
+      "health": "up"
+    },
+    {
+      "service": "payment-service",
+      "instance": "172.18.0.5:8082",
+      "health": "up"
+    }
+  ],
+  "sku": "OBS_856da9329cfd",
+  "orderIds": [
+    "30036f57-fada-4a36-8ae1-850d68b5b8d7",
+    "372f4dea-291d-448a-bf32-44318b5ebe77"
+  ],
+  "conditions": {
+    "scrapeIntervalSeconds": 15,
+    "sagaSnapshotRefreshSeconds": 5,
+    "timeoutPerConditionSeconds": 120,
+    "otherLoadOrFaultTests": "must not run concurrently"
+  }
+}

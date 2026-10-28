@@ -82,9 +82,45 @@ jobs:
           retention-days: 14
       - run: docker compose down --volumes
         if: always()
+  observability-and-scaling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/init_env.py
+      - run: python3 scripts/init_observability.py
+      - name: Start scaled local deployment and monitoring
+        run: docker compose -f compose.yaml -f compose.scaling.yaml -f compose.observability.yaml up --build -d --wait --wait-timeout 360
+      - name: Validate Prometheus configuration and alert rules
+        run: |
+          docker compose -f compose.yaml -f compose.observability.yaml run --rm --no-deps --entrypoint /bin/promtool prometheus check config /etc/prometheus/prometheus.yml
+          docker run --rm --network none --read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m --mount "type=bind,src=$PWD/infra/observability/prometheus,dst=/etc/prometheus,readonly" --workdir /etc/prometheus --entrypoint /bin/promtool prom/prometheus:v3.15.1 test rules alerts.test.yml
+      - name: Verify replica routing and cross-replica idempotency
+        run: python3 scripts/scaling_smoke.py --expected-replicas 2
+      - name: Verify monitoring with dependency outage and recovery
+        run: python3 scripts/observability_smoke.py --faults --expected-order-replicas 2
+      - name: Verify manual scale-out and scale-in
+        run: |
+          docker compose -f compose.yaml -f compose.scaling.yaml -f compose.observability.yaml up -d --no-build --scale order-service=3 --wait --wait-timeout 180
+          python3 scripts/scaling_smoke.py --expected-replicas 3
+          docker compose -f compose.yaml -f compose.scaling.yaml -f compose.observability.yaml up -d --no-build --scale order-service=2 --wait --wait-timeout 180
+          python3 scripts/scaling_smoke.py --expected-replicas 2
+      - name: Collect local deployment logs
+        if: always()
+        run: |
+          mkdir -p reports
+          docker compose -f compose.yaml -f compose.scaling.yaml -f compose.observability.yaml logs --no-color > reports/observability-compose.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: observability-and-scaling-results
+          path: reports/
+          retention-days: 14
+      - run: docker compose -f compose.yaml -f compose.scaling.yaml -f compose.observability.yaml down --volumes
+        if: always()
   publish-images:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [unit-and-integration, compose-smoke]
+    needs: [unit-and-integration, compose-smoke, observability-and-scaling]
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:

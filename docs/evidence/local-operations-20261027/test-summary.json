@@ -1,0 +1,26 @@
+{
+  "java": {
+    "surefire-reports": {
+      "tests": 52,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "failsafe-reports": {
+      "tests": 46,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "pythonTests": {
+    "passed": 40,
+    "failed": 0
+  },
+  "prometheus": {
+    "recordingRules": 4,
+    "alertRules": 10,
+    "ruleTestCasesPassed": 8
+  },
+  "scope": "Local container validation only; no AWS deployment or autoscaling claim"
+}
